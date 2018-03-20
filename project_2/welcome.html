@@ -1,0 +1,22 @@
+<?php 
+  include 'database.php';
+  // muestra el formato internacional para la configuración regional es_MX
+  setlocale(LC_MONETARY, 'es_MX');
+  session_start();
+  if(!isset($_SESSION["username"])) header("location:index.php");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <script src="js/jquery-3.2.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/home-style-sheet.css">
+  <script src="js/home-script.js"></script>
+  <title>Hola</title>
+</head>
+<body>
+HOLA FRAME 1
+</body>
+</html>

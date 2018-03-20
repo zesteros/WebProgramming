@@ -1,0 +1,7 @@
+https://kualimecatronica.000webhostapp.com
+administrador:
+usuario: admin contraseña 12345
+estandar:
+usuario:estandar contraseña 12345
+imvitado: 
+usuario: invitado contraseña: 12345

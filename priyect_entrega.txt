@@ -1,0 +1,7 @@
+diseño de interfaz para proyecto final.
+diagrama de casos de uso.
+diagrama uml 
+diagrama secuencia
+clases
+componentes
+mapa de navegacion

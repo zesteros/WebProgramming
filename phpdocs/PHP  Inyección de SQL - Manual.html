@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js flexbox flexboxlegacy datauri" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <title>PHP: Inyección de SQL - Manual </title>
+
+ <link rel="shortcut icon" href="http://php.net/favicon.ico">
+ <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="http://php.net/manual/es/security.database.sql-injection.php">
+ <link rel="shorturl" href="http://php.net/manual/es/security.database.sql-injection.php">
+ <link rel="alternate" href="http://php.net/manual/es/security.database.sql-injection.php" hreflang="x-default">
+
+ <link rel="contents" href="http://php.net/manual/es/index.php">
+ <link rel="index" href="http://php.net/manual/es/security.database.php">
+ <link rel="prev" href="http://php.net/manual/es/security.database.storage.php">
+ <link rel="next" href="http://php.net/manual/es/security.errors.php">
+
+ <link rel="alternate" href="http://php.net/manual/en/security.database.sql-injection.php" hreflang="en">
+ <link rel="alternate" href="http://php.net/manual/pt_BR/security.database.sql-injection.php" hreflang="pt_BR">
+ <link rel="alternate" href="http://php.net/manual/zh/security.database.sql-injection.php" hreflang="zh">
+ <link rel="alternate" href="http://php.net/manual/fr/security.database.sql-injection.php" hreflang="fr">
+ <link rel="alternate" href="http://php.net/manual/de/security.database.sql-injection.php" hreflang="de">
+ <link rel="alternate" href="http://php.net/manual/ja/security.database.sql-injection.php" hreflang="ja">
+ <link rel="alternate" href="http://php.net/manual/ro/security.database.sql-injection.php" hreflang="ro">
+ <link rel="alternate" href="http://php.net/manual/ru/security.database.sql-injection.php" hreflang="ru">
+ <link rel="alternate" href="http://php.net/manual/es/security.database.sql-injection.php" hreflang="es">
+ <link rel="alternate" href="http://php.net/manual/tr/security.database.sql-injection.php" hreflang="tr">
+
+<link rel="stylesheet" type="text/css" href="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_004.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_002.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_003.css" media="screen">
+
+ <!--[if lte IE 7]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+ <![endif]-->
+
+ <!--[if lte IE 8]>
+ <script type="text/javascript">
+  window.brokenIE = true;
+ </script>
+ <![endif]-->
+
+ <!--[if lte IE 9]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+ <![endif]-->
+
+ <!--[if IE]>
+ <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+ <![endif]-->
+
+ <!-- base href="http://php.net/manual/es/security.database.sql-injection.php" -->
+
+</head>
+<body class="docs ">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <a href="http://php.net/" class="brand"><img src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/php-logo.svg" alt="php" width="48" height="24"></a>
+    <div id="mainmenu-toggle-overlay"></div>
+    <input id="mainmenu-toggle" type="checkbox">
+    <ul class="nav">
+      <li class=""><a href="http://php.net/downloads">Downloads</a></li>
+      <li class="active"><a href="http://php.net/docs.php">Documentation</a></li>
+      <li class=""><a href="http://php.net/get-involved">Get Involved</a></li>
+      <li class=""><a href="http://php.net/support">Help</a></li>
+    </ul>
+    <form class="navbar-search" id="topsearch" action="/search.php">
+      <input name="show" value="quickref" type="hidden">
+      <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint search-query" autocomplete="off" spellcheck="off" disabled="disabled" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%;" type="text"><input name="pattern" class="search-query tt-query" placeholder="Search" accesskey="s" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent;" dir="auto" type="search"><input style="visibility: hidden; position: fixed" type="submit"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Fira Sans&quot;,&quot;Source Sans Pro&quot;,Helvetica,Arial,sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+    </form>
+  </div>
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href="http://php.net/index.php#id2017-10-12-1">PHP 7.2.0 Release Candidate 4 Released</a></div>
+<nav id="trick"><div><dl>
+<dt><a href="http://php.net/manual/en/getting-started.php">Getting Started</a></dt>
+	<dd><a href="http://php.net/manual/en/introduction.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/tutorial.php">A simple tutorial</a></dd>
+<dt><a href="http://php.net/manual/en/langref.php">Language Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/language.basic-syntax.php">Basic syntax</a></dd>
+	<dd><a href="http://php.net/manual/en/language.types.php">Types</a></dd>
+	<dd><a href="http://php.net/manual/en/language.variables.php">Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/language.constants.php">Constants</a></dd>
+	<dd><a href="http://php.net/manual/en/language.expressions.php">Expressions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.operators.php">Operators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.control-structures.php">Control Structures</a></dd>
+	<dd><a href="http://php.net/manual/en/language.functions.php">Functions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.oop5.php">Classes and Objects</a></dd>
+	<dd><a href="http://php.net/manual/en/language.namespaces.php">Namespaces</a></dd>
+	<dd><a href="http://php.net/manual/en/language.errors.php">Errors</a></dd>
+	<dd><a href="http://php.net/manual/en/language.exceptions.php">Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.generators.php">Generators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.references.php">References Explained</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.variables.php">Predefined Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.exceptions.php">Predefined Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.interfaces.php">Predefined Interfaces and Classes</a></dd>
+	<dd><a href="http://php.net/manual/en/context.php">Context options and parameters</a></dd>
+	<dd><a href="http://php.net/manual/en/wrappers.php">Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/security.php">Security</a></dt>
+	<dd><a href="http://php.net/manual/en/security.intro.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/security.general.php">General considerations</a></dd>
+	<dd><a href="http://php.net/manual/en/security.cgi-bin.php">Installed as CGI binary</a></dd>
+	<dd><a href="http://php.net/manual/en/security.apache.php">Installed as an Apache module</a></dd>
+	<dd><a href="http://php.net/manual/en/security.sessions.php">Session Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.filesystem.php">Filesystem Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.database.php">Database Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.errors.php">Error Reporting</a></dd>
+	<dd><a href="http://php.net/manual/en/security.globals.php">Using Register Globals</a></dd>
+	<dd><a href="http://php.net/manual/en/security.variables.php">User Submitted Data</a></dd>
+	<dd><a href="http://php.net/manual/en/security.magicquotes.php">Magic Quotes</a></dd>
+	<dd><a href="http://php.net/manual/en/security.hiding.php">Hiding PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/security.current.php">Keeping Current</a></dd>
+<dt><a href="http://php.net/manual/en/features.php">Features</a></dt>
+	<dd><a href="http://php.net/manual/en/features.http-auth.php">HTTP authentication with PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/features.cookies.php">Cookies</a></dd>
+	<dd><a href="http://php.net/manual/en/features.sessions.php">Sessions</a></dd>
+	<dd><a href="http://php.net/manual/en/features.xforms.php">Dealing with XForms</a></dd>
+	<dd><a href="http://php.net/manual/en/features.file-upload.php">Handling file uploads</a></dd>
+	<dd><a href="http://php.net/manual/en/features.remote-files.php">Using remote files</a></dd>
+	<dd><a href="http://php.net/manual/en/features.connection-handling.php">Connection handling</a></dd>
+	<dd><a href="http://php.net/manual/en/features.persistent-connections.php">Persistent Database Connections</a></dd>
+	<dd><a href="http://php.net/manual/en/features.safe-mode.php">Safe Mode</a></dd>
+	<dd><a href="http://php.net/manual/en/features.commandline.php">Command line usage</a></dd>
+	<dd><a href="http://php.net/manual/en/features.gc.php">Garbage Collection</a></dd>
+	<dd><a href="http://php.net/manual/en/features.dtrace.php">DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/funcref.php">Function Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/refs.basic.php.php">Affecting PHP's Behaviour</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.audio.php">Audio Formats Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.auth.php">Authentication Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.cmdline.php">Command Line Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.compression.php">Compression and Archive Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.creditcard.php">Credit Card Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.crypto.php">Cryptography Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.database.php">Database Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.calendar.php">Date and Time Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.file.php">File System Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.international.php">Human Language and Character Encoding Support</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.image.php">Image Processing and Generation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.mail.php">Mail Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.math.php">Mathematical Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.nontext.php">Non-Text MIME Output</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.process.php">Process Control Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.other.php">Other Basic Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.other.php">Other Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.search.php">Search Engine Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.server.php">Server Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.session.php">Session Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.text.php">Text Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.vartype.php">Variable and Type Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.webservice.php">Web Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.windows.php">Windows Only Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.xml.php">XML Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.ui.php">GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="http://php.net/manual/es/security.errors.php">
+          Reportando errores »
+        </a>
+      </div>
+              <div class="prev">
+        <a href="http://php.net/manual/es/security.database.storage.php">
+          « Modelo de almacenamiento cifrado        </a>
+      </div>
+          <ul>
+            <li><a href="http://php.net/manual/es/index.php">Manual de PHP</a></li>      <li><a href="http://php.net/manual/es/security.php">Seguridad</a></li>      <li><a href="http://php.net/manual/es/security.database.php">Seguridad en bases de datos</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value="en/security.database.sql-injection.php">English</option>
+            <option value="pt_BR/security.database.sql-injection.php">Brazilian Portuguese</option>
+            <option value="zh/security.database.sql-injection.php">Chinese (Simplified)</option>
+            <option value="fr/security.database.sql-injection.php">French</option>
+            <option value="de/security.database.sql-injection.php">German</option>
+            <option value="ja/security.database.sql-injection.php">Japanese</option>
+            <option value="ro/security.database.sql-injection.php">Romanian</option>
+            <option value="ru/security.database.sql-injection.php">Russian</option>
+            <option value="es/security.database.sql-injection.php" selected="selected">Spanish</option>
+            <option value="tr/security.database.sql-injection.php">Turkish</option>
+            <option value="help-translate.php">Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+    <div class="edit-bug">
+      <a href="https://edit.php.net/?project=PHP&amp;perm=es/security.database.sql-injection.php">Edit</a>
+      <a href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=security.database.sql-injection">Report a Bug</a>
+    </div>
+  </div><div id="security.database.sql-injection" class="sect1">
+  <h2 class="title">Inyección de SQL<a class="genanchor" href="#security.database.sql-injection"> ¶</a></h2>
+  <p class="simpara">
+   Muchos desarrolladores web no son conscientes de cómo las consultas SQL pueden ser manipuladas,
+   y asumen que una consulta SQL es una orden fiable. Esto significa que las consultas
+   SQL son capaces de eludir controles de acceso, evitando así las comprobaciones de
+   autenticación y autorización estándar, e incluso algunas veces, que las consultas SQL
+   podrían permitir el acceso a comandos al nivel del sistema operativo del equipo anfitrión.
+  </p>
+  <p class="simpara">
+   La inyección directa de comandos SQL es una técnica donde un atacante crea o
+   altera comandos SQL existentes para exponer datos ocultos, sobrescribir los
+   valiosos, o peor aún, ejecutar comandos peligrosos a nivel de sistema en el equipo que hospeda
+   la base de datos. Esto se logra a través de la práctica de tomar la entrada del usuario y
+   combinarla con parámetros estáticos para elaborar una consulta SQL. Los siguientes ejemplos
+   están basados en historias reales, desafortunadamente.
+  </p>
+  <p class="para">
+   Debido a la falta de validación en la entrada de datos y a la conexión a la base de datos
+   con privilegios de superusuario o de alguien con privilegios para crear usuarios, el atacante
+   podría crear un superusuario en la base de datos.
+   </p><div class="example" id="example-400">
+    <p><strong>Ejemplo #1 
+     Dividir el conjunto de resultados en páginas ... y crear superusuarios
+     (PostgreSQL)
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$índice&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$argv</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;¡Cuidado,&nbsp;no&nbsp;hay&nbsp;validación&nbsp;en&nbsp;la&nbsp;entrada&nbsp;de&nbsp;datos!<br></span><span style="color: #0000BB">$consulta&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;</span><span style="color: #0000BB">$índice</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$resultado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$conexión</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$consulta</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   Un usuario común hace clic en los enlaces 'siguiente' o 'atrás' donde el <var class="varname"><var class="varname">$índice</var></var>
+   está codificado en el <acronym title="Uniform Resource Locator">URL</acronym>. El script espera que el <var class="varname"><var class="varname">$índice</var></var>
+   entrante sea un número décimal. Sin embargo, ¿qué pasa si alguien intenta
+   irrumpir anteponiendo a la <acronym title="Uniform Resource Locator">URL</acronym> algo como lo siguiente empleando
+   <span class="function"><a href="http://php.net/manual/es/function.urlencode.php" class="function">urlencode()</a></span>?
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="sqlcode"><pre class="sqlcode">0;
+insert into pg_shadow(usename,usesysid,usesuper,usecatupd,passwd)
+    select 'crack', usesysid, 't','t','crack'
+    from pg_shadow where usename='postgres';
+--</pre>
+</div>
+    </div>
+
+   </div>
+   Si esto sucediera, el script podría otrogar un acceso de superusuario al atacante.
+   Observe que <em>0;</em> es para proveer un índcie válido a la
+   consulta original y así finalizarla.
+  <p></p>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    Es una técnica común forzar al analizador de SQL a ignorar el resto de la
+    consulta escrita por el desarrollador con <em>--</em>, lo cual 
+    representa un comentario en SQL.
+   </p>
+  <p></p></blockquote>
+  <p class="para">
+   Una forma factible de obtener contraseñas es burlar las páginas de búsqueda de resultados.
+   Lo único que el atacante necesita hacer es ver si hay variables que hayan sido enviadas
+   y sean empleadas en sentencias SQL que no sean manejadas apropiadamente. Estos filtros se pueden establecer
+   comunmente en un formulario anterior para personalizar las cláusulas <em>WHERE, ORDER BY,
+   LIMIT</em> y <em>OFFSET</em> en las sentencias <em>SELECT</em>.
+   Si la base de datos admite el constructor <em>UNION</em>,
+   el atacante podría intentar anteponer una consulta entera a la consulta original para enumerar las
+   contraseñas de una tabla arbitraria. Se recomienda encarecidamente utilizar campos de
+   contraseña encriptadas.
+   </p><div class="example" id="example-401">
+    <p><strong>Ejemplo #2 
+     Enumerar artículos ... y algunas contraseñas (cualquier servidor de bases de datos)
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$consulta&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name,&nbsp;inserted,&nbsp;size&nbsp;FROM&nbsp;products<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;size&nbsp;=&nbsp;'</span><span style="color: #0000BB">$tamaño</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$resultado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">odbc_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$conexión</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$consulta</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   La parte estática de la consulta se puede combinar con otra sentencia
+   <em>SELECT</em> la cual revelará todas las contraseñas:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="sqlcode"><pre class="sqlcode">'
+union select '1', concat(uname||'-'||passwd) as name, '1971-01-01', '0' from usertable;
+--</pre>
+</div>
+    </div>
+
+   </div>
+   Si esta consulta (jugando con <em>'</em> y
+   <em>--</em>) fuera asignada a una de las variables utilizadas en
+   <var class="varname"><var class="varname">$consulta</var></var>, despertaría a la consulta "monstruo".
+  <p></p>
+  <p class="para">
+   Las sentecias UPDATE de SQL también son susceptibles a ataques. Estas consultas también
+   están amenazadas por el corte y la anteposición de una consulta completamente nueva.
+   El atacante podría juguetear con la cláusula <em>SET</em>, aunque en este
+   caso, debe poseer algo de información sobre los esquemas para manipular la consulta
+   con éxito. Esta información puede adquirirse examinando los nombres de las variables del formulario, o
+   sencillamente mediante la fuerza bruta. No hay muchas convenciones de nombres para
+   campos que almacenen contraseñas o nombres de usuarios.
+   </p><div class="example" id="example-402">
+    <p><strong>Ejemplo #3 
+     Desde restablecer una contraseña ... hasta obtener más privilegios (cualquier servidor de bases de datos)
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>$consulta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='</span><span style="color: #0000BB">$pwd</span><span style="color: #DD0000">'&nbsp;WHERE&nbsp;uid='</span><span style="color: #0000BB">$uid</span><span style="color: #DD0000">';"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   Pero un usuario malicioso podría enviar el valor
+   <em>' or uid like'%admin%</em> a <var class="varname"><var class="varname">$uid</var></var> para
+   cambiar la contraseña del administrador, o simplemente cambiar <var class="varname"><var class="varname">$pwd</var></var> a
+   <em>jejeje', trusted=100, admin='yes</em> para obtener más
+   privilegios. Entonces, la consulta se tornaría:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br></span><span style="color: #FF8000">//&nbsp;$uid:&nbsp;'&nbsp;or&nbsp;uid&nbsp;like&nbsp;'%admin%<br></span><span style="color: #0000BB">$consulta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='...'&nbsp;WHERE&nbsp;uid=''&nbsp;or&nbsp;uid&nbsp;like&nbsp;'%admin%';"</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;$pwd:&nbsp;jejeje',&nbsp;trusted=100,&nbsp;admin='yes<br></span><span style="color: #0000BB">$consulta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='jejeje',&nbsp;trusted=100,&nbsp;admin='yes'&nbsp;WHERE<br>...;"</span><span style="color: #007700">;<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   Un ejemplo turbador de cómo se puede acceder a los comandos a nivel del sistema operativo
+   en algunos equipos anfitriones de bases de datos.
+   </p><div class="example" id="example-403">
+    <p><strong>Ejemplo #4 Atacar el sistema operativo que hospeda la base de datos (Servidor MSSQL)</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$consulta&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;products&nbsp;WHERE&nbsp;id&nbsp;LIKE&nbsp;'%</span><span style="color: #0000BB">$prod</span><span style="color: #DD0000">%'"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$resultado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$consulta</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   Si un atacante envía el valor
+   <em>a%' exec master..xp_cmdshell 'net user test testpass /ADD' --</em>
+   a <var class="varname"><var class="varname">$prod</var></var>, la <var class="varname"><var class="varname">$consulta</var></var> será:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$consulta&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;products<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;id&nbsp;LIKE&nbsp;'%a%'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exec&nbsp;master..xp_cmdshell&nbsp;'net&nbsp;user&nbsp;test&nbsp;testpass&nbsp;/ADD'&nbsp;--%'"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$resultado&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mssql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$consulta</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   El servidor MSSQL ejecuta la sentencia SQL en el lote incluyendo un comando
+   para añadir un usuario nuevo a la base de datos de cuentas local. Si esta aplicación
+   estuviera ejecutándose como <em>sa</em> y el servicio MSSQLSERVER se estuviera
+   ejecutando con los privilegios suficientes, el atacante ahora podría tener una cuenta
+   con la cual acceder a esta máquina.
+  <p></p>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    Algunos de los ejemplos citados están vinculados a un servidor de bases de datos específico.
+    Esto no significa que un ataque similar sea imposible en otros productos.
+    Su servidor de base de datos también podría ser vulnerable de otra manera.
+   </p>
+  <p></p></blockquote>
+  <p class="para">
+   </p><div class="mediaobject">
+    
+    <div class="imageobject">
+     <img src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/fa7c5b5f326e3c4a6cc9db19e7edbaf0-xkcd-bobby-tables.png" alt="Un ejemplo comprobado de los problemas con respecto a las inyecciones de SQL" width="666" height="205">
+    </div>
+   </div>
+   Imagen cortesía de <a href="http://xkcd.com/327" class="link external">»&nbsp;xkcd</a>
+  <p></p>
+  
+  <div class="sect2" id="security.database.avoiding">
+   <h3 class="title">Técnicas de evitación<a class="genanchor" href="#security.database.avoiding"> ¶</a></h3>
+   <p class="simpara">
+    Pese a que pueda parecer obvio que un atacante debe tener al menos algún
+    conocimiento de arquitecturas de bases de datos para poder realizar un ataque
+    con éxito, la obtención de esta información suele ser muy sencilla. Por ejemplo,
+    cuando la base de datos forma parte de un software de código abierto o disponible
+    públicamente con una instalación predefinida, dicha información se encuentra
+    completamente libre y utilizable. Esta información podría haber sido divulgada
+    en proyectos de código cerrado (incluso si está codificada, ofuscada o compilada),
+    o incluso por el propio código mediante la visualización de mensajes de error.
+    Otros métodos incluyen el uso de nombres frecuentes de tablas y columnas. Por ejemplo,
+    un formulario de inicio de sesión que utiliza una tabla 'usuarios' con los nombres
+    de columna 'id', 'username', y 'password'.
+   </p>
+   <p class="simpara">
+    Estos ataques se basan principalmente en explotar el código que no ha sido escrito
+    teniendo en cuenta la seguridad. Nunca se ha de confiar en ningún tipo de entrada, especialmente
+    la que viene del lado del cliente, aún cuando esta venga de un cuadro de selección,
+    un campo oculto o una cookie. El primer ejemplo muestra cómo una inofensiva consulta
+    puede causar desastres.
+   </p>
+   
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      Nunca se conecte como superusuario o como propietario de la base de datos.
+      Siempre utilice usuarios personalizados con privilegios muy limitados.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Emplee sentencias preparadas con variables vinculadas. Son proporcionadas por
+      <a href="http://php.net/manual/es/pdo.prepared-statements.php" class="link">PDO</a>,
+      <a href="http://php.net/manual/es/mysqli.quickstart.prepared-statements.php" class="link">MySQLi</a>
+      y otras bibliotecas.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Compruebe si la entrada proporcionada tiene el tipo de datos previsto. <acronym title="PHP: Hypertext Preprocessor">PHP</acronym> tiene
+      un amplio rango de funciones para validar la entrada de datos, desde las más simples,
+      encontradas en <a href="http://php.net/manual/es/ref.var.php" class="link">Funciones de variables</a> y en
+      <a href="http://php.net/manual/es/ref.ctype.php" class="link">Funciones del tipo carácter</a>
+      (p.ej., <span class="function"><a href="http://php.net/manual/es/function.is-numeric.php" class="function">is_numeric()</a></span>, <span class="function"><a href="http://php.net/manual/es/function.ctype-digit.php" class="function">ctype_digit()</a></span>
+      respectivamente), hasta el soporte para
+      <a href="http://php.net/manual/es/ref.pcre.php" class="link">Expresiones regulares compatibles con Perl</a>.
+     </span>
+    </li>
+    <li class="listitem">
+     <p class="para">
+      Si la expresión espera una entrada numérica, considere verificar los datos
+      con la función <span class="function"><a href="http://php.net/manual/es/function.ctype-digit.php" class="function">ctype_digit()</a></span>, o silenciosamente cambie su tipo
+      utilizando <span class="function"><a href="http://php.net/manual/es/function.settype.php" class="function">settype()</a></span>, o emplee su representación numérica
+      por medio de <span class="function"><a href="http://php.net/manual/es/function.sprintf.php" class="function">sprintf()</a></span>.
+      </p><div class="example" id="example-404">
+       <p><strong>Ejemplo #5 Una forma más segura de componer una consulta para paginación</strong></p>
+       <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>settype</span><span style="color: #007700">(</span><span style="color: #0000BB">$índice</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'integer'</span><span style="color: #007700">);<br></span><span style="color: #0000BB">$consulta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;</span><span style="color: #0000BB">$índice</span><span style="color: #DD0000">;"</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Observe&nbsp;%d&nbsp;en&nbsp;el&nbsp;string&nbsp;de&nbsp;formato;&nbsp;el&nbsp;uso&nbsp;de&nbsp;%s&nbsp;podría&nbsp;no&nbsp;tener&nbsp;un&nbsp;resultado&nbsp;significativo<br></span><span style="color: #0000BB">$consulta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;products&nbsp;ORDER&nbsp;BY&nbsp;name&nbsp;LIMIT&nbsp;20&nbsp;OFFSET&nbsp;%d;"</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$índice</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+       </div>
+
+      </div>
+     <p></p>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Si la capa de la base de datos no admite variables vinculadas,
+      entrecomille cada valor no numérico proporcionado por el usuario que sea pasado a la
+      base de datos con la función de escapado de cadenas específica de la base de datos (p.ej.
+      <span class="function"><a href="http://php.net/manual/es/function.mysql-real-escape-string.php" class="function">mysql_real_escape_string()</a></span>,
+      <span class="function"><a href="http://php.net/manual/es/function.sqlite-escape-string.php" class="function">sqlite_escape_string()</a></span>, etc.).
+      Las funciones genéricas como <span class="function"><a href="http://php.net/manual/es/function.addslashes.php" class="function">addslashes()</a></span> son útiles solamente
+      en un entorno muy específico (p.ej., MySQL en un juego de caracteres monobyte
+      con <var class="varname"><var class="varname">NO_BACKSLASH_ESCAPES</var></var> deshabilitada), por lo que es
+      mejor evitarlas.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Sea como sea, no muestre ninguna información específica de la base de datos,
+      especialmente sobre el esquema. Vea también <a href="http://php.net/manual/es/security.errors.php" class="link">Notificación de errores</a> y <a href="http://php.net/manual/es/ref.errorfunc.php" class="link">Manejo de errores y funciones de registro</a>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Su pueden utilizar procedimientos almacenados y cursores previamente definidos para abstraer
+      el acceso a datos para que los usuarios no tengan acceso directo a las tablas o vistas, aunque
+      que esta solución tiene otros impactos.
+     </span>
+    </li>
+   </ul>
+   
+   <p class="simpara">
+    Además, se puede beneficiar del registro de consultas, ya sea dentro de un script
+    o mediante la base de datos en sí misma, si es que lo soporta. Obviamente, llevar un registro no
+    previene los intentos dañinos, aunque puede ser útil para realizar un seguimiento de las
+    aplicación que han sido eludidas. El registro no es útil por sí mismo, sino
+    por la información que contiene. Normalmente cuantos más detalles, mejor.
+   </p>
+  </div>
+ </div>
+<section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="http://php.net/manual/add-note.php?sect=security.database.sql-injection&amp;redirect=http://php.net/manual/es/security.database.sql-injection.php"><img src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">2 notes</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="106564">  <div class="votes">
+    <div id="Vu106564">
+    <a href="http://php.net/manual/vote-note.php?id=106564&amp;page=security.database.sql-injection&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd106564">
+    <a href="http://php.net/manual/vote-note.php?id=106564&amp;page=security.database.sql-injection&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V106564" title="60% like this...">
+    42
+    </div>
+  </div>
+  <a href="#106564" class="name">
+  <strong class="user"><em>Richard dot Corfield at gmail dot com</em></strong></a><a class="genanchor" href="#106564"> ¶</a><div class="date" title="2011-11-18 02:01"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom106564">
+<div class="phpcode"><code><span class="html">
+The best way has got to be parameterised queries. Then it doesn't matter
+ what the user types in the data goes to the database as a value. <br><br>A quick search online shows some possibilities in PHP which is great! Even on this site - <a href="http://php.net/manual/en/pdo.prepared-statements.php" rel="nofollow" target="_blank">http://php.net/manual/en/pdo.prepared-statements.php</a><br>which also gives the reasons this is good both for security and performance.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="82525">  <div class="votes">
+    <div id="Vu82525">
+    <a href="http://php.net/manual/vote-note.php?id=82525&amp;page=security.database.sql-injection&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd82525">
+    <a href="http://php.net/manual/vote-note.php?id=82525&amp;page=security.database.sql-injection&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V82525" title="62% like this...">
+    26
+    </div>
+  </div>
+  <a href="#82525" class="name">
+  <strong class="user"><em>valerylourie at gmail dot com</em></strong></a><a class="genanchor" href="#82525"> ¶</a><div class="date" title="2008-04-15 12:23"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom82525">
+<div class="phpcode"><code><span class="html">
+Note that PHP 5 introduced filters that you can use for untrusted user input:<br><a href="http://us.php.net/manual/en/intro.filter.php" rel="nofollow" target="_blank">http://us.php.net/manual/en/intro.filter.php</a></span>
+</code></div>
+  </div>
+ </div></div>
+
+ <div class="foot"><a href="http://php.net/manual/add-note.php?sect=security.database.sql-injection&amp;redirect=http://php.net/manual/es/security.database.sql-injection.php"><img src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class="layout-menu">
+    
+        <ul class="parent-menu-list">
+                                    <li>
+                <a href="http://php.net/manual/es/security.database.php">Seguridad en bases de datos</a>
+    
+                                    <ul class="child-menu-list">
+    
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/security.database.design.php" title="Diseño de bases de datos">Diseño de bases de datos</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/security.database.connection.php" title="Conexión a una base de datos">Conexión a una base de datos</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/security.database.storage.php" title="Modelo de almacenamiento cifrado">Modelo de almacenamiento cifrado</a>
+                        </li>
+                          
+                        <li class="current">
+                            <a href="http://php.net/manual/es/security.database.sql-injection.php" title="Inyección de SQL">Inyección de SQL</a>
+                        </li>
+                            
+                    </ul>
+                    
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+         
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="http://php.net/copyright.php">Copyright © 2001-2017 The PHP Group</a></li>
+        <li><a href="http://php.net/my.php">My PHP.net</a></li>
+        <li><a href="http://php.net/contact.php">Contact</a></li>
+        <li><a href="http://php.net/sites.php">Other PHP.net sites</a></li>
+        <li><a href="http://php.net/mirrors.php">Mirror sites</a></li>
+        <li><a href="http://php.net/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+    
+ <!-- External and third party libraries. -->
+ <script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/jquery.js"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_005.php"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_006.php"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached.php"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_004.php"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_003.php"></script>
+<script type="text/javascript" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/cached_002.php"></script>
+
+<a id="toTop" href="javascript:;" style="display: inline;"><span id="toTopHover"></span><img alt="To Top" src="PHP%20%20Inyecci%C3%B3n%20de%20SQL%20-%20Manual%20Archivos/to-top2x.png" width="40" height="40"></a>
+
+
+
+
+</body></html>

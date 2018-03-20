@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js flexbox flexboxlegacy datauri" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <title>PHP: stripslashes - Manual </title>
+
+ <link rel="shortcut icon" href="http://php.net/favicon.ico">
+ <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="http://php.net/manual/es/function.stripslashes.php">
+ <link rel="shorturl" href="http://php.net/stripslashes">
+ <link rel="alternate" href="http://php.net/stripslashes" hreflang="x-default">
+
+ <link rel="contents" href="http://php.net/manual/es/index.php">
+ <link rel="index" href="http://php.net/manual/es/ref.strings.php">
+ <link rel="prev" href="http://php.net/manual/es/function.stripos.php">
+ <link rel="next" href="http://php.net/manual/es/function.stristr.php">
+
+ <link rel="alternate" href="http://php.net/manual/en/function.stripslashes.php" hreflang="en">
+ <link rel="alternate" href="http://php.net/manual/pt_BR/function.stripslashes.php" hreflang="pt_BR">
+ <link rel="alternate" href="http://php.net/manual/zh/function.stripslashes.php" hreflang="zh">
+ <link rel="alternate" href="http://php.net/manual/fr/function.stripslashes.php" hreflang="fr">
+ <link rel="alternate" href="http://php.net/manual/de/function.stripslashes.php" hreflang="de">
+ <link rel="alternate" href="http://php.net/manual/ja/function.stripslashes.php" hreflang="ja">
+ <link rel="alternate" href="http://php.net/manual/ro/function.stripslashes.php" hreflang="ro">
+ <link rel="alternate" href="http://php.net/manual/ru/function.stripslashes.php" hreflang="ru">
+ <link rel="alternate" href="http://php.net/manual/es/function.stripslashes.php" hreflang="es">
+ <link rel="alternate" href="http://php.net/manual/tr/function.stripslashes.php" hreflang="tr">
+
+<link rel="stylesheet" type="text/css" href="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_004.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_002.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_003.css" media="screen">
+
+ <!--[if lte IE 7]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+ <![endif]-->
+
+ <!--[if lte IE 8]>
+ <script type="text/javascript">
+  window.brokenIE = true;
+ </script>
+ <![endif]-->
+
+ <!--[if lte IE 9]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+ <![endif]-->
+
+ <!--[if IE]>
+ <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+ <![endif]-->
+
+ <!-- base href="http://php.net/manual/es/function.stripslashes.php" -->
+
+</head>
+<body class="docs ">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <a href="http://php.net/" class="brand"><img src="PHP%20%20stripslashes%20-%20Manual%20Archivos/php-logo.svg" alt="php" width="48" height="24"></a>
+    <div id="mainmenu-toggle-overlay"></div>
+    <input id="mainmenu-toggle" type="checkbox">
+    <ul class="nav">
+      <li class=""><a href="http://php.net/downloads">Downloads</a></li>
+      <li class="active"><a href="http://php.net/docs.php">Documentation</a></li>
+      <li class=""><a href="http://php.net/get-involved">Get Involved</a></li>
+      <li class=""><a href="http://php.net/support">Help</a></li>
+    </ul>
+    <form class="navbar-search" id="topsearch" action="/search.php">
+      <input name="show" value="quickref" type="hidden">
+      <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint search-query" autocomplete="off" spellcheck="off" disabled="disabled" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%;" type="text"><input name="pattern" class="search-query tt-query" placeholder="Search" accesskey="s" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent;" dir="auto" type="search"><input style="visibility: hidden; position: fixed" type="submit"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Fira Sans&quot;,&quot;Source Sans Pro&quot;,Helvetica,Arial,sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+    </form>
+  </div>
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href="http://php.net/index.php#id2017-10-12-1">PHP 7.2.0 Release Candidate 4 Released</a></div>
+<nav id="trick"><div><dl>
+<dt><a href="http://php.net/manual/en/getting-started.php">Getting Started</a></dt>
+	<dd><a href="http://php.net/manual/en/introduction.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/tutorial.php">A simple tutorial</a></dd>
+<dt><a href="http://php.net/manual/en/langref.php">Language Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/language.basic-syntax.php">Basic syntax</a></dd>
+	<dd><a href="http://php.net/manual/en/language.types.php">Types</a></dd>
+	<dd><a href="http://php.net/manual/en/language.variables.php">Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/language.constants.php">Constants</a></dd>
+	<dd><a href="http://php.net/manual/en/language.expressions.php">Expressions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.operators.php">Operators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.control-structures.php">Control Structures</a></dd>
+	<dd><a href="http://php.net/manual/en/language.functions.php">Functions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.oop5.php">Classes and Objects</a></dd>
+	<dd><a href="http://php.net/manual/en/language.namespaces.php">Namespaces</a></dd>
+	<dd><a href="http://php.net/manual/en/language.errors.php">Errors</a></dd>
+	<dd><a href="http://php.net/manual/en/language.exceptions.php">Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.generators.php">Generators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.references.php">References Explained</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.variables.php">Predefined Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.exceptions.php">Predefined Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.interfaces.php">Predefined Interfaces and Classes</a></dd>
+	<dd><a href="http://php.net/manual/en/context.php">Context options and parameters</a></dd>
+	<dd><a href="http://php.net/manual/en/wrappers.php">Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/security.php">Security</a></dt>
+	<dd><a href="http://php.net/manual/en/security.intro.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/security.general.php">General considerations</a></dd>
+	<dd><a href="http://php.net/manual/en/security.cgi-bin.php">Installed as CGI binary</a></dd>
+	<dd><a href="http://php.net/manual/en/security.apache.php">Installed as an Apache module</a></dd>
+	<dd><a href="http://php.net/manual/en/security.sessions.php">Session Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.filesystem.php">Filesystem Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.database.php">Database Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.errors.php">Error Reporting</a></dd>
+	<dd><a href="http://php.net/manual/en/security.globals.php">Using Register Globals</a></dd>
+	<dd><a href="http://php.net/manual/en/security.variables.php">User Submitted Data</a></dd>
+	<dd><a href="http://php.net/manual/en/security.magicquotes.php">Magic Quotes</a></dd>
+	<dd><a href="http://php.net/manual/en/security.hiding.php">Hiding PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/security.current.php">Keeping Current</a></dd>
+<dt><a href="http://php.net/manual/en/features.php">Features</a></dt>
+	<dd><a href="http://php.net/manual/en/features.http-auth.php">HTTP authentication with PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/features.cookies.php">Cookies</a></dd>
+	<dd><a href="http://php.net/manual/en/features.sessions.php">Sessions</a></dd>
+	<dd><a href="http://php.net/manual/en/features.xforms.php">Dealing with XForms</a></dd>
+	<dd><a href="http://php.net/manual/en/features.file-upload.php">Handling file uploads</a></dd>
+	<dd><a href="http://php.net/manual/en/features.remote-files.php">Using remote files</a></dd>
+	<dd><a href="http://php.net/manual/en/features.connection-handling.php">Connection handling</a></dd>
+	<dd><a href="http://php.net/manual/en/features.persistent-connections.php">Persistent Database Connections</a></dd>
+	<dd><a href="http://php.net/manual/en/features.safe-mode.php">Safe Mode</a></dd>
+	<dd><a href="http://php.net/manual/en/features.commandline.php">Command line usage</a></dd>
+	<dd><a href="http://php.net/manual/en/features.gc.php">Garbage Collection</a></dd>
+	<dd><a href="http://php.net/manual/en/features.dtrace.php">DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/funcref.php">Function Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/refs.basic.php.php">Affecting PHP's Behaviour</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.audio.php">Audio Formats Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.auth.php">Authentication Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.cmdline.php">Command Line Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.compression.php">Compression and Archive Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.creditcard.php">Credit Card Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.crypto.php">Cryptography Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.database.php">Database Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.calendar.php">Date and Time Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.file.php">File System Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.international.php">Human Language and Character Encoding Support</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.image.php">Image Processing and Generation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.mail.php">Mail Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.math.php">Mathematical Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.nontext.php">Non-Text MIME Output</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.process.php">Process Control Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.other.php">Other Basic Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.other.php">Other Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.search.php">Search Engine Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.server.php">Server Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.session.php">Session Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.text.php">Text Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.vartype.php">Variable and Type Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.webservice.php">Web Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.windows.php">Windows Only Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.xml.php">XML Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.ui.php">GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="http://php.net/manual/es/function.stristr.php">
+          stristr »
+        </a>
+      </div>
+              <div class="prev">
+        <a href="http://php.net/manual/es/function.stripos.php">
+          « stripos        </a>
+      </div>
+          <ul>
+            <li><a href="http://php.net/manual/es/index.php">Manual de PHP</a></li>      <li><a href="http://php.net/manual/es/funcref.php">Referencia de funciones</a></li>      <li><a href="http://php.net/manual/es/refs.basic.text.php">Procesamiento de texto</a></li>      <li><a href="http://php.net/manual/es/book.strings.php">Strings</a></li>      <li><a href="http://php.net/manual/es/ref.strings.php">Funciones de strings</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value="en/function.stripslashes.php">English</option>
+            <option value="pt_BR/function.stripslashes.php">Brazilian Portuguese</option>
+            <option value="zh/function.stripslashes.php">Chinese (Simplified)</option>
+            <option value="fr/function.stripslashes.php">French</option>
+            <option value="de/function.stripslashes.php">German</option>
+            <option value="ja/function.stripslashes.php">Japanese</option>
+            <option value="ro/function.stripslashes.php">Romanian</option>
+            <option value="ru/function.stripslashes.php">Russian</option>
+            <option value="es/function.stripslashes.php" selected="selected">Spanish</option>
+            <option value="tr/function.stripslashes.php">Turkish</option>
+            <option value="help-translate.php">Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+    <div class="edit-bug">
+      <a href="https://edit.php.net/?project=PHP&amp;perm=es/function.stripslashes.php">Edit</a>
+      <a href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=function.stripslashes">Report a Bug</a>
+    </div>
+  </div><div id="function.stripslashes" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">stripslashes</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stripslashes</span> — <span class="dc-title">Quita las barras de un string con comillas escapadas</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.stripslashes-description">
+  <h3 class="title">Descripción<a class="genanchor" href="#refsect1-function.stripslashes-description"> ¶</a></h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>stripslashes</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Quita las barras de un string con comillas escapadas.
+  </p>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    Si <a href="http://php.net/manual/es/sybase.configuration.php#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a> está
+    activo, ninguna barra invertida será retirada pero dos apóstrofes serán reemplazados
+    por uno.
+   </p>
+  </blockquote>
+  <p class="para">
+   Un ejemplo de uso de <span class="function"><strong>stripslashes()</strong></span> es cuando la directiva
+   de PHP <a href="http://php.net/manual/es/info.configuration.php#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>
+   es <em>on</em> (estaba activado por defecto antes de PHP 5.4) y no se están insertando
+   estos datos en un lugar (como una base de datos) que requiera escapado.
+   Por ejemplo, si simplemente se le da salida a los datos directamente desde un formulario HTML.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stripslashes-parameters">
+  <h3 class="title">Parámetros<a class="genanchor" href="#refsect1-function.stripslashes-parameters"> ¶</a></h3>
+  <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       El string de entrada.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stripslashes-returnvalues">
+  <h3 class="title">Valores devueltos<a class="genanchor" href="#refsect1-function.stripslashes-returnvalues"> ¶</a></h3>
+  <p class="para">
+   Devuelve un string con las barras invertidas retiradas.
+   (<em>\'</em> se convierte en <em>'</em> y así sucesivamente.)
+   Barras invertidas dobles (<em>\\</em>) se convierten en una 
+   sencilla (<em>\</em>).
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.stripslashes-examples">
+  <h3 class="title">Ejemplos<a class="genanchor" href="#refsect1-function.stripslashes-examples"> ¶</a></h3>
+  <div class="example" id="example-5552">
+    <p><strong>Ejemplo #1 Un ejemplo de <span class="function"><strong>stripslashes()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Is&nbsp;your&nbsp;name&nbsp;O\'reilly?"</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Salida:&nbsp;Is&nbsp;your&nbsp;name&nbsp;O'reilly?<br></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">stripslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    <span class="function"><strong>stripslashes()</strong></span> no es recursiva. Si se desea aplicar
+    esta función a un array multi-dimensional, se necesita utilizar una función
+    recursiva.
+   </p>
+  </blockquote>
+  <div class="example" id="example-5553">
+    <p><strong>Ejemplo #2 Utilizando <span class="function"><strong>stripslashes()</strong></span> en un array</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">stripslashes_deep</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">array_map</span><span style="color: #007700">(</span><span style="color: #DD0000">'stripslashes_deep'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">stripslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br><br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">;<br>}<br><br></span><span style="color: #FF8000">//&nbsp;Ejemplo<br></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"f\\'oo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b\\'ar"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"fo\\'o"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b\\'ar"</span><span style="color: #007700">));<br></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stripslashes_deep</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br><br></span><span style="color: #FF8000">//&nbsp;Salida<br></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>El resultado del ejemplo sería:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>Array
+(
+    [0] =&gt; f'oo
+    [1] =&gt; b'ar
+    [2] =&gt; Array
+        (
+            [0] =&gt; fo'o
+            [1] =&gt; b'ar
+        )
+
+)
+</pre></div>
+    </div>
+   </div>
+  
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stripslashes-seealso">
+  <h3 class="title">Ver también<a class="genanchor" href="#refsect1-function.stripslashes-seealso"> ¶</a></h3>
+  <ul class="simplelist">
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.addslashes.php" class="function" rel="rdfs-seeAlso">addslashes()</a> - Escapa un string con barras invertidas</span></li>
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.get-magic-quotes-gpc.php" class="function" rel="rdfs-seeAlso">get_magic_quotes_gpc()</a> - Obtiene el valor actual de configuración de magic_quotes_gpc</span></li>
+   </ul>
+  
+ </div>
+
+
+</div>
+<section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="http://php.net/manual/add-note.php?sect=function.stripslashes&amp;redirect=http://php.net/manual/es/function.stripslashes.php"><img src="PHP%20%20stripslashes%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">30 notes</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="114533">  <div class="votes">
+    <div id="Vu114533">
+    <a href="http://php.net/manual/vote-note.php?id=114533&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd114533">
+    <a href="http://php.net/manual/vote-note.php?id=114533&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V114533" title="75% like this...">
+    54
+    </div>
+  </div>
+  <a href="#114533" class="name">
+  <strong class="user"><em>ivijan dot stefan at gmail dot com</em></strong></a><a class="genanchor" href="#114533"> ¶</a><div class="date" title="2014-03-04 03:29"><strong>3 years ago</strong></div>
+  <div class="text" id="Hcom114533">
+<div class="phpcode"><code><span class="html">
+Sometimes for some reason is happens that PHP or Javascript or some 
+naughty insert a lot of&nbsp; backslash. Ordinary function does not 
+notice that. Therefore, it is necessary that the bit "inflate":<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">removeslashes</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">)<br>{<br>&nbsp; &nbsp; </span><span class="default">$string</span><span class="keyword">=</span><span class="default">implode</span><span class="keyword">(</span><span class="string">""</span><span class="keyword">,</span><span class="default">explode</span><span class="keyword">(</span><span class="string">"\\"</span><span class="keyword">,</span><span class="default">$string</span><span class="keyword">));<br>&nbsp; &nbsp; return </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">trim</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">));<br>}<br><br></span><span class="comment">/* Example */<br><br></span><span class="default">$text</span><span class="keyword">=</span><span class="string">"My dog don\\\\\\\\\\\\\\\\'t like the postman!"</span><span class="keyword">;<br>echo </span><span class="default">removeslashes</span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">);<br></span><span class="default">?&gt;<br></span><br>RESULT: My dog don't like the postman!<br><br>This flick has served me wery well, because I had this problem before.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="115898">  <div class="votes">
+    <div id="Vu115898">
+    <a href="http://php.net/manual/vote-note.php?id=115898&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd115898">
+    <a href="http://php.net/manual/vote-note.php?id=115898&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V115898" title="71% like this...">
+    6
+    </div>
+  </div>
+  <a href="#115898" class="name">
+  <strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#115898"> ¶</a><div class="date" title="2014-10-11 09:23"><strong>3 years ago</strong></div>
+  <div class="text" id="Hcom115898">
+<div class="phpcode"><code><span class="html">
+Rather use str_replace than explode/implode for your purpose.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="73658">  <div class="votes">
+    <div id="Vu73658">
+    <a href="http://php.net/manual/vote-note.php?id=73658&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd73658">
+    <a href="http://php.net/manual/vote-note.php?id=73658&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V73658" title="66% like this...">
+    3
+    </div>
+  </div>
+  <a href="#73658" class="name">
+  <strong class="user"><em>JAB Creations</em></strong></a><a class="genanchor" href="#73658"> ¶</a><div class="date" title="2007-03-05 08:49"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom73658">
+<div class="phpcode"><code><span class="html">
+When writing to a flatfile such as an HTML page you'll notice slashes 
+being inserted. When you write to that page it's interesting how to 
+apply stripslashes...<br><br>I replaced this line...<br><span class="default">&lt;?php fwrite</span><span class="keyword">(</span><span class="default">$file</span><span class="keyword">, </span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'textarea'</span><span class="keyword">]); </span><span class="default">?&gt;<br></span><br>With...<br><span class="default">&lt;?php </span><span class="keyword">if (</span><span class="default">get_magic_quotes_gpc</span><span class="keyword">()) {</span><span class="default">fwrite </span><span class="keyword">(</span><span class="default">$file</span><span class="keyword">, </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'textarea'</span><span class="keyword">]));}</span><span class="default">?&gt;<br></span><br>You have to directly apply stripslashes to $_POST, $_GET, $_REQUEST, and $_COOKIE.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="111216">  <div class="votes">
+    <div id="Vu111216">
+    <a href="http://php.net/manual/vote-note.php?id=111216&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd111216">
+    <a href="http://php.net/manual/vote-note.php?id=111216&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V111216" title="58% like this...">
+    6
+    </div>
+  </div>
+  <a href="#111216" class="name">
+  <strong class="user"><em>StefanoAI</em></strong></a><a class="genanchor" href="#111216"> ¶</a><div class="date" title="2013-01-27 02:31"><strong>4 years ago</strong></div>
+  <div class="text" id="Hcom111216">
+<div class="phpcode"><code><span class="html">
+Recursive stripslashes<br><span class="default">&lt;?php<br></span><span class="keyword">if (</span><span class="default">get_magic_quotes_gpc</span><span class="keyword">()) {<br><br>&nbsp; &nbsp; function </span><span class="default">stripslashes_array</span><span class="keyword">(&amp;</span><span class="default">$arr</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach (</span><span class="default">$arr </span><span class="keyword">as </span><span class="default">$k </span><span class="keyword">=&gt; &amp;</span><span class="default">$v</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$nk </span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$k</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">$nk </span><span class="keyword">!= </span><span class="default">$k</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$arr</span><span class="keyword">[</span><span class="default">$nk</span><span class="keyword">] = &amp;</span><span class="default">$v</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unset(</span><span class="default">$arr</span><span class="keyword">[</span><span class="default">$k</span><span class="keyword">]);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$v</span><span class="keyword">)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">stripslashes_array</span><span class="keyword">(</span><span class="default">$v</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$arr</span><span class="keyword">[</span><span class="default">$nk</span><span class="keyword">] = </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$v</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }<br><br>&nbsp; &nbsp; </span><span class="default">stripslashes_array</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">);<br>&nbsp; &nbsp; </span><span class="default">stripslashes_array</span><span class="keyword">(</span><span class="default">$_GET</span><span class="keyword">);<br>&nbsp; &nbsp; </span><span class="default">stripslashes_array</span><span class="keyword">(</span><span class="default">$_REQUEST</span><span class="keyword">);<br>&nbsp; &nbsp; </span><span class="default">stripslashes_array</span><span class="keyword">(</span><span class="default">$_COOKIE</span><span class="keyword">);<br>}<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="90788">  <div class="votes">
+    <div id="Vu90788">
+    <a href="http://php.net/manual/vote-note.php?id=90788&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd90788">
+    <a href="http://php.net/manual/vote-note.php?id=90788&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V90788" title="60% like this...">
+    5
+    </div>
+  </div>
+  <a href="#90788" class="name">
+  <strong class="user"><em>shredder at technodrome dot com</em></strong></a><a class="genanchor" href="#90788"> ¶</a><div class="date" title="2009-05-09 03:50"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom90788">
+<div class="phpcode"><code><span class="html">
+Hi, <br><br>Here are recursive addslashes / stripslashes functions.<br>given a string - it will simply add / strip slashes<br>given an array - it will recursively add / strip slashes from the array and all of it subarrays. <br>if the value is not a string or array - it will remain unmodified!<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">add_slashes_recursive</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">)<br>{<br>&nbsp; &nbsp; if ( </span><span class="default">is_string</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) )<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">addslashes</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) ;<br><br>&nbsp; &nbsp; elseif ( </span><span class="default">is_array</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) )<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach( </span><span class="default">$variable </span><span class="keyword">as </span><span class="default">$i </span><span class="keyword">=&gt; </span><span class="default">$value </span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$variable</span><span class="keyword">[ </span><span class="default">$i </span><span class="keyword">] = </span><span class="default">add_slashes_recursive</span><span class="keyword">( </span><span class="default">$value </span><span class="keyword">) ;<br><br>&nbsp; &nbsp; return </span><span class="default">$variable </span><span class="keyword">;<br>}<br><br>function </span><span class="default">strip_slashes_recursive</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">)<br>{<br>&nbsp; &nbsp; if ( </span><span class="default">is_string</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) )<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">stripslashes</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) ;<br>&nbsp; &nbsp; if ( </span><span class="default">is_array</span><span class="keyword">( </span><span class="default">$variable </span><span class="keyword">) )<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach( </span><span class="default">$variable </span><span class="keyword">as </span><span class="default">$i </span><span class="keyword">=&gt; </span><span class="default">$value </span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$variable</span><span class="keyword">[ </span><span class="default">$i </span><span class="keyword">] = </span><span class="default">strip_slashes_recursive</span><span class="keyword">( </span><span class="default">$value </span><span class="keyword">) ;<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; return </span><span class="default">$variable </span><span class="keyword">; <br>}<br><br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="89687">  <div class="votes">
+    <div id="Vu89687">
+    <a href="http://php.net/manual/vote-note.php?id=89687&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd89687">
+    <a href="http://php.net/manual/vote-note.php?id=89687&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V89687" title="57% like this...">
+    5
+    </div>
+  </div>
+  <a href="#89687" class="name">
+  <strong class="user"><em>o-zone at zerozone dot it</em></strong></a><a class="genanchor" href="#89687"> ¶</a><div class="date" title="2009-03-19 03:53"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom89687">
+<div class="phpcode"><code><span class="html">
+If you need to remove all slashes from a string, here's a quick hack:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">function </span><span class="default">stripallslashes</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">) {
+<br>&nbsp; &nbsp; while(</span><span class="default">strchr</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">,</span><span class="string">'\\'</span><span class="keyword">)) {
+<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$string </span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">);
+<br>&nbsp; &nbsp; }
+<br>}
+<br></span><span class="default">?&gt;
+<br></span>
+<br>Hope it's usefull , O-Zone</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="73820">  <div class="votes">
+    <div id="Vu73820">
+    <a href="http://php.net/manual/vote-note.php?id=73820&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd73820">
+    <a href="http://php.net/manual/vote-note.php?id=73820&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V73820" title="60% like this...">
+    2
+    </div>
+  </div>
+  <a href="#73820" class="name">
+  <strong class="user"><em>dragonfly at networkinsight dot net</em></strong></a><a class="genanchor" href="#73820"> ¶</a><div class="date" title="2007-03-11 03:22"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom73820">
+<div class="phpcode"><code><span class="html">
+If you are having trouble with stripslashes() corrupting binary data, try using urlencode() and urldecode() instead.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="79976">  <div class="votes">
+    <div id="Vu79976">
+    <a href="http://php.net/manual/vote-note.php?id=79976&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd79976">
+    <a href="http://php.net/manual/vote-note.php?id=79976&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V79976" title="58% like this...">
+    3
+    </div>
+  </div>
+  <a href="#79976" class="name">
+  <strong class="user"><em>alex dot launi at gmail dot com</em></strong></a><a class="genanchor" href="#79976"> ¶</a><div class="date" title="2007-12-21 07:16"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom79976">
+<div class="phpcode"><code><span class="html">
+kibby: I modified the stripslashes_deep() function so that I could use it on NULL values.<br><br>function stripslashes_deep($value)<br>{<br>&nbsp; &nbsp; if(isset($value)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; $value = is_array($value) ?<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; array_map('stripslashes_deep', $value) :<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; stripslashes($value);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; return $value;<br>}</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="66081">  <div class="votes">
+    <div id="Vu66081">
+    <a href="http://php.net/manual/vote-note.php?id=66081&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd66081">
+    <a href="http://php.net/manual/vote-note.php?id=66081&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V66081" title="60% like this...">
+    2
+    </div>
+  </div>
+  <a href="#66081" class="name">
+  <strong class="user"><em>Kibby</em></strong></a><a class="genanchor" href="#66081"> ¶</a><div class="date" title="2006-05-14 01:41"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom66081">
+<div class="phpcode"><code><span class="html">
+Okay, if using stripslashes_deep, it will definitely replace any NULL to
+ "".&nbsp; This will affect to coding that depends isset().&nbsp; Please
+ provide a workaround based on recent note.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="82831">  <div class="votes">
+    <div id="Vu82831">
+    <a href="http://php.net/manual/vote-note.php?id=82831&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd82831">
+    <a href="http://php.net/manual/vote-note.php?id=82831&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V82831" title="57% like this...">
+    1
+    </div>
+  </div>
+  <a href="#82831" class="name">
+  <strong class="user"><em>techdesk100</em></strong></a><a class="genanchor" href="#82831"> ¶</a><div class="date" title="2008-04-28 07:58"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom82831">
+<div class="phpcode"><code><span class="html">
+Function which checks if $input has correct slashes,<br>otherwise adds slashes. For cases when you are not sure the input is not already addslashed.<br><br>&nbsp; &nbsp; public function addslashes_once($input){<br>&nbsp; &nbsp; &nbsp; &nbsp; //These characters are single quote ('), double quote ("), backslash (\) and NUL (the NULL byte).<br>&nbsp; &nbsp; &nbsp; &nbsp; $pattern = array("\\'", "\\\"", "\\\\", "\\0");<br>&nbsp; &nbsp; &nbsp; &nbsp; $replace = array("", "", "", "");<br>&nbsp; &nbsp; &nbsp; &nbsp; if(preg_match("/[\\\\'\"\\0]/", str_replace($pattern, $replace, $input))){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return addslashes($input);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; else{<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $input;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="111426">  <div class="votes">
+    <div id="Vu111426">
+    <a href="http://php.net/manual/vote-note.php?id=111426&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd111426">
+    <a href="http://php.net/manual/vote-note.php?id=111426&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V111426" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#111426" class="name">
+  <strong class="user"><em>Yousef Ismaeil Cliprz</em></strong></a><a class="genanchor" href="#111426"> ¶</a><div class="date" title="2013-02-19 07:41"><strong>4 years ago</strong></div>
+  <div class="text" id="Hcom111426">
+<div class="phpcode"><code><span class="html">
+If you want to use stripslashes(); function for a string or array you can create a user function<br><br>as in example:<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">if (!</span><span class="default">function_exists</span><span class="keyword">(</span><span class="string">'strip_slashes'</span><span class="keyword">))<br>{<br>&nbsp; &nbsp; </span><span class="comment">/**<br>&nbsp; &nbsp;&nbsp; * Un-quotes a quoted string.<br>&nbsp; &nbsp;&nbsp; *<br>&nbsp; &nbsp;&nbsp; * @param (mixed) $str - The input string.<br>&nbsp; &nbsp;&nbsp; * @author Yousef Ismaeil Cliprz<br>&nbsp; &nbsp;&nbsp; */<br>&nbsp; &nbsp; </span><span class="keyword">function </span><span class="default">strip_slashes</span><span class="keyword">(</span><span class="default">$str</span><span class="keyword">)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$str</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach (</span><span class="default">$str </span><span class="keyword">as </span><span class="default">$key </span><span class="keyword">=&gt; </span><span class="default">$val</span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$str</span><span class="keyword">[</span><span class="default">$key</span><span class="keyword">] = </span><span class="default">strip_slashes</span><span class="keyword">(</span><span class="default">$val</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$str </span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$str</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">$str</span><span class="keyword">;<br>&nbsp; &nbsp; }<br>}<br><br></span><span class="default">$arr </span><span class="keyword">= array(</span><span class="string">'Yousef\\\'s'</span><span class="keyword">,</span><span class="string">'\"PHP.net\"'</span><span class="keyword">,</span><span class="string">'user\\\'s'</span><span class="keyword">);<br><br>echo </span><span class="string">'With strip_slashes() function:&lt;br /&gt;'</span><span class="keyword">;<br></span><span class="default">print_r</span><span class="keyword">(</span><span class="default">strip_slashes</span><span class="keyword">(</span><span class="default">$arr</span><span class="keyword">));<br>echo </span><span class="string">'&lt;br /&gt;'</span><span class="keyword">;<br>echo </span><span class="string">'Without strip_slashes() function:&lt;br /&gt;'</span><span class="keyword">;<br></span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$arr</span><span class="keyword">);<br><br></span><span class="comment">/** You will get<br>With strip_slashes() function:<br>Array ( [0] =&gt; Yousef's [1] =&gt; "PHP.net" [2] =&gt; user's )<br>Without strip_slashes() function:<br>Array ( [0] =&gt; Yousef\'s [1] =&gt; \"PHP.net\" [2] =&gt; user\'s )<br>*/<br><br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="73418">  <div class="votes">
+    <div id="Vu73418">
+    <a href="http://php.net/manual/vote-note.php?id=73418&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd73418">
+    <a href="http://php.net/manual/vote-note.php?id=73418&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V73418" title="55% like this...">
+    2
+    </div>
+  </div>
+  <a href="#73418" class="name">
+  <strong class="user"><em>gregory at nutt dot ca</em></strong></a><a class="genanchor" href="#73418"> ¶</a><div class="date" title="2007-02-22 06:48"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom73418">
+<div class="phpcode"><code><span class="html">
+Here is code I use to clean the results from a MySQL query using the stripslashes function.<br><br>I
+ do it by passing the sql result and the sql columns to the function 
+strip_slashes_mysql_results.&nbsp; This way, my data is already clean by
+ the time I want to use it.<br><br>&nbsp; &nbsp; function db_query($querystring, $array, $columns)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; if (!$this-&gt;connect_to_mysql())<br>&nbsp; &nbsp; &nbsp;&nbsp; return 0;<br><br>&nbsp; &nbsp;&nbsp; $queryresult = mysql_query($querystring, $this-&gt;link)<br>&nbsp; &nbsp; &nbsp; &nbsp; or die("Invalid query: " . mysql_error());<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; if(mysql_num_rows($queryresult))<br>&nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $columns = mysql_field_names ($queryresult);<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if($array)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while($row = mysql_fetch_row($queryresult))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $row_meta[] = $this-&gt;strip_slashes_mysql_results($row, $columns);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $row_meta;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while($row = mysql_fetch_object($queryresult))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $row_meta[] = $this-&gt;strip_slashes_mysql_results($row, $columns);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $row_meta;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; return 0;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; function strip_slashes_mysql_results($result, $columns)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach($columns as $column)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if($this-&gt;debug)<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+printp(sprintf("strip_slashes_mysql_results: 
+%s",strip_slashes_mysql_results));<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $result-&gt;$column = stripslashes($result-&gt;$column);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; return $result;<br>&nbsp; &nbsp; }</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="107802">  <div class="votes">
+    <div id="Vu107802">
+    <a href="http://php.net/manual/vote-note.php?id=107802&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd107802">
+    <a href="http://php.net/manual/vote-note.php?id=107802&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V107802" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#107802" class="name">
+  <strong class="user"><em>tarmo at goyf dot de</em></strong></a><a class="genanchor" href="#107802"> ¶</a><div class="date" title="2012-03-06 02:58"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom107802">
+<div class="phpcode"><code><span class="html">
+When matching strings with approstrophes against the mysql database, my 
+query kept failing while it worked fine when I copied the same query 
+directly to perform the database query. After several hours I found that
+ stripslashes() made the string longer and hence it wasn't "equal" for 
+the query.<br><br>This code shows the behavior (copy into "test.php"). Replacing stripslashes worked for me.<br><br><span class="default">&lt;?php<br></span><span class="keyword">echo </span><span class="string">'&lt;h2&gt;Post-Data&lt;/h2&gt;'</span><span class="keyword">;<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">);<br><br></span><span class="default">$f1 </span><span class="keyword">= </span><span class="default">trim</span><span class="keyword">(</span><span class="default">filter_var</span><span class="keyword">(</span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="default">form</span><span class="keyword">]), </span><span class="default">FILTER_SANITIZE_STRING</span><span class="keyword">));<br>echo </span><span class="string">'&lt;h2&gt;stripslashes&lt;/h2&gt;'</span><span class="keyword">;<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$f1</span><span class="keyword">);<br><br></span><span class="default">$f2 </span><span class="keyword">= </span><span class="default">trim</span><span class="keyword">(</span><span class="default">str_replace</span><span class="keyword">(</span><span class="string">"|"</span><span class="keyword">,</span><span class="string">"'"</span><span class="keyword">,</span><span class="default">filter_var</span><span class="keyword">(</span><span class="default">str_replace</span><span class="keyword">(</span><span class="string">"\'"</span><span class="keyword">,</span><span class="string">"|"</span><span class="keyword">,</span><span class="default">$_POST</span><span class="keyword">[</span><span class="default">form</span><span class="keyword">]), </span><span class="default">FILTER_SANITIZE_STRING</span><span class="keyword">)));<br>echo </span><span class="string">'&lt;h2&gt;workaround&lt;/h2&gt;'</span><span class="keyword">;<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$f2</span><span class="keyword">);<br>&nbsp; &nbsp; <br>echo </span><span class="string">'&lt;form action="test.php" method="post"&gt;<br>&nbsp; &nbsp; &lt;input type="text" name="form"&gt;<br>&nbsp; &nbsp; &lt;input type="submit"&gt;<br>&nbsp; &nbsp; &lt;/form&gt;'</span><span class="keyword">;<br></span><span class="default">?&gt;<br></span><br>Entering "foo'bar" creates this output:<br>// Post-Data<br>// array(1) { ["form"]=&gt; string(8) "foo\'bar" }<br>// stripslashes<br>// string(11) "foo'bar"<br>// workaround<br>// string(7) "foo'bar"</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="72094">  <div class="votes">
+    <div id="Vu72094">
+    <a href="http://php.net/manual/vote-note.php?id=72094&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd72094">
+    <a href="http://php.net/manual/vote-note.php?id=72094&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V72094" title="55% like this...">
+    1
+    </div>
+  </div>
+  <a href="#72094" class="name">
+  <strong class="user"><em>stoic</em></strong></a><a class="genanchor" href="#72094"> ¶</a><div class="date" title="2007-01-02 08:31"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom72094">
+<div class="phpcode"><code><span class="html">
+in response to crab dot crab at gmail dot com:<br><br>$value need not be passed by reference. The 'stripped' value is returned. The passed value is not altered.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="94758">  <div class="votes">
+    <div id="Vu94758">
+    <a href="http://php.net/manual/vote-note.php?id=94758&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd94758">
+    <a href="http://php.net/manual/vote-note.php?id=94758&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V94758" title="53% like this...">
+    1
+    </div>
+  </div>
+  <a href="#94758" class="name">
+  <strong class="user"><em>eugene at ultimatecms dot co dot za</em></strong></a><a class="genanchor" href="#94758"> ¶</a><div class="date" title="2009-11-23 05:03"><strong>7 years ago</strong></div>
+  <div class="text" id="Hcom94758">
+<div class="phpcode"><code><span class="html">
+This is a simple function to remove the slashes added by functions such as magic_quotes_gpc and mysql_escape_string etc.<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">no_magic_quotes</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$data </span><span class="keyword">= </span><span class="default">explode</span><span class="keyword">(</span><span class="string">"\\"</span><span class="keyword">,</span><span class="default">$query</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$cleaned </span><span class="keyword">= </span><span class="default">implode</span><span class="keyword">(</span><span class="string">""</span><span class="keyword">,</span><span class="default">$data</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">$cleaned</span><span class="keyword">;<br>}<br><br></span><span class="comment">// I'm using mysql_escape_string as a simple example, but this function would work for any escaped string.<br></span><span class="default">$query </span><span class="keyword">= </span><span class="string">"It's amaizing! Who's to say this isn't a simple function?"</span><span class="keyword">;<br></span><span class="default">$badstring </span><span class="keyword">= </span><span class="default">mysql_escape_string</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">);<br><br>echo </span><span class="string">'&lt;b&gt;Without funtion:&lt;/b&gt; '</span><span class="keyword">.</span><span class="default">$badstring</span><span class="keyword">;<br>echo </span><span class="string">'&lt;br&gt;&lt;br&gt;'</span><span class="keyword">;<br>echo </span><span class="string">'&lt;b&gt;With function:&lt;/b&gt; '</span><span class="keyword">.</span><span class="default">no_magic_quotes</span><span class="keyword">(</span><span class="default">$badstring</span><span class="keyword">);<br><br></span><span class="default">?&gt;<br></span><br>Output:<br>Without funtion: It\'s amaizing! Who\'s to say this isn\'t a simple function?<br><br>With function: It's amaizing! Who's to say this isn't a simple function?</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="75887">  <div class="votes">
+    <div id="Vu75887">
+    <a href="http://php.net/manual/vote-note.php?id=75887&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd75887">
+    <a href="http://php.net/manual/vote-note.php?id=75887&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V75887" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#75887" class="name">
+  <strong class="user"><em>lukas.skowronski at gmail dot com</em></strong></a><a class="genanchor" href="#75887"> ¶</a><div class="date" title="2007-06-20 04:15"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom75887">
+<div class="phpcode"><code><span class="html">
+If You want to delete all slashes from any table try to use my function:<br><br>function no_slashes($array)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach($array as $key=&gt;$value)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(is_array($value))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $value=no_slashes($value);<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; $array_temp[$key]=$value;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $array_temp[$key]=stripslashes($value);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; return $array_temp;&nbsp; &nbsp; <br>&nbsp; &nbsp; }</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="49858">  <div class="votes">
+    <div id="Vu49858">
+    <a href="http://php.net/manual/vote-note.php?id=49858&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd49858">
+    <a href="http://php.net/manual/vote-note.php?id=49858&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V49858" title="54% like this...">
+    1
+    </div>
+  </div>
+  <a href="#49858" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#49858"> ¶</a><div class="date" title="2005-02-10 07:45"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom49858">
+<div class="phpcode"><code><span class="html">
+If you want to deal with slashes in double-byte encodings, such as shift_jis or big5, you may use this:<br><br>&lt;?<br>function stripslashes2($string) {<br>&nbsp; &nbsp; $string = str_replace("\\\"", "\"", $string);<br>&nbsp; &nbsp; $string = str_replace("\\'", "'", $string);<br>&nbsp; &nbsp; $string = str_replace("\\\\", "\\", $string);<br>&nbsp; &nbsp; return $string;<br>}<br>?&gt;</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="45556">  <div class="votes">
+    <div id="Vu45556">
+    <a href="http://php.net/manual/vote-note.php?id=45556&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd45556">
+    <a href="http://php.net/manual/vote-note.php?id=45556&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V45556" title="53% like this...">
+    1
+    </div>
+  </div>
+  <a href="#45556" class="name">
+  <strong class="user"><em>mattyblah at gmail dot com</em></strong></a><a class="genanchor" href="#45556"> ¶</a><div class="date" title="2004-09-10 08:51"><strong>13 years ago</strong></div>
+  <div class="text" id="Hcom45556">
+<div class="phpcode"><code><span class="html">
+It should be of note that if you are stripping slashes to get rid of the
+ slashes added by magic_quotes_gpc then it will also remove slashes from
+ \. This may not seem that bad but if you have someone enter text such 
+as 'testing\' with a slash at the end, this will cause an error if not 
+corrected. It's best to strip the slashes, then add a slash to every 
+single slash using $text = str_replace('\\', '\\\\', $text);</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="109189">  <div class="votes">
+    <div id="Vu109189">
+    <a href="http://php.net/manual/vote-note.php?id=109189&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd109189">
+    <a href="http://php.net/manual/vote-note.php?id=109189&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V109189" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#109189" class="name">
+  <strong class="user"><em>todd at toddzebert dot com</em></strong></a><a class="genanchor" href="#109189"> ¶</a><div class="date" title="2012-06-26 07:18"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom109189">
+<div class="phpcode"><code><span class="html">
+Attempting to use stripslashes on an array in 5.2.17 returns the string "Array", but in 5.3.6 it returns NULL.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="101338">  <div class="votes">
+    <div id="Vu101338">
+    <a href="http://php.net/manual/vote-note.php?id=101338&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd101338">
+    <a href="http://php.net/manual/vote-note.php?id=101338&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V101338" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#101338" class="name">
+  <strong class="user"><em>jeremysawesome</em></strong></a><a class="genanchor" href="#101338"> ¶</a><div class="date" title="2010-12-10 12:39"><strong>6 years ago</strong></div>
+  <div class="text" id="Hcom101338">
+<div class="phpcode"><code><span class="html">
+I'm using this to clean the $_POST array:<br><span class="default">&lt;?php<br>array_walk_recursive</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">, </span><span class="default">create_function</span><span class="keyword">(</span><span class="string">'&amp;$val'</span><span class="keyword">, </span><span class="string">'$val = stripslashes($val);'</span><span class="keyword">));<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="99183">  <div class="votes">
+    <div id="Vu99183">
+    <a href="http://php.net/manual/vote-note.php?id=99183&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd99183">
+    <a href="http://php.net/manual/vote-note.php?id=99183&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V99183" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#99183" class="name">
+  <strong class="user"><em>jeremycook0 at googlemail dot com</em></strong></a><a class="genanchor" href="#99183"> ¶</a><div class="date" title="2010-08-01 08:04"><strong>7 years ago</strong></div>
+  <div class="text" id="Hcom99183">
+<div class="phpcode"><code><span class="html">
+Here's a way of stripping slashes in PHP 5.3 using a recursive closure:<br><br><span class="default">&lt;?php<br>&nbsp; </span><span class="keyword">if (</span><span class="default">get_magic_quotes_gpc</span><span class="keyword">()) {<br>&nbsp; &nbsp; &nbsp; </span><span class="default">$strip_slashes_deep </span><span class="keyword">= function (</span><span class="default">$value</span><span class="keyword">) use (&amp;</span><span class="default">$strip_slashes_deep</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$value</span><span class="keyword">) ? </span><span class="default">array_map</span><span class="keyword">(</span><span class="default">$strip_slashes_deep</span><span class="keyword">, </span><span class="default">$value</span><span class="keyword">) : </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$value</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; &nbsp; </span><span class="default">$_GET </span><span class="keyword">= </span><span class="default">array_map</span><span class="keyword">(</span><span class="default">$strip_slashes_deep</span><span class="keyword">, </span><span class="default">$_GET</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; </span><span class="default">$_POST </span><span class="keyword">= </span><span class="default">array_map</span><span class="keyword">(</span><span class="default">$strip_slashes_deep</span><span class="keyword">, </span><span class="default">$_POST</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; </span><span class="default">$_COOKIE </span><span class="keyword">= </span><span class="default">array_map</span><span class="keyword">(</span><span class="default">$strip_slashes_deep</span><span class="keyword">, </span><span class="default">$_COOKIE</span><span class="keyword">);<br>&nbsp; }<br></span><span class="default">?&gt;<br></span><br>Note
+ that the variable '$strip_slashes_deep' has to be passed to the closure
+ by reference. I think that this is because at the time the closure is 
+created the variable '$strip_slashes_deep' doesn't exist: the closure 
+itself becomes the value of the variable. Passing by reference solves 
+this issue. This closure could easily be adapted to use other methods of
+ stripping slashes such as preg_replace().</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="92524">  <div class="votes">
+    <div id="Vu92524">
+    <a href="http://php.net/manual/vote-note.php?id=92524&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd92524">
+    <a href="http://php.net/manual/vote-note.php?id=92524&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V92524" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#92524" class="name">
+  <strong class="user"><em>JacobRas.nl</em></strong></a><a class="genanchor" href="#92524"> ¶</a><div class="date" title="2009-07-28 05:41"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom92524">
+<div class="phpcode"><code><span class="html">
+Hi,<br><br>Here's an function that strips not only \', but also \\' and 
+\\\' and so on (depending on $times). $text = the text that needs to be 
+stripped, $times = how much backslashes should be stripped.<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">stripslashes_deep </span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">, </span><span class="default">$times</span><span class="keyword">) {<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; </span><span class="default">$i </span><span class="keyword">= </span><span class="default">0</span><span class="keyword">;<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; </span><span class="comment">// loop will execute $times times.<br>&nbsp; &nbsp; </span><span class="keyword">while (</span><span class="default">strstr</span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">, </span><span class="string">'\\'</span><span class="keyword">) &amp;&amp; </span><span class="default">$i </span><span class="keyword">!= </span><span class="default">$times</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$text</span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$i</span><span class="keyword">++;<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; return </span><span class="default">$text</span><span class="keyword">;<br>&nbsp; &nbsp; <br>}<br><br></span><span class="default">?&gt;<br></span><br>Example: $text = \\'quote\\' . <span class="default">&lt;?php stripslashes_deep</span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">, </span><span class="default">2</span><span class="keyword">); </span><span class="default">?&gt;</span> will return 'quote'.<br>Note: <span class="default">&lt;?php stripslashes_deep</span><span class="keyword">(</span><span class="default">$text</span><span class="keyword">, </span><span class="default">3</span><span class="keyword">); </span><span class="default">?&gt;</span> will also return 'quote'.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="89785">  <div class="votes">
+    <div id="Vu89785">
+    <a href="http://php.net/manual/vote-note.php?id=89785&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd89785">
+    <a href="http://php.net/manual/vote-note.php?id=89785&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V89785" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#89785" class="name">
+  <strong class="user"><em>Tom Worster</em></strong></a><a class="genanchor" href="#89785"> ¶</a><div class="date" title="2009-03-23 07:26"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom89785">
+<div class="phpcode"><code><span class="html">
+A replacement that should be safe on utf-8 strings.<br><span class="default">&lt;?php<br>&nbsp; preg_replace</span><span class="keyword">(array(</span><span class="string">'/\x5C(?!\x5C)/u'</span><span class="keyword">, </span><span class="string">'/\x5C\x5C/u'</span><span class="keyword">), array(</span><span class="string">''</span><span class="keyword">,</span><span class="string">'\\'</span><span class="keyword">), </span><span class="default">$s</span><span class="keyword">);<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="82121">  <div class="votes">
+    <div id="Vu82121">
+    <a href="http://php.net/manual/vote-note.php?id=82121&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd82121">
+    <a href="http://php.net/manual/vote-note.php?id=82121&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V82121" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#82121" class="name">
+  <strong class="user"><em>Aditya P Bhatt (adityabhai at gmail dot com)</em></strong></a><a class="genanchor" href="#82121"> ¶</a><div class="date" title="2008-03-27 10:03"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom82121">
+<div class="phpcode"><code><span class="html">
+Here is simple example code which you can use as a common function in your functions file:<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">stripslashes_if_gpc_magic_quotes</span><span class="keyword">( </span><span class="default">$string </span><span class="keyword">) {<br>&nbsp; &nbsp; if(</span><span class="default">get_magic_quotes_gpc</span><span class="keyword">()) {<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$string</span><span class="keyword">);<br>&nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">$string</span><span class="keyword">;<br>&nbsp; &nbsp; }<br>}<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="37876">  <div class="votes">
+    <div id="Vu37876">
+    <a href="http://php.net/manual/vote-note.php?id=37876&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd37876">
+    <a href="http://php.net/manual/vote-note.php?id=37876&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V37876" title="50% like this...">
+    0
+    </div>
+  </div>
+  <a href="#37876" class="name">
+  <strong class="user"><em>hash at samurai dot fm</em></strong></a><a class="genanchor" href="#37876"> ¶</a><div class="date" title="2003-11-30 09:34"><strong>13 years ago</strong></div>
+  <div class="text" id="Hcom37876">
+<div class="phpcode"><code><span class="html">
+Might I warn readers that they should be vary careful with the use of 
+stripslashes on Japanese text. The shift_jis character set includes a 
+number of two-byte code charcters that contain the hex-value 0x5c 
+(backslash) which will get stripped by this function thus garbling those
+ characters.<br><br>What a nightmare!</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="93278">  <div class="votes">
+    <div id="Vu93278">
+    <a href="http://php.net/manual/vote-note.php?id=93278&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd93278">
+    <a href="http://php.net/manual/vote-note.php?id=93278&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V93278" title="46% like this...">
+    -1
+    </div>
+  </div>
+  <a href="#93278" class="name">
+  <strong class="user"><em>michal at roszka dot pl</em></strong></a><a class="genanchor" href="#93278"> ¶</a><div class="date" title="2009-08-31 08:00"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom93278" style="opacity: 0.75;">
+<div class="phpcode"><code><span class="html">
+The goal is to leave the input untouched in PHP 5.2.8. Let's have this sample text given in $_POST['example']:<br><br>a backslash ( \ ), a single-quote ( ' ), a double-quote ( " ) and a null character ( \0 )<br><br>Let's have two simple scripts:<br><br>Script A:<br><span class="default">&lt;?php </span><span class="keyword">echo </span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'example'</span><span class="keyword">]; </span><span class="default">?&gt;<br></span><br>Script B:<br><span class="default">&lt;?php </span><span class="keyword">echo </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'example'</span><span class="keyword">]); </span><span class="default">?&gt;<br></span><br>Let's have four different configurations and corresponding output:<br><br>Case #1:<br><br> * magic_quotes_gpc = Off<br> * magic_quotes_sybase = Off<br><br>A: a backslash ( \ ), a single-quote ( ' ), a double-quote ( " ) and a null character ( \0 )<br>B: a backslash (&nbsp; ), a single-quote ( ' ), a double-quote ( " ) and a null character ( � )<br><br>Case #2<br><br> * magic_quotes_gpc = On<br> * magic_quotes_sybase = Off<br><br>A: a backslash ( \\ ), a single-quote ( \' ), a double-quote ( \" ) and a null character ( \\0 )<br>B: a backslash ( \ ), a single-quote ( ' ), a double-quote ( " ) and a null character ( \0 )<br><br>Case #3<br><br> * magic_quotes_gpc = On<br> * magic_quotes_sybase = On<br> <br>A: a backslash ( \ ), a single-quote ( '' ), a double-quote ( " ) and a null character ( \0 )<br>B: a backslash ( \ ), a single-quote ( ' ), a double-quote ( " ) and a null character ( � )<br><br>Case #4<br><br> * magic_quotes_gpc = Off<br> * magic_quotes_sybase = On<br><br>A: a backslash ( \ ), a single-quote ( ' ), a double-quote ( " ) and a null character ( \0 )<br>B: a backslash (&nbsp; ), a single-quote ( ' ), a double-quote ( " ) and a null character ( � )<br><br>Conclusions:<br><br>1) we do not need to do anything, if the magic_quotes_gpc is disabled (cases 1 and 4);<br>2)
+ stripslashes($_POST['example']) only works, if the magic_quotes_gpc is 
+enabled, but the magic_quotes_sybase is disabled (case 2);<br>3) 
+str_replace("''", "'", $_POST['example']) will do the trick if both the 
+magic_quotes_gpc and the magic_quotes_sybase are enabled (case 3);<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">disable_magic_quotes_gpc</span><span class="keyword">()<br>{<br>&nbsp; &nbsp; if (</span><span class="default">TRUE </span><span class="keyword">== </span><span class="default">function_exists</span><span class="keyword">(</span><span class="string">'get_magic_quotes_gpc'</span><span class="keyword">) &amp;&amp; </span><span class="default">1 </span><span class="keyword">== </span><span class="default">get_magic_quotes_gpc</span><span class="keyword">())<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$mqs </span><span class="keyword">= </span><span class="default">strtolower</span><span class="keyword">(</span><span class="default">ini_get</span><span class="keyword">(</span><span class="string">'magic_quotes_sybase'</span><span class="keyword">));<br><br>&nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">TRUE </span><span class="keyword">== empty(</span><span class="default">$mqs</span><span class="keyword">) || </span><span class="string">'off' </span><span class="keyword">== </span><span class="default">$mqs</span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// we need to do stripslashes on $_GET, $_POST and $_COOKIE<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">}<br>&nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// we need to do str_replace("''", "'", ...) on $_GET, $_POST, $_COOKIE<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">}<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; </span><span class="comment">// otherwise we do not need to do anything<br></span><span class="keyword">}<br></span><span class="default">?&gt;<br></span><br>Important notes:<br><br>1) arrays need to be processed recursively;<br><br>2) both stripslashes and str_replace functions always return strings, so:<br><br>* TRUE will become a string "1",<br>* FALSE will become an empty string,<br>* integers and floats will become strings,<br>* NULL will become an empty string.<br><br>On the other hand you only need to process strings, so use the is_string function to check;<br><br>3)
+ when dealing with other (than GPC) data sources, such as databases or 
+text files, remember to play with the magic_quotes_runtime setting as 
+well, see, what happens and write a corresponding function, i.e. 
+disable_magic_quotes_runtime() or something.<br><br>4) VERY IMPORTANT: 
+when testing, remember the null character. Otherwise your tests will be 
+inconclusive and you may end up with... well, serious bugs :)</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="62146">  <div class="votes">
+    <div id="Vu62146">
+    <a href="http://php.net/manual/vote-note.php?id=62146&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd62146">
+    <a href="http://php.net/manual/vote-note.php?id=62146&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V62146" title="36% like this...">
+    -3
+    </div>
+  </div>
+  <a href="#62146" class="name">
+  <strong class="user"><em>hauser dot j at gmail dot com</em></strong></a><a class="genanchor" href="#62146"> ¶</a><div class="date" title="2006-02-21 02:13"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom62146" style="opacity: 0.55;">
+<div class="phpcode"><code><span class="html">
+Don't use stripslashes if you depend on the values NULL.<br><br>Apparently stripslashes converts NULL to string(0) "" <br><br><span class="default">&lt;?php<br>$a </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">;<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br><br></span><span class="default">$b </span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$b</span><span class="keyword">);<br></span><span class="default">?&gt;<br></span>Will output<br><br>NULL<br>string(0) ""</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="89819">  <div class="votes">
+    <div id="Vu89819">
+    <a href="http://php.net/manual/vote-note.php?id=89819&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd89819">
+    <a href="http://php.net/manual/vote-note.php?id=89819&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V89819" title="25% like this...">
+    -4
+    </div>
+  </div>
+  <a href="#89819" class="name">
+  <strong class="user"><em>dragon[dot]dionysius[at]gmail[dot]com</em></strong></a><a class="genanchor" href="#89819"> ¶</a><div class="date" title="2009-03-24 08:07"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom89819" style="opacity: 0.45;">
+<div class="phpcode"><code><span class="html">
+I use this function in my class to stripslashes arrays including NULL-check:<br><br><span class="default">&lt;?php<br>&nbsp; &nbsp; </span><span class="keyword">private function </span><span class="default">stripslashes_deep</span><span class="keyword">(</span><span class="default">$value</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if(</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$value</span><span class="keyword">)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach(</span><span class="default">$value </span><span class="keyword">as </span><span class="default">$k </span><span class="keyword">=&gt; </span><span class="default">$v</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$return</span><span class="keyword">[</span><span class="default">$k</span><span class="keyword">] = </span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">stripslashes_deep</span><span class="keyword">(</span><span class="default">$v</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; } elseif(isset(</span><span class="default">$value</span><span class="keyword">)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$return </span><span class="keyword">= </span><span class="default">stripslashes</span><span class="keyword">(</span><span class="default">$value</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">$return</span><span class="keyword">;<br>&nbsp; &nbsp; }<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="81402">  <div class="votes">
+    <div id="Vu81402">
+    <a href="http://php.net/manual/vote-note.php?id=81402&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd81402">
+    <a href="http://php.net/manual/vote-note.php?id=81402&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V81402" title="25% like this...">
+    -6
+    </div>
+  </div>
+  <a href="#81402" class="name">
+  <strong class="user"><em>Evgeny</em></strong></a><a class="genanchor" href="#81402"> ¶</a><div class="date" title="2008-02-26 07:52"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom81402" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+extended version of stripslashes_deep. This allow to strip one also in the array_keys<br><br>&nbsp; &nbsp; function stripslashes_deep($value) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (is_array($value)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (count($value)&gt;0) {<br>&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $return = 
+array_combine(array_map('stripslashes_deep', 
+array_keys($value)),array_map('stripslashes_deep', 
+array_values($value)));<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $return = array_map('stripslashes_deep', $value);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $return;<br>&nbsp; &nbsp; &nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $return = stripslashes($value);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $return ;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="58159">  <div class="votes">
+    <div id="Vu58159">
+    <a href="http://php.net/manual/vote-note.php?id=58159&amp;page=function.stripslashes&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd58159">
+    <a href="http://php.net/manual/vote-note.php?id=58159&amp;page=function.stripslashes&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V58159" title="23% like this...">
+    -7
+    </div>
+  </div>
+  <a href="#58159" class="name">
+  <strong class="user"><em>alf at mitose dot net</em></strong></a><a class="genanchor" href="#58159"> ¶</a><div class="date" title="2005-10-25 05:09"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom58159" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Take care using stripslashes() if the text you want to insert in the 
+database contain \n characters ! You'll see "n" instead of (not seeing) 
+"\n".<br><br>It should be no problem for XML, but is still boring ...</span>
+</code></div>
+  </div>
+ </div></div>
+
+ <div class="foot"><a href="http://php.net/manual/add-note.php?sect=function.stripslashes&amp;redirect=http://php.net/manual/es/function.stripslashes.php"><img src="PHP%20%20stripslashes%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class="layout-menu">
+    
+        <ul class="parent-menu-list">
+                                    <li>
+                <a href="http://php.net/manual/es/ref.strings.php">Funciones de strings</a>
+    
+                                    <ul class="child-menu-list">
+    
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.addcslashes.php" title="addcslashes">addcslashes</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.addslashes.php" title="addslashes">addslashes</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.bin2hex.php" title="bin2hex">bin2hex</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.chop.php" title="chop">chop</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.chr.php" title="chr">chr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.chunk-split.php" title="chunk_​split">chunk_​split</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.convert-cyr-string.php" title="convert_​cyr_​string">convert_​cyr_​string</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.convert-uudecode.php" title="convert_​uudecode">convert_​uudecode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.convert-uuencode.php" title="convert_​uuencode">convert_​uuencode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.count-chars.php" title="count_​chars">count_​chars</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.crc32.php" title="crc32">crc32</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.crypt.php" title="crypt">crypt</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.echo.php" title="echo">echo</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.explode.php" title="explode">explode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.fprintf.php" title="fprintf">fprintf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.get-html-translation-table.php" title="get_​html_​translation_​table">get_​html_​translation_​table</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.hebrev.php" title="hebrev">hebrev</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.hebrevc.php" title="hebrevc">hebrevc</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.hex2bin.php" title="hex2bin">hex2bin</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.html-entity-decode.php" title="html_​entity_​decode">html_​entity_​decode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.htmlentities.php" title="htmlentities">htmlentities</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.htmlspecialchars-decode.php" title="htmlspecialchars_​decode">htmlspecialchars_​decode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.htmlspecialchars.php" title="htmlspecialchars">htmlspecialchars</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.implode.php" title="implode">implode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.join.php" title="join">join</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.lcfirst.php" title="lcfirst">lcfirst</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.levenshtein.php" title="levenshtein">levenshtein</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.localeconv.php" title="localeconv">localeconv</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.ltrim.php" title="ltrim">ltrim</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.md5-file.php" title="md5_​file">md5_​file</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.md5.php" title="md5">md5</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.metaphone.php" title="metaphone">metaphone</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.money-format.php" title="money_​format">money_​format</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.nl-langinfo.php" title="nl_​langinfo">nl_​langinfo</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.nl2br.php" title="nl2br">nl2br</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.number-format.php" title="number_​format">number_​format</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.ord.php" title="ord">ord</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.parse-str.php" title="parse_​str">parse_​str</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.print.php" title="print">print</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.printf.php" title="printf">printf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.quoted-printable-decode.php" title="quoted_​printable_​decode">quoted_​printable_​decode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.quoted-printable-encode.php" title="quoted_​printable_​encode">quoted_​printable_​encode</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.quotemeta.php" title="quotemeta">quotemeta</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.rtrim.php" title="rtrim">rtrim</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.setlocale.php" title="setlocale">setlocale</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.sha1-file.php" title="sha1_​file">sha1_​file</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.sha1.php" title="sha1">sha1</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.similar-text.php" title="similar_​text">similar_​text</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.soundex.php" title="soundex">soundex</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.sprintf.php" title="sprintf">sprintf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.sscanf.php" title="sscanf">sscanf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-getcsv.php" title="str_​getcsv">str_​getcsv</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-ireplace.php" title="str_​ireplace">str_​ireplace</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-pad.php" title="str_​pad">str_​pad</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-repeat.php" title="str_​repeat">str_​repeat</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-replace.php" title="str_​replace">str_​replace</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-rot13.php" title="str_​rot13">str_​rot13</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-shuffle.php" title="str_​shuffle">str_​shuffle</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-split.php" title="str_​split">str_​split</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.str-word-count.php" title="str_​word_​count">str_​word_​count</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strcasecmp.php" title="strcasecmp">strcasecmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strchr.php" title="strchr">strchr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strcmp.php" title="strcmp">strcmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strcoll.php" title="strcoll">strcoll</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strcspn.php" title="strcspn">strcspn</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strip-tags.php" title="strip_​tags">strip_​tags</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.stripcslashes.php" title="stripcslashes">stripcslashes</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.stripos.php" title="stripos">stripos</a>
+                        </li>
+                          
+                        <li class="current">
+                            <a href="http://php.net/manual/es/function.stripslashes.php" title="stripslashes">stripslashes</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.stristr.php" title="stristr">stristr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strlen.php" title="strlen">strlen</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strnatcasecmp.php" title="strnatcasecmp">strnatcasecmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strnatcmp.php" title="strnatcmp">strnatcmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strncasecmp.php" title="strncasecmp">strncasecmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strncmp.php" title="strncmp">strncmp</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strpbrk.php" title="strpbrk">strpbrk</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strpos.php" title="strpos">strpos</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strrchr.php" title="strrchr">strrchr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strrev.php" title="strrev">strrev</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strripos.php" title="strripos">strripos</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strrpos.php" title="strrpos">strrpos</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strspn.php" title="strspn">strspn</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strstr.php" title="strstr">strstr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strtok.php" title="strtok">strtok</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strtolower.php" title="strtolower">strtolower</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strtoupper.php" title="strtoupper">strtoupper</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strtr.php" title="strtr">strtr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.substr-compare.php" title="substr_​compare">substr_​compare</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.substr-count.php" title="substr_​count">substr_​count</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.substr-replace.php" title="substr_​replace">substr_​replace</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.substr.php" title="substr">substr</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.trim.php" title="trim">trim</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.ucfirst.php" title="ucfirst">ucfirst</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.ucwords.php" title="ucwords">ucwords</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.vfprintf.php" title="vfprintf">vfprintf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.vprintf.php" title="vprintf">vprintf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.vsprintf.php" title="vsprintf">vsprintf</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.wordwrap.php" title="wordwrap">wordwrap</a>
+                        </li>
+                            
+                    </ul>
+                    
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+         
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="http://php.net/copyright.php">Copyright © 2001-2017 The PHP Group</a></li>
+        <li><a href="http://php.net/my.php">My PHP.net</a></li>
+        <li><a href="http://php.net/contact.php">Contact</a></li>
+        <li><a href="http://php.net/sites.php">Other PHP.net sites</a></li>
+        <li><a href="http://php.net/mirrors.php">Mirror sites</a></li>
+        <li><a href="http://php.net/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+    
+ <!-- External and third party libraries. -->
+ <script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/jquery.js"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_005.php"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_006.php"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached.php"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_004.php"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_003.php"></script>
+<script type="text/javascript" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/cached_002.php"></script>
+
+<a id="toTop" href="javascript:;" style="display: inline;"><span id="toTopHover"></span><img alt="To Top" src="PHP%20%20stripslashes%20-%20Manual%20Archivos/to-top2x.png" width="40" height="40"></a>
+
+
+
+
+</body></html>

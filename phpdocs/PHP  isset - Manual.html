@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js flexbox flexboxlegacy datauri" lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <title>PHP: isset - Manual </title>
+
+ <link rel="shortcut icon" href="http://php.net/favicon.ico">
+ <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="http://php.net/manual/es/function.isset.php">
+ <link rel="shorturl" href="http://php.net/isset">
+ <link rel="alternate" href="http://php.net/isset" hreflang="x-default">
+
+ <link rel="contents" href="http://php.net/manual/es/index.php">
+ <link rel="index" href="http://php.net/manual/es/ref.var.php">
+ <link rel="prev" href="http://php.net/manual/es/function.is-string.php">
+ <link rel="next" href="http://php.net/manual/es/function.print-r.php">
+
+ <link rel="alternate" href="http://php.net/manual/en/function.isset.php" hreflang="en">
+ <link rel="alternate" href="http://php.net/manual/pt_BR/function.isset.php" hreflang="pt_BR">
+ <link rel="alternate" href="http://php.net/manual/zh/function.isset.php" hreflang="zh">
+ <link rel="alternate" href="http://php.net/manual/fr/function.isset.php" hreflang="fr">
+ <link rel="alternate" href="http://php.net/manual/de/function.isset.php" hreflang="de">
+ <link rel="alternate" href="http://php.net/manual/ja/function.isset.php" hreflang="ja">
+ <link rel="alternate" href="http://php.net/manual/ro/function.isset.php" hreflang="ro">
+ <link rel="alternate" href="http://php.net/manual/ru/function.isset.php" hreflang="ru">
+ <link rel="alternate" href="http://php.net/manual/es/function.isset.php" hreflang="es">
+ <link rel="alternate" href="http://php.net/manual/tr/function.isset.php" hreflang="tr">
+
+<link rel="stylesheet" type="text/css" href="PHP%20%20isset%20-%20Manual%20Archivos/cached.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20isset%20-%20Manual%20Archivos/cached_004.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20isset%20-%20Manual%20Archivos/cached_002.css" media="screen">
+<link rel="stylesheet" type="text/css" href="PHP%20%20isset%20-%20Manual%20Archivos/cached_003.css" media="screen">
+
+ <!--[if lte IE 7]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+ <![endif]-->
+
+ <!--[if lte IE 8]>
+ <script type="text/javascript">
+  window.brokenIE = true;
+ </script>
+ <![endif]-->
+
+ <!--[if lte IE 9]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+ <![endif]-->
+
+ <!--[if IE]>
+ <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+ <![endif]-->
+
+ <!-- base href="http://php.net/manual/es/function.isset.php" -->
+
+</head>
+<body class="docs ">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <a href="http://php.net/" class="brand"><img src="PHP%20%20isset%20-%20Manual%20Archivos/php-logo.svg" alt="php" width="48" height="24"></a>
+    <div id="mainmenu-toggle-overlay"></div>
+    <input id="mainmenu-toggle" type="checkbox">
+    <ul class="nav">
+      <li class=""><a href="http://php.net/downloads">Downloads</a></li>
+      <li class="active"><a href="http://php.net/docs.php">Documentation</a></li>
+      <li class=""><a href="http://php.net/get-involved">Get Involved</a></li>
+      <li class=""><a href="http://php.net/support">Help</a></li>
+    </ul>
+    <form class="navbar-search" id="topsearch" action="/search.php">
+      <input name="show" value="quickref" type="hidden">
+      <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint search-query" autocomplete="off" spellcheck="off" disabled="disabled" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%;" type="text"><input name="pattern" class="search-query tt-query" placeholder="Search" accesskey="s" autocomplete="off" spellcheck="false" style="position: relative; vertical-align: top; background-color: transparent;" dir="auto" type="search"><input style="visibility: hidden; position: fixed" type="submit"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Fira Sans&quot;,&quot;Source Sans Pro&quot;,Helvetica,Arial,sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+    </form>
+  </div>
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href="http://php.net/index.php#id2017-10-12-1">PHP 7.2.0 Release Candidate 4 Released</a></div>
+<nav id="trick"><div><dl>
+<dt><a href="http://php.net/manual/en/getting-started.php">Getting Started</a></dt>
+	<dd><a href="http://php.net/manual/en/introduction.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/tutorial.php">A simple tutorial</a></dd>
+<dt><a href="http://php.net/manual/en/langref.php">Language Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/language.basic-syntax.php">Basic syntax</a></dd>
+	<dd><a href="http://php.net/manual/en/language.types.php">Types</a></dd>
+	<dd><a href="http://php.net/manual/en/language.variables.php">Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/language.constants.php">Constants</a></dd>
+	<dd><a href="http://php.net/manual/en/language.expressions.php">Expressions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.operators.php">Operators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.control-structures.php">Control Structures</a></dd>
+	<dd><a href="http://php.net/manual/en/language.functions.php">Functions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.oop5.php">Classes and Objects</a></dd>
+	<dd><a href="http://php.net/manual/en/language.namespaces.php">Namespaces</a></dd>
+	<dd><a href="http://php.net/manual/en/language.errors.php">Errors</a></dd>
+	<dd><a href="http://php.net/manual/en/language.exceptions.php">Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.generators.php">Generators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.references.php">References Explained</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.variables.php">Predefined Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.exceptions.php">Predefined Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.interfaces.php">Predefined Interfaces and Classes</a></dd>
+	<dd><a href="http://php.net/manual/en/context.php">Context options and parameters</a></dd>
+	<dd><a href="http://php.net/manual/en/wrappers.php">Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/security.php">Security</a></dt>
+	<dd><a href="http://php.net/manual/en/security.intro.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/security.general.php">General considerations</a></dd>
+	<dd><a href="http://php.net/manual/en/security.cgi-bin.php">Installed as CGI binary</a></dd>
+	<dd><a href="http://php.net/manual/en/security.apache.php">Installed as an Apache module</a></dd>
+	<dd><a href="http://php.net/manual/en/security.sessions.php">Session Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.filesystem.php">Filesystem Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.database.php">Database Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.errors.php">Error Reporting</a></dd>
+	<dd><a href="http://php.net/manual/en/security.globals.php">Using Register Globals</a></dd>
+	<dd><a href="http://php.net/manual/en/security.variables.php">User Submitted Data</a></dd>
+	<dd><a href="http://php.net/manual/en/security.magicquotes.php">Magic Quotes</a></dd>
+	<dd><a href="http://php.net/manual/en/security.hiding.php">Hiding PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/security.current.php">Keeping Current</a></dd>
+<dt><a href="http://php.net/manual/en/features.php">Features</a></dt>
+	<dd><a href="http://php.net/manual/en/features.http-auth.php">HTTP authentication with PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/features.cookies.php">Cookies</a></dd>
+	<dd><a href="http://php.net/manual/en/features.sessions.php">Sessions</a></dd>
+	<dd><a href="http://php.net/manual/en/features.xforms.php">Dealing with XForms</a></dd>
+	<dd><a href="http://php.net/manual/en/features.file-upload.php">Handling file uploads</a></dd>
+	<dd><a href="http://php.net/manual/en/features.remote-files.php">Using remote files</a></dd>
+	<dd><a href="http://php.net/manual/en/features.connection-handling.php">Connection handling</a></dd>
+	<dd><a href="http://php.net/manual/en/features.persistent-connections.php">Persistent Database Connections</a></dd>
+	<dd><a href="http://php.net/manual/en/features.safe-mode.php">Safe Mode</a></dd>
+	<dd><a href="http://php.net/manual/en/features.commandline.php">Command line usage</a></dd>
+	<dd><a href="http://php.net/manual/en/features.gc.php">Garbage Collection</a></dd>
+	<dd><a href="http://php.net/manual/en/features.dtrace.php">DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/funcref.php">Function Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/refs.basic.php.php">Affecting PHP's Behaviour</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.audio.php">Audio Formats Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.auth.php">Authentication Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.cmdline.php">Command Line Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.compression.php">Compression and Archive Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.creditcard.php">Credit Card Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.crypto.php">Cryptography Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.database.php">Database Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.calendar.php">Date and Time Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.file.php">File System Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.international.php">Human Language and Character Encoding Support</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.image.php">Image Processing and Generation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.mail.php">Mail Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.math.php">Mathematical Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.nontext.php">Non-Text MIME Output</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.process.php">Process Control Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.other.php">Other Basic Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.other.php">Other Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.search.php">Search Engine Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.server.php">Server Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.session.php">Session Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.text.php">Text Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.vartype.php">Variable and Type Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.webservice.php">Web Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.windows.php">Windows Only Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.xml.php">XML Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.ui.php">GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="http://php.net/manual/es/function.print-r.php">
+          print_r »
+        </a>
+      </div>
+              <div class="prev">
+        <a href="http://php.net/manual/es/function.is-string.php">
+          « is_string        </a>
+      </div>
+          <ul>
+            <li><a href="http://php.net/manual/es/index.php">Manual de PHP</a></li>      <li><a href="http://php.net/manual/es/funcref.php">Referencia de funciones</a></li>      <li><a href="http://php.net/manual/es/refs.basic.vartype.php">Extensiones relacionadas con variable y tipo</a></li>      <li><a href="http://php.net/manual/es/book.var.php">Manejo de variables</a></li>      <li><a href="http://php.net/manual/es/ref.var.php">Funciones de manejo de variables</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value="en/function.isset.php">English</option>
+            <option value="pt_BR/function.isset.php">Brazilian Portuguese</option>
+            <option value="zh/function.isset.php">Chinese (Simplified)</option>
+            <option value="fr/function.isset.php">French</option>
+            <option value="de/function.isset.php">German</option>
+            <option value="ja/function.isset.php">Japanese</option>
+            <option value="ro/function.isset.php">Romanian</option>
+            <option value="ru/function.isset.php">Russian</option>
+            <option value="es/function.isset.php" selected="selected">Spanish</option>
+            <option value="tr/function.isset.php">Turkish</option>
+            <option value="help-translate.php">Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+    <div class="edit-bug">
+      <a href="https://edit.php.net/?project=PHP&amp;perm=es/function.isset.php">Edit</a>
+      <a href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=function.isset">Report a Bug</a>
+    </div>
+  </div><div id="function.isset" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">isset</h1>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">isset</span> — <span class="dc-title">Determina si una variable está definida y no es <strong><code>NULL</code></strong></span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.isset-description">
+ <h3 class="title">Descripción<a class="genanchor" href="#refsect1-function.isset-description"> ¶</a></h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>isset</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="http://php.net/manual/es/language.pseudo-types.php#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
+   [, <span class="methodparam"><span class="type"><a href="http://php.net/manual/es/language.pseudo-types.php#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$...</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Determina si una variable está definida y no es <strong><code>NULL</code></strong>.
+  </p>
+  <p class="para">
+   Si una variable ha sido removida con <span class="function"><a href="http://php.net/manual/es/function.unset.php" class="function">unset()</a></span>, esta ya no
+   estará definida. <span class="function"><strong>isset()</strong></span> devolverá <strong><code>FALSE</code></strong> si prueba una
+   variable que ha sido definida como <strong><code>NULL</code></strong>. También tenga en cuenta que un byte <strong><code>NULL</code></strong>
+   (<em>"\0"</em>) no es equivalente a la constante <strong><code>NULL</code></strong> de PHP.
+  </p>
+  <p class="para">
+   Si son pasados varios parámetros, entonces <span class="function"><strong>isset()</strong></span>
+   devolverá <strong><code>TRUE</code></strong> únicamente si todos los parámetros están definidos. La
+   evaluación se realiza de izquierda a derecha y se detiene tan pronto como
+   se encuentre una variable no definida.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.isset-parameters">
+  <h3 class="title">Parámetros<a class="genanchor" href="#refsect1-function.isset-parameters"> ¶</a></h3>
+  <dl>
+
+    
+     <dt>
+<code class="parameter">var</code></dt>
+
+     <dd>
+
+      <p class="para">
+       La variable a ser evaluada.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">...</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Otra variable...
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.isset-returnvalues">
+  <h3 class="title">Valores devueltos<a class="genanchor" href="#refsect1-function.isset-returnvalues"> ¶</a></h3>
+  <p class="para">
+   Devuelve <strong><code>TRUE</code></strong> si <code class="parameter">var</code> existe y tiene un valor distinto
+   de <strong><code>NULL</code></strong>, <strong><code>FALSE</code></strong> de lo contrario.
+  </p>
+ </div>
+
+ 
+  <div class="refsect1 changelog" id="refsect1-function.isset-changelog">
+  <h3 class="title">Historial de cambios<a class="genanchor" href="#refsect1-function.isset-changelog"> ¶</a></h3>
+  <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Versión</th>
+       <th>Descripción</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        <p class="para">
+         Comprobación de indices no numéricos de strings ahora retorna <strong><code>FALSE</code></strong>.
+        </p>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.isset-examples">
+  <h3 class="title">Ejemplos<a class="genanchor" href="#refsect1-function.isset-examples"> ¶</a></h3>
+  <div class="example" id="example-6190">
+    <p><strong>Ejemplo #1 Ejemplos <span class="function"><strong>isset()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Esto&nbsp;evaluará&nbsp;a&nbsp;TRUE&nbsp;así&nbsp;que&nbsp;el&nbsp;texto&nbsp;se&nbsp;imprimirá.<br></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$var</span><span style="color: #007700">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Esta&nbsp;variable&nbsp;está&nbsp;definida,&nbsp;así&nbsp;que&nbsp;se&nbsp;imprimirá"</span><span style="color: #007700">;<br>}<br><br></span><span style="color: #FF8000">//&nbsp;En&nbsp;los&nbsp;siguientes&nbsp;ejemplo&nbsp;usaremos&nbsp;var_dump&nbsp;para&nbsp;imprimir<br>//&nbsp;el&nbsp;valor&nbsp;devuelto&nbsp;por&nbsp;isset().<br><br></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"prueba"</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"otraprueba"</span><span style="color: #007700">;<br><br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br><br></span><span style="color: #007700">unset&nbsp;(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br><br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br><br></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">;<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">));&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  
+  <p class="para">
+   También trabaja con elementos en matrices:
+   </p><div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br><br>$a&nbsp;</span><span style="color: #007700">=&nbsp;array&nbsp;(</span><span style="color: #DD0000">'test'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'hello'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'pie'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">));<br><br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'test'</span><span style="color: #007700">]));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">]));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">]));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br><br>//&nbsp;La&nbsp;clave&nbsp;'helo'&nbsp;es&nbsp;igual&nbsp;a&nbsp;NULL&nbsp;así&nbsp;que&nbsp;no&nbsp;se&nbsp;considera&nbsp;definida<br>//&nbsp;Si&nbsp;desea&nbsp;comprobar&nbsp;los&nbsp;valores&nbsp;NULL&nbsp;clave,&nbsp;intente:<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_key_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'hello'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br><br>//&nbsp;Comprobando&nbsp;valores&nbsp;de&nbsp;arrays&nbsp;con&nbsp;más&nbsp;profunidad<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'pie'</span><span style="color: #007700">][</span><span style="color: #DD0000">'a'</span><span style="color: #007700">]));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'pie'</span><span style="color: #007700">][</span><span style="color: #DD0000">'b'</span><span style="color: #007700">]));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$a</span><span style="color: #007700">[</span><span style="color: #DD0000">'cake'</span><span style="color: #007700">][</span><span style="color: #DD0000">'a'</span><span style="color: #007700">][</span><span style="color: #DD0000">'b'</span><span style="color: #007700">]));&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.isset-notes">
+  <h3 class="title">Notas<a class="genanchor" href="#refsect1-function.isset-notes"> ¶</a></h3>
+  <div class="warning"><strong class="warning">Advertencia</strong>
+   <p class="para">
+    <span class="function"><strong>isset()</strong></span> sólo trabaja con variables, ya que pasar
+    cualquier otra cosa dará como resultado un error de intérprete. Para comprobar si
+    se han definido<a href="http://php.net/manual/es/language.constants.php" class="link">constantes</a> use la función 
+    <span class="function"><a href="http://php.net/manual/es/function.defined.php" class="function">defined()</a></span>.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: <span class="simpara">Puesto que esto es
+una construcción del lenguaje y no una función, no puede ser llamada usando
+<a href="http://php.net/manual/es/functions.variable-functions.php" class="link">funciones variables</a>.</span>
+</p></blockquote>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    Cuando se utiliza <span class="function"><strong>isset()</strong></span> sobre las propiedades de objetos inaccesibles,
+    el método sobrecargado <a href="http://php.net/manual/es/language.oop5.overloading.php#object.isset" class="link">__isset()</a>
+    será llamado, si se declara.
+   </p>
+  </blockquote>
+  <div class="example" id="example-6191">
+   <p><strong>Ejemplo #2 <span class="function"><strong>isset()</strong></span> en indices de String</strong></p>
+   <div class="example-contents"><p>
+    PHP 5.4 cambia ahora el comportamiendo de <span class="function"><strong>isset()</strong></span>
+    cuando son pasados indices de string.
+   </p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>$expected_array_got_string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'somestring'</span><span style="color: #007700">;<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'some_key'</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0'</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #0000BB">0.5</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0.5'</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$expected_array_got_string</span><span style="color: #007700">[</span><span style="color: #DD0000">'0&nbsp;Mostel'</span><span style="color: #007700">]));<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Salida del ejemplo anterior en PHP 5.3:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+bool(true)
+</pre></div>
+   </div>
+   <div class="example-contents"><p>Salida del ejemplo anterior en PHP 5.4:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>bool(false)
+bool(true)
+bool(true)
+bool(true)
+bool(false)
+bool(false)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.isset-seealso">
+  <h3 class="title">Ver también<a class="genanchor" href="#refsect1-function.isset-seealso"> ¶</a></h3>
+  <ul class="simplelist">
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.empty.php" class="function" rel="rdfs-seeAlso">empty()</a> - Determina si una variable está vacía</span></li>
+    <li class="member"><a href="http://php.net/manual/es/language.oop5.overloading.php#object.isset" class="link">__isset()</a></li>
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.unset.php" class="function" rel="rdfs-seeAlso">unset()</a> - Destruye una variable especificada</span></li>
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.defined.php" class="function" rel="rdfs-seeAlso">defined()</a> - Comprueba si existe una constante con nombre dada</span></li>
+    <li class="member"><a href="http://php.net/manual/es/types.comparisons.php" class="link">las tablas de comparación de tipos</a></li>
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.array-key-exists.php" class="function" rel="rdfs-seeAlso">array_key_exists()</a> - Verifica si el índice o clave dada existe en el array</span></li>
+    <li class="member"><span class="function"><a href="http://php.net/manual/es/function.is-null.php" class="function" rel="rdfs-seeAlso">is_null()</a> - Comprueba si una variable es NULL</span></li>
+    <li class="member">el operador <a href="http://php.net/manual/es/language.operators.errorcontrol.php" class="link">@</a> de control de errores</li>
+   </ul>
+  
+ </div>
+
+
+</div>
+<section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="http://php.net/manual/add-note.php?sect=function.isset&amp;redirect=http://php.net/manual/es/function.isset.php"><img src="PHP%20%20isset%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">55 notes</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="119993">  <div class="votes">
+    <div id="Vu119993">
+    <a href="http://php.net/manual/vote-note.php?id=119993&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd119993">
+    <a href="http://php.net/manual/vote-note.php?id=119993&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V119993" title="74% like this...">
+    19
+    </div>
+  </div>
+  <a href="#119993" class="name">
+  <strong class="user"><em>p_ignorethis_lbowers at gmail dot com</em></strong></a><a class="genanchor" href="#119993"> ¶</a><div class="date" title="2016-10-06 07:26"><strong>1 year ago</strong></div>
+  <div class="text" id="Hcom119993">
+<div class="phpcode"><code><span class="html">
+I, too, was dismayed to find that isset($foo) returns false if ($foo == null). Here's an (awkward) way around it.<br><br>unset($foo);<br>if (compact('foo') != array()) {<br>&nbsp; do_your_thing();<br>}<br><br>Of
+ course, that is very non-intuitive, long, hard-to-understand, and 
+kludgy. Better to design your code so you don't depend on the difference
+ between an unset variable and a variable with the value null. But 
+"better" only because PHP has made this weird development choice.<br><br>In
+ my thinking this was a mistake in the development of PHP. The name 
+("isset") should describe the function and not have the desciption be 
+"is set AND is not null". If it was done properly a programmer could 
+very easily do (isset($var) || is_null($var)) if they wanted to check 
+for this!<br><br>A variable set to null is a different state than a 
+variable not set - there should be some easy way to differentiate. Just 
+my (pointless) $0.02.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="71803">  <div class="votes">
+    <div id="Vu71803">
+    <a href="http://php.net/manual/vote-note.php?id=71803&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd71803">
+    <a href="http://php.net/manual/vote-note.php?id=71803&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V71803" title="55% like this...">
+    50
+    </div>
+  </div>
+  <a href="#71803" class="name">
+  <strong class="user"><em>beuc at beuc dot net</em></strong></a><a class="genanchor" href="#71803"> ¶</a><div class="date" title="2006-12-16 12:35"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom71803">
+<div class="phpcode"><code><span class="html">
+"empty() is the opposite of (boolean) var, except that no warning is generated when the variable is not set."<br><br>So essentially<br><span class="default">&lt;?php<br></span><span class="keyword">if (isset(</span><span class="default">$var</span><span class="keyword">) &amp;&amp; </span><span class="default">$var</span><span class="keyword">)<br></span><span class="default">?&gt;<br></span>is the same as<br><span class="default">&lt;?php<br></span><span class="keyword">if (!empty(</span><span class="default">$var</span><span class="keyword">))<br></span><span class="default">?&gt;<br></span>doesn't it? :)<br><br>!empty() mimics the chk() function posted before.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="51113">  <div class="votes">
+    <div id="Vu51113">
+    <a href="http://php.net/manual/vote-note.php?id=51113&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd51113">
+    <a href="http://php.net/manual/vote-note.php?id=51113&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V51113" title="54% like this...">
+    40
+    </div>
+  </div>
+  <a href="#51113" class="name">
+  <strong class="user"><em>yaogzhan at gmail dot com</em></strong></a><a class="genanchor" href="#51113"> ¶</a><div class="date" title="2005-03-20 04:52"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom51113">
+<div class="phpcode"><code><span class="html">
+in PHP5, if you have <br><br><span class="default">&lt;?PHP<br></span><span class="keyword">class </span><span class="default">Foo<br></span><span class="keyword">{<br>&nbsp; &nbsp; protected </span><span class="default">$data </span><span class="keyword">= array(</span><span class="string">'bar' </span><span class="keyword">=&gt; </span><span class="default">null</span><span class="keyword">);<br><br>&nbsp; &nbsp; function </span><span class="default">__get</span><span class="keyword">(</span><span class="default">$p</span><span class="keyword">)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; if( isset(</span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">data</span><span class="keyword">[</span><span class="default">$p</span><span class="keyword">]) ) return </span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">data</span><span class="keyword">[</span><span class="default">$p</span><span class="keyword">];<br>&nbsp; &nbsp; }<br>}<br></span><span class="default">?&gt;<br></span><br>and<br><span class="default">&lt;?PHP<br>$foo </span><span class="keyword">= new </span><span class="default">Foo</span><span class="keyword">;<br>echo isset(</span><span class="default">$foo</span><span class="keyword">-&gt;</span><span class="default">bar</span><span class="keyword">);<br></span><span class="default">?&gt;<br></span>will
+ always echo 'false'. because the isset() accepts VARIABLES as it 
+parameters, but in this case, $foo-&gt;bar is NOT a VARIABLE. it is a 
+VALUE returned from the __get() method of the class Foo. thus the 
+isset($foo-&gt;bar) expreesion will always equal 'false'.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="108836">  <div class="votes">
+    <div id="Vu108836">
+    <a href="http://php.net/manual/vote-note.php?id=108836&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd108836">
+    <a href="http://php.net/manual/vote-note.php?id=108836&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V108836" title="54% like this...">
+    34
+    </div>
+  </div>
+  <a href="#108836" class="name">
+  <strong class="user"><em>Daniel Klein</em></strong></a><a class="genanchor" href="#108836"> ¶</a><div class="date" title="2012-05-29 03:49"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom108836">
+<div class="phpcode"><code><span class="html">
+How to test for a variable actually existing, including being set to null. This will prevent errors when passing to functions.<br><br><span class="default">&lt;?php<br></span><span class="comment">// false<br></span><span class="default">var_export</span><span class="keyword">(<br>&nbsp; </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'myvar'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())<br>);<br><br></span><span class="default">$myvar</span><span class="keyword">;<br></span><span class="comment">// false<br></span><span class="default">var_export</span><span class="keyword">(<br>&nbsp; </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'myvar'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())<br>);<br><br></span><span class="default">$myvar </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">;<br></span><span class="comment">// true<br></span><span class="default">var_export</span><span class="keyword">(<br>&nbsp; </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'myvar'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())<br>);<br><br>unset(</span><span class="default">$myvar</span><span class="keyword">);<br></span><span class="comment">// false<br></span><span class="default">var_export</span><span class="keyword">(<br>&nbsp; </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'myvar'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())<br>);<br><br>if (</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'myvar'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())) {<br>&nbsp; </span><span class="default">myfunction</span><span class="keyword">(</span><span class="default">$myvar</span><span class="keyword">);<br>}<br></span><span class="default">?&gt;<br></span><br>Note:
+ you can't turn this into a function (e.g. is_defined($myvar)) because 
+get_defined_vars() only gets the variables in the current scope and 
+entering a function changes the scope.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="84765">  <div class="votes">
+    <div id="Vu84765">
+    <a href="http://php.net/manual/vote-note.php?id=84765&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd84765">
+    <a href="http://php.net/manual/vote-note.php?id=84765&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V84765" title="53% like this...">
+    21
+    </div>
+  </div>
+  <a href="#84765" class="name">
+  <strong class="user"><em>mandos78 AT mail from google</em></strong></a><a class="genanchor" href="#84765"> ¶</a><div class="date" title="2008-07-29 02:40"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom84765">
+<div class="phpcode"><code><span class="html">
+Careful with this function "ifsetfor" by soapergem, passing by reference
+ means that if, like the example $_GET['id'], the argument is an array 
+index, it will be created in the original array (with a null value), 
+thus causing posible trouble with the following code. At least in PHP 5.<br><br>For example:<br><br><span class="default">&lt;?php<br>$a </span><span class="keyword">= array();<br></span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br></span><span class="default">ifsetor</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">[</span><span class="string">"unsetindex"</span><span class="keyword">], </span><span class="string">'default'</span><span class="keyword">);<br></span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br></span><span class="default">?&gt;<br></span><br>will print <br><br>Array<br>(<br>)<br>Array<br>(<br>&nbsp; &nbsp; [unsetindex] =&gt; <br>)<br><br>Any foreach or similar will be different before and after the call.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="68303">  <div class="votes">
+    <div id="Vu68303">
+    <a href="http://php.net/manual/vote-note.php?id=68303&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd68303">
+    <a href="http://php.net/manual/vote-note.php?id=68303&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V68303" title="53% like this...">
+    22
+    </div>
+  </div>
+  <a href="#68303" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#68303"> ¶</a><div class="date" title="2006-07-21 07:08"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom68303">
+<div class="phpcode"><code><span class="html">
+I tried the example posted previously by Slawek:<br><br>$foo = 'a little string';<br>echo isset($foo)?'yes ':'no ', isset($foo['aaaa'])?'yes ':'no ';<br><br>He got yes yes, but he didn't say what version of PHP he was using.<br><br>I tried this on PHP 5.0.5 and got:&nbsp; yes no<br><br>But on PHP 4.3.5 I got:&nbsp; yes yes<br><br>Apparently,
+ PHP4 converts the the string 'aaaa' to zero and then returns the string
+ character at that position within the string $foo, when $foo is not an 
+array. That means you can't assume you are dealing with an array, even 
+if you used an expression such as isset($foo['aaaa']['bbb']['cc']['d']),
+ because it will return true also if any part is a string.<br><br>PHP5 
+does not do this. If $foo is a string, the index must actually be 
+numeric (e.g. $foo[0]) for it to return the indexed character.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="80930">  <div class="votes">
+    <div id="Vu80930">
+    <a href="http://php.net/manual/vote-note.php?id=80930&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd80930">
+    <a href="http://php.net/manual/vote-note.php?id=80930&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V80930" title="52% like this...">
+    18
+    </div>
+  </div>
+  <a href="#80930" class="name">
+  <strong class="user"><em>muratyaman at gmail dot com</em></strong></a><a class="genanchor" href="#80930"> ¶</a><div class="date" title="2008-02-07 04:40"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom80930">
+<div class="phpcode"><code><span class="html">
+To organize some of the frequently used functions..<br><br><span class="default">&lt;?php<br><br></span><span class="comment">/**<br> * Returns field of variable (arr[key] or obj-&gt;prop), otherwise the third parameter<br> * @param array/object $arr_or_obj<br> * @param string $key_or_prop<br> * @param mixed $else<br> */<br></span><span class="keyword">function </span><span class="default">nz</span><span class="keyword">(</span><span class="default">$arr_or_obj</span><span class="keyword">, </span><span class="default">$key_or_prop</span><span class="keyword">, </span><span class="default">$else</span><span class="keyword">){<br>&nbsp; </span><span class="default">$result </span><span class="keyword">= </span><span class="default">$else</span><span class="keyword">;<br>&nbsp; if(isset(</span><span class="default">$arr_or_obj</span><span class="keyword">)){<br>&nbsp; &nbsp; if(</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$arr_or_obj</span><span class="keyword">){<br>&nbsp; &nbsp; &nbsp; if(isset(</span><span class="default">$arr_or_obj</span><span class="keyword">[</span><span class="default">$key_or_prop</span><span class="keyword">]))<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$result </span><span class="keyword">= </span><span class="default">$arr_or_obj</span><span class="keyword">[</span><span class="default">$key_or_prop</span><span class="keyword">];<br>&nbsp; &nbsp; }elseif(</span><span class="default">is_object</span><span class="keyword">(</span><span class="default">$arr_or_object</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; if(isset(</span><span class="default">$arr_or_obj</span><span class="keyword">-&gt;</span><span class="default">$key_or_prop</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$result </span><span class="keyword">= </span><span class="default">$arr_or_obj</span><span class="keyword">-&gt;</span><span class="default">$key_or_prop</span><span class="keyword">;<br>&nbsp; &nbsp; }<br>&nbsp; }<br>&nbsp; return </span><span class="default">$result</span><span class="keyword">;<br>}<br><br></span><span class="comment">/**<br> * Returns integer value using nz()<br> */<br></span><span class="keyword">function </span><span class="default">nz_int</span><span class="keyword">(</span><span class="default">$arr_or_obj</span><span class="keyword">, </span><span class="default">$key_or_prop</span><span class="keyword">, </span><span class="default">$else</span><span class="keyword">){<br>&nbsp; return </span><span class="default">intval</span><span class="keyword">(</span><span class="default">nz</span><span class="keyword">(</span><span class="default">$arr_or_obj</span><span class="keyword">, </span><span class="default">$key_or_prop</span><span class="keyword">, </span><span class="default">$else</span><span class="keyword">));<br>}<br><br></span><span class="default">$my_id </span><span class="keyword">= </span><span class="default">nz_int</span><span class="keyword">(</span><span class="default">$_REQUEST</span><span class="keyword">, </span><span class="string">'id'</span><span class="keyword">, </span><span class="default">0</span><span class="keyword">);<br>if(</span><span class="default">$my_id </span><span class="keyword">&gt; </span><span class="default">0</span><span class="keyword">){<br>&nbsp; </span><span class="comment">//why?<br></span><span class="keyword">}<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="101536">  <div class="votes">
+    <div id="Vu101536">
+    <a href="http://php.net/manual/vote-note.php?id=101536&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd101536">
+    <a href="http://php.net/manual/vote-note.php?id=101536&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V101536" title="52% like this...">
+    16
+    </div>
+  </div>
+  <a href="#101536" class="name">
+  <strong class="user"><em>francois vespa</em></strong></a><a class="genanchor" href="#101536"> ¶</a><div class="date" title="2010-12-22 07:21"><strong>6 years ago</strong></div>
+  <div class="text" id="Hcom101536">
+<div class="phpcode"><code><span class="html">
+Now this is how to achieve the same effect (ie, having isset() returning
+ true even if variable has been set to null) for objects and arrays<br><br><span class="default">&lt;?php<br><br></span><span class="comment">// array<br><br></span><span class="default">$array</span><span class="keyword">=array(</span><span class="string">'foo'</span><span class="keyword">=&gt;</span><span class="default">null</span><span class="keyword">);<br><br>return isset(</span><span class="default">$array</span><span class="keyword">[</span><span class="string">'foo'</span><span class="keyword">]) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'foo'</span><span class="keyword">,</span><span class="default">$array</span><span class="keyword">) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br></span><span class="keyword">return isset(</span><span class="default">$array</span><span class="keyword">[</span><span class="string">'inexistent'</span><span class="keyword">]) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'inexistent'</span><span class="keyword">,</span><span class="default">$array</span><span class="keyword">) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return false<br><br>// static class<br><br></span><span class="keyword">class </span><span class="default">bar<br><br></span><span class="keyword">{<br>&nbsp; static </span><span class="default">$foo</span><span class="keyword">=</span><span class="default">null</span><span class="keyword">;<br>}<br><br>return isset(</span><span class="default">bar</span><span class="keyword">::</span><span class="default">$foo</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'foo'</span><span class="keyword">,</span><span class="default">get_class_vars</span><span class="keyword">(</span><span class="string">'bar'</span><span class="keyword">))<br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br></span><span class="keyword">return isset(</span><span class="default">bar</span><span class="keyword">::</span><span class="default">$inexistent</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'inexistent'</span><span class="keyword">,</span><span class="default">get_class_vars</span><span class="keyword">(</span><span class="string">'bar'</span><span class="keyword">))<br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return false<br><br>// object<br><br></span><span class="keyword">class </span><span class="default">bar<br></span><span class="keyword">{<br>&nbsp; &nbsp; public </span><span class="default">$foo</span><span class="keyword">=</span><span class="default">null</span><span class="keyword">;<br>}<br><br></span><span class="default">$bar</span><span class="keyword">=new </span><span class="default">bar</span><span class="keyword">();<br><br>return isset(</span><span class="default">$bar</span><span class="keyword">-&gt;</span><span class="default">foo</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'foo'</span><span class="keyword">,</span><span class="default">get_object_vars</span><span class="keyword">(</span><span class="default">$bar</span><span class="keyword">)) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br></span><span class="keyword">return isset(</span><span class="default">$bar</span><span class="keyword">-&gt;</span><span class="default">inexistent</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'inexistent'</span><span class="keyword">,</span><span class="default">get_object_vars</span><span class="keyword">(</span><span class="default">$bar</span><span class="keyword">)) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br>// stdClass<br><br></span><span class="default">$bar</span><span class="keyword">=new </span><span class="default">stdClass</span><span class="keyword">;<br></span><span class="default">$bar</span><span class="keyword">-&gt;</span><span class="default">foo</span><span class="keyword">=</span><span class="default">null</span><span class="keyword">;<br><br>return isset(</span><span class="default">$bar</span><span class="keyword">-&gt;</span><span class="default">foo</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'foo'</span><span class="keyword">,</span><span class="default">get_object_vars</span><span class="keyword">(</span><span class="default">$bar</span><span class="keyword">)) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br></span><span class="keyword">return isset(</span><span class="default">$bar</span><span class="keyword">-&gt;</span><span class="default">inexistent</span><span class="keyword">) || </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'inexistent'</span><span class="keyword">,</span><span class="default">get_object_vars</span><span class="keyword">(</span><span class="default">$bar</span><span class="keyword">)) <br>&nbsp; ? </span><span class="default">true </span><span class="keyword">: </span><span class="default">false </span><span class="keyword">; </span><span class="comment">// return true<br><br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="86313">  <div class="votes">
+    <div id="Vu86313">
+    <a href="http://php.net/manual/vote-note.php?id=86313&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd86313">
+    <a href="http://php.net/manual/vote-note.php?id=86313&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V86313" title="52% like this...">
+    16
+    </div>
+  </div>
+  <a href="#86313" class="name">
+  <strong class="user"><em>a dot schaffhirt at sedna-soft dot de</em></strong></a><a class="genanchor" href="#86313"> ¶</a><div class="date" title="2008-10-12 08:01"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom86313">
+<div class="phpcode"><code><span class="html">
+You can safely use isset to check properties and subproperties of objects directly. So instead of writing<br><br>&nbsp; &nbsp; isset($abc) &amp;&amp; isset($abc-&gt;def) &amp;&amp; isset($abc-&gt;def-&gt;ghi)<br><br>or in a shorter form<br><br>&nbsp; &nbsp; isset($abc, $abc-&gt;def, $abc-&gt;def-&gt;ghi)<br><br>you can just write<br><br>&nbsp; &nbsp; isset ($abc-&gt;def-&gt;ghi)<br><br>without raising any errors, warnings or notices.<br><br>Examples<br><span class="default">&lt;?php<br>&nbsp; &nbsp; $abc </span><span class="keyword">= (object) array(</span><span class="string">"def" </span><span class="keyword">=&gt; </span><span class="default">123</span><span class="keyword">);<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$abc</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// bool(true)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// bool(true)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">));&nbsp; &nbsp; &nbsp; </span><span class="comment">// bool(false)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">-&gt;</span><span class="default">jkl</span><span class="keyword">)); </span><span class="comment">// bool(false)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$def</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// bool(false)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// bool(false)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">-&gt;</span><span class="default">jkl</span><span class="keyword">));&nbsp; &nbsp; &nbsp; </span><span class="comment">// bool(false)<br><br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$abc</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// object(stdClass)#1 (1) { ["def"] =&gt; int(123) }<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// int(123)<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// null / E_NOTICE: Trying to get property of non-object<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$abc</span><span class="keyword">-&gt;</span><span class="default">def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">-&gt;</span><span class="default">jkl</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// null / E_NOTICE: Trying to get property of non-object<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$def</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// null / E_NOTICE: Trying to get property of non-object<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// null / E_NOTICE: Trying to get property of non-object<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$def</span><span class="keyword">-&gt;</span><span class="default">ghi</span><span class="keyword">-&gt;</span><span class="default">jkl</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// null / E_NOTICE: Trying to get property of non-object<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="52743">  <div class="votes">
+    <div id="Vu52743">
+    <a href="http://php.net/manual/vote-note.php?id=52743&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd52743">
+    <a href="http://php.net/manual/vote-note.php?id=52743&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V52743" title="52% like this...">
+    17
+    </div>
+  </div>
+  <a href="#52743" class="name">
+  <strong class="user"><em>Andrew Penry</em></strong></a><a class="genanchor" href="#52743"> ¶</a><div class="date" title="2005-05-11 08:17"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom52743">
+<div class="phpcode"><code><span class="html">
+The following is an example of how to test if a variable is set, whether
+ or not it is NULL. It makes use of the fact that an unset variable will
+ throw an E_NOTICE error, but one initialized as NULL will not. <br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">){<br>&nbsp; &nbsp; if (empty(</span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">])) {<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">true</span><span class="keyword">;<br>&nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; unset(</span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">]);<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">false</span><span class="keyword">;<br>&nbsp; &nbsp; }<br>}<br><br>function </span><span class="default">var_existsHandler</span><span class="keyword">(</span><span class="default">$errno</span><span class="keyword">, </span><span class="default">$errstr</span><span class="keyword">, </span><span class="default">$errfile</span><span class="keyword">, </span><span class="default">$errline</span><span class="keyword">) {<br>&nbsp;&nbsp; </span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">] = </span><span class="default">true</span><span class="keyword">;<br>}<br><br></span><span class="default">$l </span><span class="keyword">= </span><span class="default">NULL</span><span class="keyword">;<br></span><span class="default">set_error_handler</span><span class="keyword">(</span><span class="string">"var_existsHandler"</span><span class="keyword">, </span><span class="default">E_NOTICE</span><span class="keyword">);<br>echo (</span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$l</span><span class="keyword">)) ? </span><span class="string">"True " </span><span class="keyword">: </span><span class="string">"False "</span><span class="keyword">;<br>echo (</span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$k</span><span class="keyword">)) ? </span><span class="string">"True " </span><span class="keyword">: </span><span class="string">"False "</span><span class="keyword">;<br></span><span class="default">restore_error_handler</span><span class="keyword">();<br><br></span><span class="default">?&gt;<br></span><br>Outputs:<br>True False<br><br>The
+ problem is, the set_error_handler and restore_error_handler calls can 
+not be inside the function, which means you need 2 extra lines of code 
+every time you are testing. And if you have any E_NOTICE errors caused 
+by other code between the set_error_handler and restore_error_handler 
+they will not be dealt with properly. One solution:<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">){<br>&nbsp;&nbsp; if (empty(</span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">])) {<br>&nbsp; &nbsp; &nbsp;&nbsp; return </span><span class="default">true</span><span class="keyword">;<br>&nbsp;&nbsp; } else {<br>&nbsp; &nbsp; &nbsp;&nbsp; unset(</span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">]);<br>&nbsp; &nbsp; &nbsp;&nbsp; return </span><span class="default">false</span><span class="keyword">;<br>&nbsp;&nbsp; }<br>}<br><br>function </span><span class="default">var_existsHandler</span><span class="keyword">(</span><span class="default">$errno</span><span class="keyword">, </span><span class="default">$errstr</span><span class="keyword">, </span><span class="default">$errfile</span><span class="keyword">, </span><span class="default">$errline</span><span class="keyword">) {<br>&nbsp; &nbsp; </span><span class="default">$filearr </span><span class="keyword">= </span><span class="default">file</span><span class="keyword">(</span><span class="default">$errfile</span><span class="keyword">);<br>&nbsp; &nbsp; if (</span><span class="default">strpos</span><span class="keyword">(</span><span class="default">$filearr</span><span class="keyword">[</span><span class="default">$errline</span><span class="keyword">-</span><span class="default">1</span><span class="keyword">], </span><span class="string">'var_exists'</span><span class="keyword">) !== </span><span class="default">false</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$GLOBALS</span><span class="keyword">[</span><span class="string">'var_exists_err'</span><span class="keyword">] = </span><span class="default">true</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">true</span><span class="keyword">;<br>&nbsp; &nbsp; } else {<br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">false</span><span class="keyword">;<br>&nbsp; &nbsp; }<br>}<br><br></span><span class="default">$l </span><span class="keyword">= </span><span class="default">NULL</span><span class="keyword">;<br></span><span class="default">set_error_handler</span><span class="keyword">(</span><span class="string">"var_existsHandler"</span><span class="keyword">, </span><span class="default">E_NOTICE</span><span class="keyword">);<br>echo (</span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$l</span><span class="keyword">)) ? </span><span class="string">"True " </span><span class="keyword">: </span><span class="string">"False "</span><span class="keyword">;<br>echo (</span><span class="default">var_exists</span><span class="keyword">(</span><span class="default">$k</span><span class="keyword">)) ? </span><span class="string">"True " </span><span class="keyword">: </span><span class="string">"False "</span><span class="keyword">;<br></span><span class="default">is_null</span><span class="keyword">(</span><span class="default">$j</span><span class="keyword">);<br></span><span class="default">restore_error_handler</span><span class="keyword">();<br><br></span><span class="default">?&gt;<br></span><br>Outputs:<br>True False<br>Notice: Undefined variable: j in filename.php on line 26<br><br>This
+ will make the handler only handle var_exists, but it adds a lot of 
+overhead. Everytime an E_NOTICE error happens, the file it originated 
+from will be loaded into an array.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="117266">  <div class="votes">
+    <div id="Vu117266">
+    <a href="http://php.net/manual/vote-note.php?id=117266&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd117266">
+    <a href="http://php.net/manual/vote-note.php?id=117266&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V117266" title="55% like this...">
+    6
+    </div>
+  </div>
+  <a href="#117266" class="name">
+  <strong class="user"><em>andreasonny83 at gmail dot com</em></strong></a><a class="genanchor" href="#117266"> ¶</a><div class="date" title="2015-05-12 11:26"><strong>2 years ago</strong></div>
+  <div class="text" id="Hcom117266">
+<div class="phpcode"><code><span class="html">
+Here is an example with multiple parameters supplied<br><br><span class="default">&lt;?php<br>$var </span><span class="keyword">= array();<br></span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">] = </span><span class="string">'test'</span><span class="keyword">;<br></span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] = </span><span class="string">'on'</span><span class="keyword">;<br><br>if ( isset( </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">], </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] ) &amp;&amp; </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] === </span><span class="string">'on' </span><span class="keyword">) {<br>&nbsp; &nbsp; unset( </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">] );<br>}<br></span><span class="default">print_r</span><span class="keyword">( </span><span class="default">$var </span><span class="keyword">);<br></span><span class="default">?&gt;<br></span><br>This will output:<br>Array<br>(<br>&nbsp; &nbsp; [val2] =&gt; on<br>)<br><br>The following code does the same calling "isset" 2 times:<br><br><span class="default">&lt;?php<br>$var </span><span class="keyword">= array();<br></span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">] = </span><span class="string">'test'</span><span class="keyword">;<br></span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] = </span><span class="string">'on'</span><span class="keyword">;<br><br>if ( isset( </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">] ) &amp;&amp; isset( </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] ) &amp;&amp; </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val2'</span><span class="keyword">] === </span><span class="string">'on' </span><span class="keyword">) {<br>&nbsp; &nbsp; unset( </span><span class="default">$var</span><span class="keyword">[</span><span class="string">'val1'</span><span class="keyword">] );<br>}<br></span><span class="default">print_r</span><span class="keyword">( </span><span class="default">$var </span><span class="keyword">);<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="59196">  <div class="votes">
+    <div id="Vu59196">
+    <a href="http://php.net/manual/vote-note.php?id=59196&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd59196">
+    <a href="http://php.net/manual/vote-note.php?id=59196&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V59196" title="52% like this...">
+    16
+    </div>
+  </div>
+  <a href="#59196" class="name">
+  <strong class="user"><em>Slawek Petrykowski</em></strong></a><a class="genanchor" href="#59196"> ¶</a><div class="date" title="2005-11-29 03:06"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom59196">
+<div class="phpcode"><code><span class="html">
+<span class="default">&lt;?php<br>$foo </span><span class="keyword">= </span><span class="string">'a little string'</span><span class="keyword">;<br>echo isset(</span><span class="default">$foo</span><span class="keyword">)?</span><span class="string">'yes '</span><span class="keyword">:</span><span class="string">'no '</span><span class="keyword">, isset(</span><span class="default">$foo</span><span class="keyword">[</span><span class="string">'aaaa'</span><span class="keyword">])?</span><span class="string">'yes '</span><span class="keyword">:</span><span class="string">'no '</span><span class="keyword">;<br>&gt;<br><br></span><span class="default">results with unexpected values</span><span class="keyword">:<br></span><span class="default">yes yes<br><br>Well</span><span class="keyword">, </span><span class="default">it is necessary to check type of $foo first </span><span class="keyword">!</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="81375">  <div class="votes">
+    <div id="Vu81375">
+    <a href="http://php.net/manual/vote-note.php?id=81375&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd81375">
+    <a href="http://php.net/manual/vote-note.php?id=81375&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V81375" title="52% like this...">
+    13
+    </div>
+  </div>
+  <a href="#81375" class="name">
+  <strong class="user"><em>anonymousleaf at gmail dot com</em></strong></a><a class="genanchor" href="#81375"> ¶</a><div class="date" title="2008-02-25 10:16"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom81375">
+<div class="phpcode"><code><span class="html">
+isset expects the variable sign first, so you can't add parentheses or anything.<br><br><span class="default">&lt;?php<br>&nbsp; &nbsp; $foo </span><span class="keyword">= </span><span class="default">1</span><span class="keyword">;<br>&nbsp; &nbsp; if(isset((</span><span class="default">$foo</span><span class="keyword">))) { </span><span class="comment">// Syntax error at isset((<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$foo </span><span class="keyword">= </span><span class="default">2</span><span class="keyword">;<br>&nbsp; &nbsp; }<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="112046">  <div class="votes">
+    <div id="Vu112046">
+    <a href="http://php.net/manual/vote-note.php?id=112046&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd112046">
+    <a href="http://php.net/manual/vote-note.php?id=112046&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V112046" title="52% like this...">
+    8
+    </div>
+  </div>
+  <a href="#112046" class="name">
+  <strong class="user"><em>uramihsayibok, gmail, com</em></strong></a><a class="genanchor" href="#112046"> ¶</a><div class="date" title="2013-04-25 11:32"><strong>4 years ago</strong></div>
+  <div class="text" id="Hcom112046">
+<div class="phpcode"><code><span class="html">
+Note that isset() is not recursive as of the 5.4.8 I have available here
+ to test with: if you use it on a multidimensional array or an object it
+ will not check isset() on each dimension as it goes.<br><br>Imagine you
+ have a class with a normal __isset and a __get that fatals for 
+non-existant properties. isset($object-&gt;nosuch) will behave normally 
+but isset($object-&gt;nosuch-&gt;foo) will crash. Rather harsh IMO but 
+still possible.<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">class </span><span class="default">FatalOnGet </span><span class="keyword">{<br><br>&nbsp; &nbsp; </span><span class="comment">// pretend that the methods have implementations that actually try to do work<br>&nbsp; &nbsp; // in this example I only care about the worst case conditions<br><br>&nbsp; &nbsp; </span><span class="keyword">public function </span><span class="default">__get</span><span class="keyword">(</span><span class="default">$name</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="string">"(getting </span><span class="keyword">{</span><span class="default">$name</span><span class="keyword">}</span><span class="string">) "</span><span class="keyword">;<br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// if property does not exist {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">echo </span><span class="string">"Property does not exist!"</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; exit;<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// }<br>&nbsp; &nbsp; </span><span class="keyword">}<br><br>&nbsp; &nbsp; public function </span><span class="default">__isset</span><span class="keyword">(</span><span class="default">$name</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="string">"(isset </span><span class="keyword">{</span><span class="default">$name</span><span class="keyword">}</span><span class="string">?) "</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// return whether the property exists<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">return </span><span class="default">false</span><span class="keyword">;<br>&nbsp; &nbsp; }<br><br>}<br><br></span><span class="default">$obj </span><span class="keyword">= new </span><span class="default">FatalOnGet</span><span class="keyword">();<br><br></span><span class="comment">// works<br></span><span class="keyword">echo </span><span class="string">"Testing if -&gt;nosuch exists: "</span><span class="keyword">;<br>if (isset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">nosuch</span><span class="keyword">)) echo </span><span class="string">"Yes"</span><span class="keyword">; else echo </span><span class="string">"No"</span><span class="keyword">;<br><br></span><span class="comment">// fatals<br></span><span class="keyword">echo </span><span class="string">"\nTesting if -&gt;nosuch-&gt;foo exists: "</span><span class="keyword">;<br>if (isset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">nosuch</span><span class="keyword">-&gt;</span><span class="default">foo</span><span class="keyword">)) echo </span><span class="string">"Yes"</span><span class="keyword">; else echo </span><span class="string">"No"</span><span class="keyword">;<br><br></span><span class="comment">// not executed<br></span><span class="keyword">echo </span><span class="string">"\nTesting if -&gt;irrelevant exists: "</span><span class="keyword">;<br>if (isset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">irrelevant</span><span class="keyword">)) echo </span><span class="string">"Yes"</span><span class="keyword">; else echo </span><span class="string">"No"</span><span class="keyword">;<br><br></span><span class="default">?&gt;<br></span><br>&nbsp; &nbsp; Testing if -&gt;nosuch exists: No<br>&nbsp; &nbsp; Testing if -&gt;nosuch-&gt;foo exists: Property does not exist!<br><br>Uncomment the echos in the methods and you'll see exactly what happened:<br><br>&nbsp; &nbsp; Testing if -&gt;nosuch exists: (isset nosuch?) No<br>&nbsp; &nbsp; Testing if -&gt;nosuch-&gt;foo exists: (getting nosuch) Property does not exist!<br><br>On a similar note, if __get always returns but instead issues warnings or notices then those will surface.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="64442">  <div class="votes">
+    <div id="Vu64442">
+    <a href="http://php.net/manual/vote-note.php?id=64442&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd64442">
+    <a href="http://php.net/manual/vote-note.php?id=64442&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V64442" title="51% like this...">
+    12
+    </div>
+  </div>
+  <a href="#64442" class="name">
+  <strong class="user"><em>soywiz at php dot net</em></strong></a><a class="genanchor" href="#64442"> ¶</a><div class="date" title="2006-04-14 06:12"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom64442">
+<div class="phpcode"><code><span class="html">
+Sometimes you have to check if an array has some keys. To achieve it you
+ can use "isset" like this: isset($array['key1'], $array['key2'], 
+$array['key3'], $array['key4'])<br>You have to write $array all times and it is reiterative if you use same array each time.<br><br>With this simple function you can check if an array has some keys:<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">isset_array</span><span class="keyword">() {<br>&nbsp; &nbsp; if (</span><span class="default">func_num_args</span><span class="keyword">() &lt; </span><span class="default">2</span><span class="keyword">) return </span><span class="default">true</span><span class="keyword">;<br>&nbsp; &nbsp; </span><span class="default">$args </span><span class="keyword">= </span><span class="default">func_get_args</span><span class="keyword">();<br>&nbsp; &nbsp; </span><span class="default">$array </span><span class="keyword">= </span><span class="default">array_shift</span><span class="keyword">(</span><span class="default">$args</span><span class="keyword">);<br>&nbsp; &nbsp; if (!</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$array</span><span class="keyword">)) return </span><span class="default">false</span><span class="keyword">;<br>&nbsp; &nbsp; foreach (</span><span class="default">$args </span><span class="keyword">as </span><span class="default">$n</span><span class="keyword">) if (!isset(</span><span class="default">$array</span><span class="keyword">[</span><span class="default">$n</span><span class="keyword">])) return </span><span class="default">false</span><span class="keyword">;<br>&nbsp; &nbsp; return </span><span class="default">true</span><span class="keyword">;<br>}<br></span><span class="default">?&gt;<br></span><br>Use: isset_array($array, 'key1', 'key2', 'key3', 'key4')<br>First parameter has the array; following parameters has the keys you want to check.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="103061">  <div class="votes">
+    <div id="Vu103061">
+    <a href="http://php.net/manual/vote-note.php?id=103061&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd103061">
+    <a href="http://php.net/manual/vote-note.php?id=103061&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V103061" title="51% like this...">
+    9
+    </div>
+  </div>
+  <a href="#103061" class="name">
+  <strong class="user"><em>Cuong Huy To</em></strong></a><a class="genanchor" href="#103061"> ¶</a><div class="date" title="2011-03-23 05:08"><strong>6 years ago</strong></div>
+  <div class="text" id="Hcom103061">
+<div class="phpcode"><code><span class="html">
+1) Note that isset($var) doesn't distinguish the two cases when $var is 
+undefined, or is null. Evidence is in the following code.
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">unset(</span><span class="default">$undefined</span><span class="keyword">);
+<br></span><span class="default">$null </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">;
+<br>if (</span><span class="default">true </span><span class="keyword">=== isset(</span><span class="default">$undefined</span><span class="keyword">)){echo </span><span class="string">'isset($undefined) === true'</span><span class="keyword">} else {echo </span><span class="string">'isset($undefined) === false'</span><span class="keyword">); </span><span class="comment">// 'isset($undefined) === false'
+<br></span><span class="keyword">if (</span><span class="default">true </span><span class="keyword">=== isset(</span><span class="default">$null</span><span class="keyword">)){echo </span><span class="string">'isset($null) === true'</span><span class="keyword">} else {echo </span><span class="string">'isset($null) === false'</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// 'isset($null)&nbsp; &nbsp; &nbsp; === false'
+<br></span><span class="default">?&gt;
+<br></span>
+<br>2) If you want to distinguish undefined variable with a defined variable with a null value, then use array_key_exist
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">unset(</span><span class="default">$undefined</span><span class="keyword">);
+<br></span><span class="default">$null </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">;
+<br>
+<br>if (</span><span class="default">true </span><span class="keyword">!== </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'undefined'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())) {echo </span><span class="string">'$undefined does not exist'</span><span class="keyword">;} else {echo </span><span class="string">'$undefined exists'</span><span class="keyword">;} </span><span class="comment">// '$undefined does not exist'
+<br></span><span class="keyword">if (</span><span class="default">true </span><span class="keyword">=== </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'null'</span><span class="keyword">, </span><span class="default">get_defined_vars</span><span class="keyword">())) {echo </span><span class="string">'$null exists'</span><span class="keyword">;} else {echo </span><span class="string">'$null does not exist'</span><span class="keyword">;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// '$null exists'
+<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="87521">  <div class="votes">
+    <div id="Vu87521">
+    <a href="http://php.net/manual/vote-note.php?id=87521&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd87521">
+    <a href="http://php.net/manual/vote-note.php?id=87521&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V87521" title="51% like this...">
+    8
+    </div>
+  </div>
+  <a href="#87521" class="name">
+  <strong class="user"><em>Ashus</em></strong></a><a class="genanchor" href="#87521"> ¶</a><div class="date" title="2008-12-08 01:05"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom87521">
+<div class="phpcode"><code><span class="html">
+Note that array keys are case sensitive.<br><br><span class="default">&lt;?php<br>$ar</span><span class="keyword">[</span><span class="string">'w'</span><span class="keyword">] = </span><span class="default">true</span><span class="keyword">;<br><br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$ar</span><span class="keyword">[</span><span class="string">'w'</span><span class="keyword">]),<br>&nbsp; &nbsp; &nbsp; isset(</span><span class="default">$ar</span><span class="keyword">[</span><span class="string">'W'</span><span class="keyword">]));<br></span><span class="default">?&gt;<br></span><br>will report:<br>bool(true) bool(false)</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="69950">  <div class="votes">
+    <div id="Vu69950">
+    <a href="http://php.net/manual/vote-note.php?id=69950&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd69950">
+    <a href="http://php.net/manual/vote-note.php?id=69950&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V69950" title="51% like this...">
+    8
+    </div>
+  </div>
+  <a href="#69950" class="name">
+  <strong class="user"><em>randallgirard at hotmail dot com</em></strong></a><a class="genanchor" href="#69950"> ¶</a><div class="date" title="2006-09-27 11:51"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom69950">
+<div class="phpcode"><code><span class="html">
+The unexpected results of isset has been really frustrating to me. 
+Hence, it doesn't work how you'd think it would, (as documented) a var 
+currently in the scope with a null value will return false.
+<br>
+<br>Heres a quick solution, perhaps there are better ways of going about this, but heres my solution...
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">function </span><span class="default">is_set</span><span class="keyword">( </span><span class="default">$varname</span><span class="keyword">, </span><span class="default">$parent</span><span class="keyword">=</span><span class="default">null </span><span class="keyword">) {
+<br>&nbsp; if ( !</span><span class="default">is_array</span><span class="keyword">( </span><span class="default">$parent </span><span class="keyword">) &amp;&amp; !</span><span class="default">is_object</span><span class="keyword">(</span><span class="default">$parent</span><span class="keyword">) ) {
+<br>&nbsp; &nbsp; </span><span class="default">$parent </span><span class="keyword">= </span><span class="default">$GLOBALS</span><span class="keyword">;
+<br>&nbsp; }
+<br>&nbsp; return </span><span class="default">array_key_exists</span><span class="keyword">( </span><span class="default">$varname</span><span class="keyword">, </span><span class="default">$parent </span><span class="keyword">);
+<br>}
+<br></span><span class="default">?&gt;
+<br></span>
+<br>Hence, $varname should be a mixed value of var's to check for, and 
+$parent can be an array or object, which will default to the GLOBAL 
+scope. See the documentation of array_key_exists for further 
+information.
+<br>
+<br>This will allow to check if a var is in the current scope, object, 
+or array... Whether it's a null, false, true, or any value. It depends 
+on ARRAY_KEY_EXISTS for it's functionality which also works with 
+Objects. Feel free to improve on this anyone ;D</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="92926">  <div class="votes">
+    <div id="Vu92926">
+    <a href="http://php.net/manual/vote-note.php?id=92926&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd92926">
+    <a href="http://php.net/manual/vote-note.php?id=92926&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V92926" title="51% like this...">
+    7
+    </div>
+  </div>
+  <a href="#92926" class="name">
+  <strong class="user"><em>Anl zselgin</em></strong></a><a class="genanchor" href="#92926"> ¶</a><div class="date" title="2009-08-14 03:30"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom92926">
+<div class="phpcode"><code><span class="html">
+Note: Because this is a language construct and not a function, it cannot be called using variable functions.<br><br>So why it is under "Variable handling Functions". Maybe there should be some good documentation field for language constructs.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="85742">  <div class="votes">
+    <div id="Vu85742">
+    <a href="http://php.net/manual/vote-note.php?id=85742&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd85742">
+    <a href="http://php.net/manual/vote-note.php?id=85742&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V85742" title="50% like this...">
+    5
+    </div>
+  </div>
+  <a href="#85742" class="name">
+  <strong class="user"><em>mark dot fabrizio at gmail dot com</em></strong></a><a class="genanchor" href="#85742"> ¶</a><div class="date" title="2008-09-15 07:01"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom85742">
+<div class="phpcode"><code><span class="html">
+I know this is probably not the recommended way to do this, but it seems
+ to work fine for me. Instead of the normal isset check to extract 
+variables from arrays (like $_REQUEST), you can use the @ prefix to 
+squelch any errors.<br><br>For example, instead of:<br><span class="default">&lt;?php<br>$test </span><span class="keyword">= isset(</span><span class="default">$_REQUEST</span><span class="keyword">[</span><span class="string">'test'</span><span class="keyword">]) ? </span><span class="default">$_REQUEST</span><span class="keyword">[</span><span class="string">'test'</span><span class="keyword">] : </span><span class="default">null</span><span class="keyword">;<br></span><span class="default">?&gt;<br></span>you can use:<br><span class="default">&lt;?php<br>$test </span><span class="keyword">= @</span><span class="default">$_REQUEST</span><span class="keyword">[</span><span class="string">'test'</span><span class="keyword">];<br></span><span class="default">?&gt;<br></span><br>It
+ saves some typing, but doesn't give the opportunity to provide a 
+default value. If 'test' is not an assigned key for $_REQUEST, the 
+assigned value will be null.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="103603">  <div class="votes">
+    <div id="Vu103603">
+    <a href="http://php.net/manual/vote-note.php?id=103603&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd103603">
+    <a href="http://php.net/manual/vote-note.php?id=103603&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V103603" title="50% like this...">
+    4
+    </div>
+  </div>
+  <a href="#103603" class="name">
+  <strong class="user"><em>benallfree at gmail dot com</em></strong></a><a class="genanchor" href="#103603"> ¶</a><div class="date" title="2011-04-21 06:21"><strong>6 years ago</strong></div>
+  <div class="text" id="Hcom103603">
+<div class="phpcode"><code><span class="html">
+isset() returns TRUE if a value is NULL. That seems wrong to me as there
+ is no way to distinguish between a value set to NULL and a truly 
+undefined value.
+<br>
+<br>If you have this problem inside a class, there is a fix:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">class </span><span class="default">T
+<br></span><span class="keyword">{
+<br>&nbsp; function </span><span class="default">__isset</span><span class="keyword">(</span><span class="default">$att</span><span class="keyword">)
+<br>&nbsp; {
+<br>&nbsp; &nbsp; </span><span class="default">$props </span><span class="keyword">= </span><span class="default">get_object_vars</span><span class="keyword">(</span><span class="default">$this</span><span class="keyword">);
+<br>&nbsp; &nbsp; return </span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="default">$att</span><span class="keyword">, </span><span class="default">$props</span><span class="keyword">);
+<br>&nbsp; }
+<br>}
+<br>
+<br></span><span class="default">$x </span><span class="keyword">= new </span><span class="default">T</span><span class="keyword">();
+<br></span><span class="default">$x</span><span class="keyword">-&gt;</span><span class="default">foo_exists </span><span class="keyword">= </span><span class="default">4</span><span class="keyword">;
+<br>
+<br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$x</span><span class="keyword">-&gt;</span><span class="default">foo_exists</span><span class="keyword">)); </span><span class="comment">// TRUE
+<br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$x</span><span class="keyword">-&gt;</span><span class="default">bar_exists</span><span class="keyword">)); </span><span class="comment">// FALSE
+<br></span><span class="default">?&gt;
+<br></span>[EDITOR thiago NOTE: This snippet has improvements by "Paul Lashbrook"]</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="80032">  <div class="votes">
+    <div id="Vu80032">
+    <a href="http://php.net/manual/vote-note.php?id=80032&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd80032">
+    <a href="http://php.net/manual/vote-note.php?id=80032&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V80032" title="50% like this...">
+    5
+    </div>
+  </div>
+  <a href="#80032" class="name">
+  <strong class="user"><em>packard_bell_nec at hotmail dot com</em></strong></a><a class="genanchor" href="#80032"> ¶</a><div class="date" title="2007-12-25 11:18"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom80032">
+<div class="phpcode"><code><span class="html">
+Note: isset() only checks variables as anything else will result in a 
+parse error. In other words, the following will not work: 
+isset(trim($name)). <br><br>isset() is the opposite of is_null($var) , except that no warning is generated when the variable is not set.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="69025">  <div class="votes">
+    <div id="Vu69025">
+    <a href="http://php.net/manual/vote-note.php?id=69025&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd69025">
+    <a href="http://php.net/manual/vote-note.php?id=69025&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V69025" title="50% like this...">
+    5
+    </div>
+  </div>
+  <a href="#69025" class="name">
+  <strong class="user"><em>Tee Cee</em></strong></a><a class="genanchor" href="#69025"> ¶</a><div class="date" title="2006-08-20 05:20"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom69025">
+<div class="phpcode"><code><span class="html">
+In response to 10-Feb-2006 06:02, isset($v) is in all (except possibly 
+buggy) cases equivalent to !is_null($v). And no, it doesn't actually 
+test if a variable is set or not by my definition "$v is set if 
+unset($v) has no effect".<br><br><span class="default">&lt;?php<br></span><span class="keyword">unset(</span><span class="default">$c</span><span class="keyword">); </span><span class="comment">//force $c to be unset<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">=&amp;</span><span class="default">$c</span><span class="keyword">); </span><span class="comment">// NULL, but this actually sets $a and $c to the 'same' NULL.<br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$c</span><span class="keyword">)); </span><span class="comment">// bool(false)<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a </span><span class="keyword">= </span><span class="default">5</span><span class="keyword">); </span><span class="comment">// int(5)<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$c</span><span class="keyword">); </span><span class="comment">// int(5)<br><br></span><span class="keyword">unset(</span><span class="default">$c</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">=&amp;</span><span class="default">$c</span><span class="keyword">); </span><span class="comment">// NULL<br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$c</span><span class="keyword">)); </span><span class="comment">// bool(false)<br></span><span class="keyword">unset(</span><span class="default">$c</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a </span><span class="keyword">= </span><span class="default">5</span><span class="keyword">); </span><span class="comment">// int(5)<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$c</span><span class="keyword">); </span><span class="comment">// NULL<br></span><span class="default">?&gt;<br></span><br>In the following example, we see an alternate method of testing if a variable is actually set or not:<br><span class="default">&lt;?php<br>var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// false <br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$c</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// also false<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$c</span><span class="keyword">);&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </span><span class="comment">// manipulate $c a bit...<br></span><span class="default">var_dump</span><span class="keyword">((string)</span><span class="default">$c</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$c</span><span class="keyword">,</span><span class="default">true</span><span class="keyword">));<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">=</span><span class="default">$c</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// ... still false<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$c </span><span class="keyword">= </span><span class="default">NULL</span><span class="keyword">);&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// this sets $c<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// true!<br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$c</span><span class="keyword">));&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// false; isset() still says it's unset<br></span><span class="keyword">unset(</span><span class="default">$c</span><span class="keyword">);&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// actually unset it<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// false<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">=&amp;</span><span class="default">$c</span><span class="keyword">);&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp;&nbsp; <br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// true!<br></span><span class="keyword">unset(</span><span class="default">$c</span><span class="keyword">);&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// unset it again<br></span><span class="default">var_dump</span><span class="keyword">(&amp;</span><span class="default">$c</span><span class="keyword">);&nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// &amp;NULL<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="string">'c'</span><span class="keyword">,</span><span class="default">get_defined_vars</span><span class="keyword">())); </span><span class="comment">// true!<br></span><span class="default">?&gt;<br></span><br>Obviously,
+ null values take up space (or they wouldn't show up in 
+get_defined_vars). Also, note that &amp;$v sets $v to NULL if it is 
+unset.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="86615">  <div class="votes">
+    <div id="Vu86615">
+    <a href="http://php.net/manual/vote-note.php?id=86615&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd86615">
+    <a href="http://php.net/manual/vote-note.php?id=86615&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V86615" title="50% like this...">
+    4
+    </div>
+  </div>
+  <a href="#86615" class="name">
+  <strong class="user"><em>tomek</em></strong></a><a class="genanchor" href="#86615"> ¶</a><div class="date" title="2008-10-26 06:48"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom86615">
+<div class="phpcode"><code><span class="html">
+Here's a simple function to test if the variable is set:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">function </span><span class="default">is</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">)
+<br>{
+<br>if (!isset(</span><span class="default">$var</span><span class="keyword">)) return </span><span class="default">false</span><span class="keyword">;
+<br>if (</span><span class="default">$var</span><span class="keyword">!==</span><span class="default">false</span><span class="keyword">) return </span><span class="default">true</span><span class="keyword">;
+<br>return </span><span class="default">false</span><span class="keyword">;
+<br>}
+<br></span><span class="default">?&gt;
+<br></span>
+<br>Now instead of very popular (but invalid in many situations):
+<br>
+<br>if (!$var) $var=5;
+<br>
+<br>you can write:
+<br>
+<br>if (!is($var)) $var=5;</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="121461">  <div class="votes">
+    <div id="Vu121461">
+    <a href="http://php.net/manual/vote-note.php?id=121461&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd121461">
+    <a href="http://php.net/manual/vote-note.php?id=121461&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V121461" title="100% like this...">
+    1
+    </div>
+  </div>
+  <a href="#121461" class="name">
+  <strong class="user"><em>Hayley Watson</em></strong></a><a class="genanchor" href="#121461"> ¶</a><div class="date" title="2017-07-30 01:12"><strong>2 months ago</strong></div>
+  <div class="text" id="Hcom121461">
+<div class="phpcode"><code><span class="html">
+If you regard isset() as indicating whether the given variable has a 
+value or not, and recall that NULL is intended to indicate that a value 
+is _absent_ (as said, somewhat awkwardly, on its manual page), then its 
+behaviour is not at all inconsistent or confusing.<br><br>It's not just 
+to check for uninitialised variables - a lot of the time those are just 
+due to sloppy coding. There are other ways a variable could fail to have
+ a value (e.g., it's meant to hold the value returned from a function 
+call but the function didn't have a value to return) where 
+uninitialising the variable would not be an option nor even make sense 
+(e.g., depending on what was to be done with the returned value).</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="77060">  <div class="votes">
+    <div id="Vu77060">
+    <a href="http://php.net/manual/vote-note.php?id=77060&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd77060">
+    <a href="http://php.net/manual/vote-note.php?id=77060&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V77060" title="50% like this...">
+    4
+    </div>
+  </div>
+  <a href="#77060" class="name">
+  <strong class="user"><em>talbutt(at)mail(dot)med(dot)upenn(edu)</em></strong></a><a class="genanchor" href="#77060"> ¶</a><div class="date" title="2007-08-13 08:30"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom77060">
+<div class="phpcode"><code><span class="html">
+In PHP 5.2.3, really returns true if the variable is set to null.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="107820">  <div class="votes">
+    <div id="Vu107820">
+    <a href="http://php.net/manual/vote-note.php?id=107820&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd107820">
+    <a href="http://php.net/manual/vote-note.php?id=107820&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V107820" title="50% like this...">
+    2
+    </div>
+  </div>
+  <a href="#107820" class="name">
+  <strong class="user"><em>qeremy</em></strong></a><a class="genanchor" href="#107820"> ¶</a><div class="date" title="2012-03-07 03:36"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom107820">
+<div class="phpcode"><code><span class="html">
+Simple solution for: "Fatal error: Can't use function return value in write context in ..."<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">_isset</span><span class="keyword">(</span><span class="default">$val</span><span class="keyword">) { return isset(</span><span class="default">$val</span><span class="keyword">); }<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="121296">  <div class="votes">
+    <div id="Vu121296">
+    <a href="http://php.net/manual/vote-note.php?id=121296&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd121296">
+    <a href="http://php.net/manual/vote-note.php?id=121296&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V121296" title="0% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#121296" class="name">
+  <strong class="user"><em>dominic dot mayers at meditationstudies dot org</em></strong></a><a class="genanchor" href="#121296"> ¶</a><div class="date" title="2017-07-01 11:24"><strong>3 months ago</strong></div>
+  <div class="text" id="Hcom121296" style="opacity: 0.65;">
+<div class="phpcode"><code><span class="html">
+The comment <a href="http://php.net/manual/en/function.is-null.php#80409" rel="nofollow" target="_blank">http://php.net/manual/en/function.is-null.php#80409</a>
+ brings the interesting point that is_null will throw an error if the 
+variable was not set at all.&nbsp; So, we can distinguish a variable 
+that is unset through a NULL assignment and a variable that is simply 
+not set at all. However,&nbsp; the returned value under is_null is the 
+same in both cases, only the error message differs.&nbsp; <br><br>We can
+ define another function that determines if the variable is "set," 
+including "set" by a NULL assignment.&nbsp; It's a different concept, 
+different definitions&nbsp; of isset, etc.&nbsp; Mixing these different 
+concepts can be confusing. <br><br>In the current definitions for isset,
+ is_null, NULL, etc., the extra "and is not NULL" in the definition of 
+isset is redundant, because is_null is the opposite of isset.&nbsp; We 
+should not mix that with the other concept mentioned above.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="121295">  <div class="votes">
+    <div id="Vu121295">
+    <a href="http://php.net/manual/vote-note.php?id=121295&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd121295">
+    <a href="http://php.net/manual/vote-note.php?id=121295&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V121295" title="0% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#121295" class="name">
+  <strong class="user"><em>dominic dot mayers at meditationstudies dot org</em></strong></a><a class="genanchor" href="#121295"> ¶</a><div class="date" title="2017-07-01 09:51"><strong>3 months ago</strong></div>
+  <div class="text" id="Hcom121295" style="opacity: 0.65;">
+<div class="phpcode"><code><span class="html">
+The doc says that isset "determines if a variable is set and is not 
+NULL."&nbsp; I prefer to simply say that it "determines that a variable 
+is set," that's it. Adding "is not NULL" is redundant, because isset($v)
+ is the same as ! is_null($v) : <a href="http://php.net/manual/en/types.comparisons.php." rel="nofollow" target="_blank">http://php.net/manual/en/types.comparisons.php.</a> <br><br>The&nbsp;
+ extra "is&nbsp; not NULL" is actually a bit confusing. Some might start
+ to complain that it would have been simpler to only determine that the 
+variable is set, not realizing that it's exactly what isset does.<br><br>The
+ purpose of the redundant "is not NULL" is to bring out that if a&nbsp; 
+variable is set to NULL,&nbsp; isset will return false, but it was 
+implicit in the definition of NULL.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="95557">  <div class="votes">
+    <div id="Vu95557">
+    <a href="http://php.net/manual/vote-note.php?id=95557&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd95557">
+    <a href="http://php.net/manual/vote-note.php?id=95557&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V95557" title="49% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#95557" class="name">
+  <strong class="user"><em>Robert dot VanDell at cbs dot com</em></strong></a><a class="genanchor" href="#95557"> ¶</a><div class="date" title="2010-01-08 02:19"><strong>7 years ago</strong></div>
+  <div class="text" id="Hcom95557" style="opacity: 0.65;">
+<div class="phpcode"><code><span class="html">
+Here's a nice little function that I use everywhere that'll help with 
+setting alternate values so you don't have a bunch of situations like:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">if(isset(</span><span class="default">$a</span><span class="keyword">))
+<br>{
+<br>&nbsp; &nbsp; </span><span class="default">$b </span><span class="keyword">= </span><span class="default">$a</span><span class="keyword">;
+<br>}
+<br>else
+<br>{
+<br>&nbsp; &nbsp; </span><span class="default">$b </span><span class="keyword">= </span><span class="string">"default"</span><span class="keyword">;
+<br>}
+<br>
+<br>function </span><span class="default">isset_or</span><span class="keyword">(&amp;</span><span class="default">$check</span><span class="keyword">, </span><span class="default">$alternate </span><span class="keyword">= </span><span class="default">NULL</span><span class="keyword">)
+<br>{
+<br>&nbsp; &nbsp; return (isset(</span><span class="default">$check</span><span class="keyword">)) ? </span><span class="default">$check </span><span class="keyword">: </span><span class="default">$alternate</span><span class="keyword">;
+<br>}
+<br>
+<br></span><span class="comment">// Example usage:
+<br></span><span class="default">$first_name </span><span class="keyword">= </span><span class="default">isset_or</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'first_name'</span><span class="keyword">], </span><span class="string">"Empty"</span><span class="keyword">);
+<br></span><span class="default">$total&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">= </span><span class="default">isset_or</span><span class="keyword">(</span><span class="default">$row</span><span class="keyword">[</span><span class="string">'total'</span><span class="keyword">], </span><span class="default">0</span><span class="keyword">);
+<br>
+<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="112637">  <div class="votes">
+    <div id="Vu112637">
+    <a href="http://php.net/manual/vote-note.php?id=112637&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd112637">
+    <a href="http://php.net/manual/vote-note.php?id=112637&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V112637" title="48% like this...">
+    -3
+    </div>
+  </div>
+  <a href="#112637" class="name">
+  <strong class="user"><em>marcio at suhdo dot com</em></strong></a><a class="genanchor" href="#112637"> ¶</a><div class="date" title="2013-07-07 11:08"><strong>4 years ago</strong></div>
+  <div class="text" id="Hcom112637" style="opacity: 0.55;">
+<div class="phpcode"><code><span class="html">
+//thin way to set a variable<br>$foo&nbsp; = isset($_POST['foo']) ? $_POST['foo'] : null;</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="72077">  <div class="votes">
+    <div id="Vu72077">
+    <a href="http://php.net/manual/vote-note.php?id=72077&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd72077">
+    <a href="http://php.net/manual/vote-note.php?id=72077&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V72077" title="49% like this...">
+    -3
+    </div>
+  </div>
+  <a href="#72077" class="name">
+  <strong class="user"><em>beuc at beuc dot net</em></strong></a><a class="genanchor" href="#72077"> ¶</a><div class="date" title="2007-01-01 01:56"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom72077" style="opacity: 0.55;">
+<div class="phpcode"><code><span class="html">
+Beware that the chk() function below creates the variable or the array index if it didn't existed.<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">chk</span><span class="keyword">(&amp;</span><span class="default">$var</span><span class="keyword">) {<br>&nbsp; if (!isset(</span><span class="default">$var</span><span class="keyword">))<br>&nbsp; &nbsp; return </span><span class="default">NULL</span><span class="keyword">;<br>&nbsp; else<br>&nbsp; &nbsp; return </span><span class="default">$var</span><span class="keyword">;<br>}<br><br>echo </span><span class="string">'&lt;pre&gt;'</span><span class="keyword">;<br></span><span class="default">$a </span><span class="keyword">= array();<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br></span><span class="default">chk</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">[</span><span class="string">'b'</span><span class="keyword">]);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">);<br>echo </span><span class="string">'&lt;/pre&gt;'</span><span class="keyword">;<br><br></span><span class="comment">// Gives:<br>// array<br>//&nbsp;&nbsp; empty<br>// <br>// array<br>//&nbsp;&nbsp; 'b' =&gt; null<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="83620">  <div class="votes">
+    <div id="Vu83620">
+    <a href="http://php.net/manual/vote-note.php?id=83620&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd83620">
+    <a href="http://php.net/manual/vote-note.php?id=83620&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V83620" title="49% like this...">
+    -5
+    </div>
+  </div>
+  <a href="#83620" class="name">
+  <strong class="user"><em>soapergem at gmail dot com</em></strong></a><a class="genanchor" href="#83620"> ¶</a><div class="date" title="2008-06-04 02:19"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom83620" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Below a user by the name of Scott posted an isval() function; I just 
+wanted to point out a revision to his method since it's a bit lengthy 
+for what it does. The trick is to realize that a boolean AND clause will
+ terminate with false as soon as it encounters anything that evaluates 
+to false, and will skip over any remaining checks.<br><br>Instead of taking up the space to define isval(), you could just run inline commands for each variable you need to check this:<br><br><span class="default">&lt;?php<br><br>$isval </span><span class="keyword">= isset(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'var'</span><span class="keyword">]) &amp;&amp; !empty(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'var'</span><span class="keyword">]);<br><br></span><span class="default">?&gt;<br></span><br>Also be warned that if you try to encapsulate this into a function, you might encounter problems. It's meant to stand alone.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="48056">  <div class="votes">
+    <div id="Vu48056">
+    <a href="http://php.net/manual/vote-note.php?id=48056&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd48056">
+    <a href="http://php.net/manual/vote-note.php?id=48056&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V48056" title="49% like this...">
+    -4
+    </div>
+  </div>
+  <a href="#48056" class="name">
+  <strong class="user"><em>pianistsk8er at gmail dot com</em></strong></a><a class="genanchor" href="#48056"> ¶</a><div class="date" title="2004-12-09 06:23"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom48056" style="opacity: 0.45;">
+<div class="phpcode"><code><span class="html">
+This function is very useful while calling to the URL to specify which template to be used on certain parts of your application.<br><br>Here is an example...<br><br><span class="default">&lt;?php<br><br>&nbsp; &nbsp; $cat </span><span class="keyword">= </span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'c'</span><span class="keyword">];<br>&nbsp; &nbsp; </span><span class="default">$id </span><span class="keyword">= </span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'id'</span><span class="keyword">];&nbsp; &nbsp; <br>&nbsp; &nbsp; </span><span class="default">$error </span><span class="keyword">= </span><span class="string">'templates/error.tpl'</span><span class="keyword">;<br><br>&nbsp; &nbsp; if( isset(</span><span class="default">$cat</span><span class="keyword">))<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; if( isset(</span><span class="default">$id</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$var </span><span class="keyword">= </span><span class="string">'templates/pics/' </span><span class="keyword">. </span><span class="default">$cat </span><span class="keyword">. </span><span class="string">'-' </span><span class="keyword">. </span><span class="default">$id </span><span class="keyword">. </span><span class="string">'.tpl'</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">is_file</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include(</span><span class="default">$var</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include(</span><span class="default">$error</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$var </span><span class="keyword">= </span><span class="string">'templates/pics/' </span><span class="keyword">. </span><span class="default">$cat </span><span class="keyword">. </span><span class="string">'.tpl'</span><span class="keyword">;&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</span><span class="default">is_file</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include(</span><span class="default">$var</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include(</span><span class="default">$error</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; else<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; include(</span><span class="string">'templates/alternative.'</span><span class="keyword">.</span><span class="default">tpl</span><span class="keyword">);<br>&nbsp; &nbsp; }<br><br></span><span class="default">?&gt;<br></span><br>You
+ can see several uses of the isset function being used to specify wheter
+ a template is to be called upon or not.&nbsp; This can easily prevent 
+other generic PHP errors.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="119050">  <div class="votes">
+    <div id="Vu119050">
+    <a href="http://php.net/manual/vote-note.php?id=119050&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd119050">
+    <a href="http://php.net/manual/vote-note.php?id=119050&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V119050" title="45% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#119050" class="name">
+  <strong class="user"><em>ayyappan dot ashok at gmail dot com</em></strong></a><a class="genanchor" href="#119050"> ¶</a><div class="date" title="2016-03-24 07:23"><strong>1 year ago</strong></div>
+  <div class="text" id="Hcom119050" style="opacity: 0.65;">
+<div class="phpcode"><code><span class="html">
+Return Values :<br>Returns TRUE if var exists and has value other than NULL, FALSE otherwise.<br><br><span class="default">&lt;?php<br>$a</span><span class="keyword">=</span><span class="default">NULL</span><span class="keyword">;<br></span><span class="default">$b</span><span class="keyword">=</span><span class="default">FALSE</span><span class="keyword">; </span><span class="comment">//The out put was TRUE. <br></span><span class="default">$c</span><span class="keyword">=</span><span class="default">TRUE</span><span class="keyword">;<br></span><span class="default">$d</span><span class="keyword">=</span><span class="string">''</span><span class="keyword">;<br></span><span class="default">$e</span><span class="keyword">=</span><span class="string">""</span><span class="keyword">;<br>if(isset(</span><span class="default">$b</span><span class="keyword">)):<br>echo </span><span class="string">"TRUE"</span><span class="keyword">;<br>else:<br>echo </span><span class="string">"FALSE"</span><span class="keyword">;&nbsp; &nbsp; <br>endif;<br></span><span class="default">?&gt;<br></span>Could any one explain me in clarity.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="55747">  <div class="votes">
+    <div id="Vu55747">
+    <a href="http://php.net/manual/vote-note.php?id=55747&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd55747">
+    <a href="http://php.net/manual/vote-note.php?id=55747&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V55747" title="49% like this...">
+    -5
+    </div>
+  </div>
+  <a href="#55747" class="name">
+  <strong class="user"><em>onno at itmaze dot com dot au ##php==owh</em></strong></a><a class="genanchor" href="#55747"> ¶</a><div class="date" title="2005-08-12 12:33"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom55747" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+In PHP4, the following works as expected:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">if (isset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">thing</span><span class="keyword">[</span><span class="string">'key'</span><span class="keyword">])) {
+<br>&nbsp; unset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">thing</span><span class="keyword">[</span><span class="string">'key'</span><span class="keyword">]) ;
+<br>}
+<br></span><span class="default">?&gt;
+<br></span>
+<br>In PHP5 however you will get a fatal error for the unset().
+<br>
+<br>The work around is:
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">if (</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">thing</span><span class="keyword">) &amp;&amp; isset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">thing</span><span class="keyword">[</span><span class="string">'key'</span><span class="keyword">])) {
+<br>&nbsp; unset(</span><span class="default">$obj</span><span class="keyword">-&gt;</span><span class="default">thing</span><span class="keyword">[</span><span class="string">'key'</span><span class="keyword">]) ;
+<br>}
+<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="113641">  <div class="votes">
+    <div id="Vu113641">
+    <a href="http://php.net/manual/vote-note.php?id=113641&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd113641">
+    <a href="http://php.net/manual/vote-note.php?id=113641&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V113641" title="45% like this...">
+    -4
+    </div>
+  </div>
+  <a href="#113641" class="name">
+  <strong class="user"><em>flobee</em></strong></a><a class="genanchor" href="#113641"> ¶</a><div class="date" title="2013-11-08 02:38"><strong>3 years ago</strong></div>
+  <div class="text" id="Hcom113641" style="opacity: 0.45;">
+<div class="phpcode"><code><span class="html">
+KISS: array_key_exists() is often the answer, not isset()<br><span class="default">&lt;?php<br>$array</span><span class="keyword">[</span><span class="string">'secure'</span><span class="keyword">] = </span><span class="default">null</span><span class="keyword">;<br>if ( isset( </span><span class="default">$array</span><span class="keyword">[</span><span class="string">'secure'</span><span class="keyword">] ) ) {<br>&nbsp; &nbsp; </span><span class="comment">// what happens here?<br></span><span class="keyword">}</span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="56751">  <div class="votes">
+    <div id="Vu56751">
+    <a href="http://php.net/manual/vote-note.php?id=56751&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd56751">
+    <a href="http://php.net/manual/vote-note.php?id=56751&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V56751" title="48% like this...">
+    -8
+    </div>
+  </div>
+  <a href="#56751" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#56751"> ¶</a><div class="date" title="2005-09-14 03:41"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom56751" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+I don't know if you guys can use this but i find this piece of code pretty useful (for readabillity at least):<br><br>function isset_else( $&amp;v, $r )<br>{<br>&nbsp; &nbsp; if( isset( $v ))<br>&nbsp; &nbsp; &nbsp; &nbsp; return $v;<br>&nbsp; &nbsp; else<br>&nbsp; &nbsp; &nbsp; &nbsp; return $r;<br>}<br><br>This way you can go:<br><br>$a = 4;<br><br>$c += isset_else( $a, 0 );<br>$c += isset_else( $b, 0 );<br><br>echo $c;<br><br>Of course, this code would work anyway, but you get the point.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="84195">  <div class="votes">
+    <div id="Vu84195">
+    <a href="http://php.net/manual/vote-note.php?id=84195&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd84195">
+    <a href="http://php.net/manual/vote-note.php?id=84195&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V84195" title="48% like this...">
+    -10
+    </div>
+  </div>
+  <a href="#84195" class="name">
+  <strong class="user"><em>soapergem at gmail dot com</em></strong></a><a class="genanchor" href="#84195"> ¶</a><div class="date" title="2008-07-02 01:34"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom84195" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+It is possible to encapsulate isset() calls inside your own functions if
+ you pass them by reference (note the ampersand in the argument list) 
+instead of by value. A prime example would be the heavily-requested 
+"ifsetor" function, which will return a value when it is set, otherwise a
+ default value that the user specifies is used.<br><br><span class="default">&lt;?php<br><br></span><span class="keyword">function </span><span class="default">ifsetor</span><span class="keyword">(&amp;</span><span class="default">$val</span><span class="keyword">, </span><span class="default">$default </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">)<br>{<br>&nbsp; &nbsp; return isset(</span><span class="default">$val</span><span class="keyword">) ? </span><span class="default">$val </span><span class="keyword">: </span><span class="default">$default</span><span class="keyword">;<br>}<br><br></span><span class="comment">//&nbsp; &nbsp; example usage<br></span><span class="default">$id </span><span class="keyword">= </span><span class="default">intval</span><span class="keyword">(</span><span class="default">ifsetor</span><span class="keyword">(</span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'id'</span><span class="keyword">], </span><span class="default">0</span><span class="keyword">));<br><br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="71518">  <div class="votes">
+    <div id="Vu71518">
+    <a href="http://php.net/manual/vote-note.php?id=71518&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd71518">
+    <a href="http://php.net/manual/vote-note.php?id=71518&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V71518" title="48% like this...">
+    -10
+    </div>
+  </div>
+  <a href="#71518" class="name">
+  <strong class="user"><em>roberto at spadim dot com dot br</em></strong></a><a class="genanchor" href="#71518"> ¶</a><div class="date" title="2006-12-03 10:04"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom71518" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+test:<br><br><span class="default">&lt;?php<br>$qnt</span><span class="keyword">=</span><span class="default">100000</span><span class="keyword">;<br></span><span class="default">$k</span><span class="keyword">=array();<br>for (</span><span class="default">$i</span><span class="keyword">=</span><span class="default">0</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">&lt;</span><span class="default">$qnt</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">++)<br></span><span class="default">$k</span><span class="keyword">[</span><span class="default">$i</span><span class="keyword">]=</span><span class="default">1</span><span class="keyword">;<br><br>echo </span><span class="default">microtime</span><span class="keyword">().</span><span class="string">"\n"</span><span class="keyword">;<br>for (</span><span class="default">$i</span><span class="keyword">=</span><span class="default">0</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">&lt;</span><span class="default">$qnt</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">++)if(isset(</span><span class="default">$k</span><span class="keyword">[</span><span class="default">$i</span><span class="keyword">]));<br>echo </span><span class="default">microtime</span><span class="keyword">().</span><span class="string">"\n"</span><span class="keyword">;<br>for (</span><span class="default">$i</span><span class="keyword">=</span><span class="default">0</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">&lt;</span><span class="default">$qnt</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">++)if(</span><span class="default">array_key_exists</span><span class="keyword">(</span><span class="default">$i</span><span class="keyword">,</span><span class="default">$k</span><span class="keyword">));<br>echo </span><span class="default">microtime</span><span class="keyword">().</span><span class="string">"\n"</span><span class="keyword">;<br>for (</span><span class="default">$i</span><span class="keyword">=</span><span class="default">0</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">&lt;</span><span class="default">$qnt</span><span class="keyword">;</span><span class="default">$i</span><span class="keyword">++)if(</span><span class="default">$k</span><span class="keyword">[</span><span class="default">$i</span><span class="keyword">]==</span><span class="default">1</span><span class="keyword">);<br>echo </span><span class="default">microtime</span><span class="keyword">().</span><span class="string">"\n"</span><span class="keyword">;<br><br></span><span class="default">?&gt;<br></span><br>the interesting result:<br>isset is the fastest</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="62790">  <div class="votes">
+    <div id="Vu62790">
+    <a href="http://php.net/manual/vote-note.php?id=62790&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd62790">
+    <a href="http://php.net/manual/vote-note.php?id=62790&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V62790" title="48% like this...">
+    -10
+    </div>
+  </div>
+  <a href="#62790" class="name">
+  <strong class="user"><em>kariedoo</em></strong></a><a class="genanchor" href="#62790"> ¶</a><div class="date" title="2006-03-09 10:27"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom62790" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Before:<br><br>//ask, if is set<br>$number = isset($_GET['number']) ? $_GET['number'] : '';<br>$age = isset($_GET['age']) ? $_GET['age'] : '';<br>$street = isset($_GET['street']) ? $_GET['street'] : '';<br><br>After: --&gt; it's easier to read<br><br>//ask, if is set<br> $parameter = array('number', 'age', 'street');<br> foreach($parameter as $name)<br> {<br>&nbsp; &nbsp; $$name = isset($_GET[$name]) ? $_GET[$name] : '';<br> }</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="98420">  <div class="votes">
+    <div id="Vu98420">
+    <a href="http://php.net/manual/vote-note.php?id=98420&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd98420">
+    <a href="http://php.net/manual/vote-note.php?id=98420&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V98420" title="47% like this...">
+    -12
+    </div>
+  </div>
+  <a href="#98420" class="name">
+  <strong class="user"><em>i [at] nemoden [dot] com</em></strong></a><a class="genanchor" href="#98420"> ¶</a><div class="date" title="2010-06-14 11:48"><strong>7 years ago</strong></div>
+  <div class="text" id="Hcom98420" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Simple, but very useful:<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">, </span><span class="default">$or </span><span class="keyword">= </span><span class="default">false</span><span class="keyword">) {<br>&nbsp; return isset(</span><span class="default">$var</span><span class="keyword">) ? </span><span class="default">$var </span><span class="keyword">: </span><span class="default">$or</span><span class="keyword">;<br>}<br></span><span class="default">?&gt;<br></span><br>Some examples:<br><span class="default">&lt;?php<br>$a </span><span class="keyword">= </span><span class="string">'1'</span><span class="keyword">;<br></span><span class="default">$b </span><span class="keyword">= </span><span class="string">'2'</span><span class="keyword">;<br>echo </span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">,</span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$b</span><span class="keyword">,</span><span class="default">3</span><span class="keyword">)); </span><span class="comment">// 1<br></span><span class="default">?&gt;<br>&lt;?php<br>$b </span><span class="keyword">= </span><span class="string">'2'</span><span class="keyword">;<br>echo </span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">,</span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$b</span><span class="keyword">,</span><span class="default">3</span><span class="keyword">)); </span><span class="comment">// 2<br></span><span class="default">?&gt;<br>&lt;?php<br></span><span class="keyword">echo </span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$a</span><span class="keyword">,</span><span class="default">issetOr</span><span class="keyword">(</span><span class="default">$b</span><span class="keyword">,</span><span class="default">3</span><span class="keyword">)); </span><span class="comment">// 3<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="79148">  <div class="votes">
+    <div id="Vu79148">
+    <a href="http://php.net/manual/vote-note.php?id=79148&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd79148">
+    <a href="http://php.net/manual/vote-note.php?id=79148&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V79148" title="47% like this...">
+    -12
+    </div>
+  </div>
+  <a href="#79148" class="name">
+  <strong class="user"><em>sam b</em></strong></a><a class="genanchor" href="#79148"> ¶</a><div class="date" title="2007-11-13 10:51"><strong>9 years ago</strong></div>
+  <div class="text" id="Hcom79148" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Check out this ifsetor function. If $var is set, do nothing, otherwise $var = $default.<br><br><span class="default">&lt;?php<br><br>$name </span><span class="keyword">= </span><span class="default">ifsetor</span><span class="keyword">(</span><span class="default">$name</span><span class="keyword">, </span><span class="string">'default name'</span><span class="keyword">) ;<br><br>function </span><span class="default">ifsetor</span><span class="keyword">(&amp;</span><span class="default">$var</span><span class="keyword">, </span><span class="default">$default</span><span class="keyword">)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; return isset(</span><span class="default">$var</span><span class="keyword">) ? </span><span class="default">$var </span><span class="keyword">: </span><span class="default">$default</span><span class="keyword">) ;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; <br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="47396">  <div class="votes">
+    <div id="Vu47396">
+    <a href="http://php.net/manual/vote-note.php?id=47396&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd47396">
+    <a href="http://php.net/manual/vote-note.php?id=47396&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V47396" title="48% like this...">
+    -11
+    </div>
+  </div>
+  <a href="#47396" class="name">
+  <strong class="user"><em>jc dot michel at symetrie dot com</em></strong></a><a class="genanchor" href="#47396"> ¶</a><div class="date" title="2004-11-15 02:35"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom47396" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Using<br>&nbsp; isset($array['key']) <br>is useful, but be careful!<br>using <br>&nbsp; isset($array['key']['subkey']) <br>doesn't
+ work as one could expect, if $array['key'] is a string it seems that 
+'subkey' is converted to (integer) 0 and $array['key']['subkey'] is 
+evaluated as the first char of the string. <br>The solution is to use <br>&nbsp; is_array($array['key']) &amp;&amp; isset($array['key']['subkey'])<br><br>Here is a small code to show this:<br><br><span class="default">&lt;?php<br>$ex </span><span class="keyword">= array(</span><span class="string">'one' </span><span class="keyword">=&gt; </span><span class="string">'val1'</span><span class="keyword">,</span><span class="string">'two' </span><span class="keyword">=&gt; </span><span class="string">'val2'</span><span class="keyword">);<br>echo </span><span class="string">'$ex = '</span><span class="keyword">;</span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$ex</span><span class="keyword">);<br>echo </span><span class="string">"&lt;br /&gt;"</span><span class="keyword">;<br><br>echo </span><span class="string">" isset(\$ex['one']['three']) : "</span><span class="keyword">;<br>if (isset(</span><span class="default">$ex</span><span class="keyword">[</span><span class="string">'one'</span><span class="keyword">][</span><span class="string">'three'</span><span class="keyword">]))<br>&nbsp; &nbsp; echo </span><span class="string">'true'</span><span class="keyword">;<br>else<br>&nbsp; &nbsp; echo </span><span class="string">'false'</span><span class="keyword">;<br><br>echo </span><span class="string">"&lt;br /&gt;"</span><span class="keyword">;<br>echo </span><span class="string">"is_array(\$ex['one']) &amp;&amp;&nbsp; isset(\$ex['one']['three']) : "</span><span class="keyword">;<br>if (</span><span class="default">is_array</span><span class="keyword">(</span><span class="default">$ex</span><span class="keyword">[</span><span class="string">'one'</span><span class="keyword">]) &amp;&amp; isset(</span><span class="default">$ex</span><span class="keyword">[</span><span class="string">'one'</span><span class="keyword">][</span><span class="string">'three'</span><span class="keyword">]))<br>&nbsp; &nbsp; echo </span><span class="string">'true'</span><span class="keyword">;<br>else<br>&nbsp; &nbsp; echo </span><span class="string">'false'</span><span class="keyword">;<br></span><span class="default">?&gt;<br></span><br>shows:<br>$ex = Array ( [one] =&gt; val1 [two] =&gt; val2 )<br>isset($ex['one']['three']) : true<br>is_array($ex['one']) &amp;&amp; isset($ex['one']['three']) : false</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="76154">  <div class="votes">
+    <div id="Vu76154">
+    <a href="http://php.net/manual/vote-note.php?id=76154&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd76154">
+    <a href="http://php.net/manual/vote-note.php?id=76154&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V76154" title="47% like this...">
+    -12
+    </div>
+  </div>
+  <a href="#76154" class="name">
+  <strong class="user"><em>black__ray at myway dot com</em></strong></a><a class="genanchor" href="#76154"> ¶</a><div class="date" title="2007-07-03 04:40"><strong>10 years ago</strong></div>
+  <div class="text" id="Hcom76154" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+if(isset($_POST['in_qu']))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include("qanda/in_qu.php");<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $content.=$message;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include("qanda/view_qanda.php");<br>&nbsp; &nbsp; }<br>elseif(isset($_GET['rq']))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include("qanda/add_answer.php");<br>&nbsp; &nbsp; }<br>elseif(isset($_POST['add_answer']))<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include("qanda/in_an.php");<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $content.=$message;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include("qanda/view_qanda.php");<br>&nbsp; &nbsp; }<br>elseif($_GET['act']== 'v_qanda' &amp;&amp; !(isset($_GET['rq'])))<br>{<br>include("qanda/view_qanda.php");<br>}<br>/*<br>if(isset($_POST['add_answer']))</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="120359">  <div class="votes">
+    <div id="Vu120359">
+    <a href="http://php.net/manual/vote-note.php?id=120359&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd120359">
+    <a href="http://php.net/manual/vote-note.php?id=120359&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V120359" title="40% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#120359" class="name">
+  <strong class="user"><em>kurdtpage at gmail dot com</em></strong></a><a class="genanchor" href="#120359"> ¶</a><div class="date" title="2016-12-21 01:03"><strong>9 months ago</strong></div>
+  <div class="text" id="Hcom120359" style="opacity: 0.65;">
+<div class="phpcode"><code><span class="html">
+The new (as of PHP7) 'null coalesce operator' allows shorthand isset. You can use it like so:<br><br><span class="default">&lt;?php<br></span><span class="comment">// Fetches the value of $_GET['user'] and returns 'nobody'<br>// if it does not exist.<br></span><span class="default">$username </span><span class="keyword">= </span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'user'</span><span class="keyword">] ?? </span><span class="string">'nobody'</span><span class="keyword">;<br></span><span class="comment">// This is equivalent to:<br></span><span class="default">$username </span><span class="keyword">= isset(</span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'user'</span><span class="keyword">]) ? </span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'user'</span><span class="keyword">] : </span><span class="string">'nobody'</span><span class="keyword">;<br><br></span><span class="comment">// Coalescing can be chained: this will return the first<br>// defined value out of $_GET['user'], $_POST['user'], and<br>// 'nobody'.<br></span><span class="default">$username </span><span class="keyword">= </span><span class="default">$_GET</span><span class="keyword">[</span><span class="string">'user'</span><span class="keyword">] ?? </span><span class="default">$_POST</span><span class="keyword">[</span><span class="string">'user'</span><span class="keyword">] ?? </span><span class="string">'nobody'</span><span class="keyword">;<br></span><span class="default">?&gt;<br></span><br>Quoted from <a href="http://php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op" rel="nofollow" target="_blank">http://php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op</a></span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="106494">  <div class="votes">
+    <div id="Vu106494">
+    <a href="http://php.net/manual/vote-note.php?id=106494&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd106494">
+    <a href="http://php.net/manual/vote-note.php?id=106494&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V106494" title="47% like this...">
+    -16
+    </div>
+  </div>
+  <a href="#106494" class="name">
+  <strong class="user"><em>john at darven dot co dot uk</em></strong></a><a class="genanchor" href="#106494"> ¶</a><div class="date" title="2011-11-14 02:37"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom106494" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+It is worth noting that in order to check for the existence of a key 
+within an array, regardless of it's contents one should use 
+array_key_exists() not isset().&nbsp; <br><br>isset() will (correctly) return false if the value of your array key is null, which may be a perfectly valid condition.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="104608">  <div class="votes">
+    <div id="Vu104608">
+    <a href="http://php.net/manual/vote-note.php?id=104608&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd104608">
+    <a href="http://php.net/manual/vote-note.php?id=104608&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V104608" title="46% like this...">
+    -18
+    </div>
+  </div>
+  <a href="#104608" class="name">
+  <strong class="user"><em>gonchalox at gmail dot com</em></strong></a><a class="genanchor" href="#104608"> ¶</a><div class="date" title="2011-06-25 04:33"><strong>6 years ago</strong></div>
+  <div class="text" id="Hcom104608" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Useful to check if the variable have some value...specially for GET POST variables
+<br>
+<br><span class="default">&lt;?php
+<br></span><span class="keyword">function </span><span class="default">isset_or</span><span class="keyword">(&amp;</span><span class="default">$check</span><span class="keyword">, </span><span class="default">$alternate </span><span class="keyword">= </span><span class="default">NULL</span><span class="keyword">)
+<br>{
+<br>&nbsp; &nbsp; return (isset(</span><span class="default">$check</span><span class="keyword">)) ? (empty(</span><span class="default">$check</span><span class="keyword">) ? </span><span class="default">$alternate </span><span class="keyword">: </span><span class="default">$check</span><span class="keyword">) : </span><span class="default">$alternate</span><span class="keyword">;
+<br>} 
+<br>
+<br>function </span><span class="default">getGETPOST</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">)
+<br>{
+<br>&nbsp; &nbsp; &nbsp; return </span><span class="default">isset_or</span><span class="keyword">(</span><span class="default">$_GET</span><span class="keyword">[</span><span class="default">$var</span><span class="keyword">],</span><span class="default">isset_or</span><span class="keyword">(</span><span class="default">$_POST</span><span class="keyword">[</span><span class="default">$var</span><span class="keyword">],</span><span class="string">"Empty"</span><span class="keyword">));
+<br>}
+<br></span><span class="default">?&gt;
+<br></span>
+<br>Example
+<br>echo getGETPOST('na'); //Find the na varriabl by get and post</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="107844">  <div class="votes">
+    <div id="Vu107844">
+    <a href="http://php.net/manual/vote-note.php?id=107844&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd107844">
+    <a href="http://php.net/manual/vote-note.php?id=107844&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V107844" title="46% like this...">
+    -21
+    </div>
+  </div>
+  <a href="#107844" class="name">
+  <strong class="user"><em>david at thegallagher dot net</em></strong></a><a class="genanchor" href="#107844"> ¶</a><div class="date" title="2012-03-09 02:20"><strong>5 years ago</strong></div>
+  <div class="text" id="Hcom107844" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Just to reiterate on what everyone has already said before, you should 
+not use wrapper functions for isset. Using a wrapper function will 
+generate a Notice unless you pass the unset variable by reference, in 
+which case it is the equivalent to writing using $var === null (which is
+ a lot faster). Even if you do pass the variable by reference, you could
+ still get notices using multidimensional arrays where isset() would 
+silently return false.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="118351">  <div class="votes">
+    <div id="Vu118351">
+    <a href="http://php.net/manual/vote-note.php?id=118351&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd118351">
+    <a href="http://php.net/manual/vote-note.php?id=118351&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V118351" title="37% like this...">
+    -6
+    </div>
+  </div>
+  <a href="#118351" class="name">
+  <strong class="user"><em>ohcc at 163 dot com</em></strong></a><a class="genanchor" href="#118351"> ¶</a><div class="date" title="2015-11-21 08:59"><strong>1 year ago</strong></div>
+  <div class="text" id="Hcom118351" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+When a variable is set and its values is null, isset() returns false.<br><br>You can use array_key_exists() to check whether a null value variable exists.<br><br><span class="default">&lt;?php<br>&nbsp; &nbsp; $wxc </span><span class="keyword">= </span><span class="default">null</span><span class="keyword">;<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">( isset( </span><span class="default">$wxc </span><span class="keyword">) );<br>&nbsp; &nbsp; </span><span class="default">var_dump</span><span class="keyword">( </span><span class="default">array_key_exists</span><span class="keyword">( </span><span class="string">'wxc'</span><span class="keyword">, </span><span class="default">$GLOBALS </span><span class="keyword">) );<br></span><span class="default">?&gt;<br></span><br>Output of the above example: <br><br>bool(false) bool(true)</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="117705">  <div class="votes">
+    <div id="Vu117705">
+    <a href="http://php.net/manual/vote-note.php?id=117705&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd117705">
+    <a href="http://php.net/manual/vote-note.php?id=117705&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V117705" title="37% like this...">
+    -6
+    </div>
+  </div>
+  <a href="#117705" class="name">
+  <strong class="user"><em>ericg at arty-web-design dot com</em></strong></a><a class="genanchor" href="#117705"> ¶</a><div class="date" title="2015-07-25 10:00"><strong>2 years ago</strong></div>
+  <div class="text" id="Hcom117705" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+I found something interesting while working with isset() in PHP5.5+<br><br><span class="default">&lt;?php<br><br>$a </span><span class="keyword">= </span><span class="string">"foo"</span><span class="keyword">;<br></span><span class="default">$b </span><span class="keyword">= </span><span class="string">"bar"</span><span class="keyword">;<br><br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$a</span><span class="keyword">, </span><span class="default">$b</span><span class="keyword">)); </span><span class="comment">//returns true<br><br></span><span class="keyword">unset(</span><span class="default">$b</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(isset(</span><span class="default">$a</span><span class="keyword">,</span><span class="default">$b</span><span class="keyword">)); </span><span class="comment">// returns false (as expected);<br><br></span><span class="keyword">...</span><span class="default">BUT</span><span class="keyword">...<br></span><span class="default">var_dump</span><span class="keyword">(!isset(</span><span class="default">$a</span><span class="keyword">,</span><span class="default">$b</span><span class="keyword">)); </span><span class="comment">// STILL returns true!</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="38073">  <div class="votes">
+    <div id="Vu38073">
+    <a href="http://php.net/manual/vote-note.php?id=38073&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd38073">
+    <a href="http://php.net/manual/vote-note.php?id=38073&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V38073" title="46% like this...">
+    -19
+    </div>
+  </div>
+  <a href="#38073" class="name">
+  <strong class="user"><em>jon</em></strong></a><a class="genanchor" href="#38073"> ¶</a><div class="date" title="2003-12-07 10:19"><strong>13 years ago</strong></div>
+  <div class="text" id="Hcom38073" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Since PHP will check cases in order, I often end up using this bit of code:<br><br><span class="default">&lt;?php<br></span><span class="keyword">if (isset(</span><span class="default">$var</span><span class="keyword">) &amp;&amp; </span><span class="default">$var</span><span class="keyword">) {<br>&nbsp; &nbsp; </span><span class="comment">// do something<br></span><span class="keyword">}<br></span><span class="default">?&gt;<br></span><br>In short, if you have error reporting on, and $var is not set, PHP will generate an error if you just have:<br><br><span class="default">&lt;?php <br></span><span class="keyword">if (</span><span class="default">$var</span><span class="keyword">) { </span><span class="comment">// do something }<br></span><span class="default">?&gt;<br></span><br>...but, as noted elsewhere, will return True if set to False in this case:<br><span class="default">&lt;?php<br></span><span class="keyword">if (isset(</span><span class="default">$var</span><span class="keyword">)) { </span><span class="comment">// do something }<br></span><span class="default">?&gt;<br></span><br>Checking
+ both to see if $var is set, and that it equals something other than 
+Null or False is something I find very useful a lot of times.&nbsp; If 
+$var is not set, PHP will never execute the second part of "(isset($var)
+ &amp;&amp; $var)", and thus never generate an error either.<br><br>This also works very nice for setting variable as well, e.g.:<br><span class="default">&lt;?php<br>$var </span><span class="keyword">= (isset(</span><span class="default">$var</span><span class="keyword">) &amp;&amp; </span><span class="default">$var</span><span class="keyword">) ? </span><span class="default">$var </span><span class="keyword">: </span><span class="string">'new value'</span><span class="keyword">;<br></span><span class="default">?&gt;</span>
+</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="86919">  <div class="votes">
+    <div id="Vu86919">
+    <a href="http://php.net/manual/vote-note.php?id=86919&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd86919">
+    <a href="http://php.net/manual/vote-note.php?id=86919&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V86919" title="44% like this...">
+    -28
+    </div>
+  </div>
+  <a href="#86919" class="name">
+  <strong class="user"><em>jwvdveer at gmail dot com</em></strong></a><a class="genanchor" href="#86919"> ¶</a><div class="date" title="2008-11-10 10:29"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom86919" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Here a short note on the function tomek wrote:<br>Don't use it, because it is still better to use !$var than !is($var).<br><br>Some comments on the body of the function:<br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">is</span><span class="keyword">(</span><span class="default">$var</span><span class="keyword">)<br>{<br>if (!isset(</span><span class="default">$var</span><span class="keyword">)) return </span><span class="default">false</span><span class="keyword">; </span><span class="comment"># Variable is always set... Otherwise PHP would have thrown an error on call.<br></span><span class="keyword">if (</span><span class="default">$var</span><span class="keyword">!==</span><span class="default">false</span><span class="keyword">) return </span><span class="default">true</span><span class="keyword">; </span><span class="comment"># So, 0, NULL, and some other values may not behave like isNot? And what about the difference between a class and NULL?<br></span><span class="keyword">return </span><span class="default">false</span><span class="keyword">; <br>}<br></span><span class="default">?&gt;<br></span><br>The reason why you shall not use this function:<br>Notice: Undefined variable: {variablename} in {file} on line {__LINE__}<br><br>It's me as plain as the nose on your face that the piece of code hasn't been tested with E_NOTICE.<br><br>So
+ my advice in this case is: don't use the above function, but simply use
+ !, and functions such like is_null in the situation they are made for.</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="51765">  <div class="votes">
+    <div id="Vu51765">
+    <a href="http://php.net/manual/vote-note.php?id=51765&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd51765">
+    <a href="http://php.net/manual/vote-note.php?id=51765&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V51765" title="45% like this...">
+    -29
+    </div>
+  </div>
+  <a href="#51765" class="name">
+  <strong class="user"><em>phpnet dot 5 dot reinhold2000  at t spamgourmet dot com</em></strong></a><a class="genanchor" href="#51765"> ¶</a><div class="date" title="2005-04-10 08:33"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom51765" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+if you want to check whether the user has sent post vars from a form, it
+ is a pain to write something like the following, since isset() does not
+ check for zero-length strings:<br><br>if(isset($form_name) &amp;&amp; $form_name != '') [...]<br><br>a shorter way would be this one:<br><br>if($form_name &amp;&amp; $form_message) [...]<br><br>but
+ this is dirty since you cannot make sure these variables exist and php 
+will echo a warning if you refer to a non-existing variable like this. 
+plus, a string containing "0" will evaluate to FALSE if casted to a 
+boolean.<br><br>this function will check one or more form values if they
+ are set and do not contain an empty string. it returns false on the 
+first empty or non-existing post var.<br><br>&lt;?<br>function postvars() {<br>&nbsp; &nbsp; foreach(func_get_args() as $var) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if(!isset($_POST[$var]) || $_POST[$var] === '') return false;<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; return true;<br>}<br>?&gt;<br><br>example: if(postvars('form_name','form_message')) [...]</span>
+</code></div>
+  </div>
+ </div>
+  <div class="note" id="53737">  <div class="votes">
+    <div id="Vu53737">
+    <a href="http://php.net/manual/vote-note.php?id=53737&amp;page=function.isset&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd53737">
+    <a href="http://php.net/manual/vote-note.php?id=53737&amp;page=function.isset&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V53737" title="44% like this...">
+    -36
+    </div>
+  </div>
+  <a href="#53737" class="name">
+  <strong class="user"><em>richard  william lee AT gmail</em></strong></a><a class="genanchor" href="#53737"> ¶</a><div class="date" title="2005-06-10 11:38"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom53737" style="opacity: 0.35;">
+<div class="phpcode"><code><span class="html">
+Just a note on the previous users comments. isset() should only be used 
+for testing if the variable exists and not if the variable containes an 
+empty "" string. empty() is designed for that.<br><br>Also, as noted previosuly !empty() is the best method for testing for set non-empty variables.</span>
+</code></div>
+  </div>
+ </div></div>
+
+ <div class="foot"><a href="http://php.net/manual/add-note.php?sect=function.isset&amp;redirect=http://php.net/manual/es/function.isset.php"><img src="PHP%20%20isset%20-%20Manual%20Archivos/notes-add2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class="layout-menu">
+    
+        <ul class="parent-menu-list">
+                                    <li>
+                <a href="http://php.net/manual/es/ref.var.php">Funciones de manejo de variables</a>
+    
+                                    <ul class="child-menu-list">
+    
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.boolval.php" title="boolval">boolval</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.debug-zval-dump.php" title="debug_​zval_​dump">debug_​zval_​dump</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.doubleval.php" title="doubleval">doubleval</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.empty.php" title="empty">empty</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.floatval.php" title="floatval">floatval</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.get-defined-vars.php" title="get_​defined_​vars">get_​defined_​vars</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.get-resource-type.php" title="get_​resource_​type">get_​resource_​type</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.gettype.php" title="gettype">gettype</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.import-request-variables.php" title="import_​request_​variables">import_​request_​variables</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.intval.php" title="intval">intval</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-array.php" title="is_​array">is_​array</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-bool.php" title="is_​bool">is_​bool</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-callable.php" title="is_​callable">is_​callable</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-double.php" title="is_​double">is_​double</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-float.php" title="is_​float">is_​float</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-int.php" title="is_​int">is_​int</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-integer.php" title="is_​integer">is_​integer</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-iterable.php" title="is_​iterable">is_​iterable</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-long.php" title="is_​long">is_​long</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-null.php" title="is_​null">is_​null</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-numeric.php" title="is_​numeric">is_​numeric</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-object.php" title="is_​object">is_​object</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-real.php" title="is_​real">is_​real</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-resource.php" title="is_​resource">is_​resource</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-scalar.php" title="is_​scalar">is_​scalar</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.is-string.php" title="is_​string">is_​string</a>
+                        </li>
+                          
+                        <li class="current">
+                            <a href="http://php.net/manual/es/function.isset.php" title="isset">isset</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.print-r.php" title="print_​r">print_​r</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.serialize.php" title="serialize">serialize</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.settype.php" title="settype">settype</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.strval.php" title="strval">strval</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.unserialize.php" title="unserialize">unserialize</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.unset.php" title="unset">unset</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.var-dump.php" title="var_​dump">var_​dump</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/function.var-export.php" title="var_​export">var_​export</a>
+                        </li>
+                            
+                    </ul>
+                    
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+         
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="http://php.net/copyright.php">Copyright © 2001-2017 The PHP Group</a></li>
+        <li><a href="http://php.net/my.php">My PHP.net</a></li>
+        <li><a href="http://php.net/contact.php">Contact</a></li>
+        <li><a href="http://php.net/sites.php">Other PHP.net sites</a></li>
+        <li><a href="http://php.net/mirrors.php">Mirror sites</a></li>
+        <li><a href="http://php.net/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+    
+ <!-- External and third party libraries. -->
+ <script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/jquery.js"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached_005.php"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached_006.php"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached.php"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached_004.php"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached_003.php"></script>
+<script type="text/javascript" src="PHP%20%20isset%20-%20Manual%20Archivos/cached_002.php"></script>
+
+<a id="toTop" href="javascript:;" style="display: inline;"><span id="toTopHover"></span><img alt="To Top" src="PHP%20%20isset%20-%20Manual%20Archivos/to-top2x.png" width="40" height="40"></a>
+
+
+
+
+</body></html>

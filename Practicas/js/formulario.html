@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function validar(){
+               //var regexNum ="/^([0-9\s\+\-])+$/";
+               if(document.forms["formulario"]["id"].value == ""
+                || isNaN(document.forms["formulario"]["id"].value)){
+                alert("El Contenido del Campo ID CLIENTE no es válido - POR FAVOR INTRODUZCA SOLO NUMEROS");
+                document.forms["formulario"]["id"].focus();
+                document.forms["formulario"]["id"].style.background ="#fff";
+                return false;
+            }
+            if(document.forms["formulario"]["phone"].value == ""
+                || isNaN(document.forms["formulario"]["phone"].value)){
+                alert("El Contenido del Campo TELEFONO no es válido - POR FAVOR INTRODUZCA SOLO NUMEROS");
+                document.forms["formulario"]["phone"].focus();
+                document.forms["formulario"]["phone"].style.background ="#fff";
+                return false;
+            }
+            if(document.forms["formulario"]["fax"].value == ""
+                || isNaN(document.forms["formulario"]["fax"].value)){
+                alert("El Contenido del Campo FAX no es válido - POR FAVOR INTRODUZCA SOLO NUMEROS");
+                document.forms["formulario"]["fax"].focus();
+                document.forms["formulario"]["fax"].style.background ="#fff";
+                return false;
+            }
+             if(document.forms["formulario"]["zip"].value == ""
+                || isNaN(document.forms["formulario"]["zip"].value)){
+                alert("El Contenido del Campo COD.POSTAL no es válido - POR FAVOR INTRODUZCA SOLO NUMEROS");
+                document.forms["formulario"]["zip"].focus();
+                document.forms["formulario"]["zip"].style.background ="#fff";
+                return false;
+            }
+              var letters = /^([a-z\A-Z\á\é\í\ó\ú\ñ\ü\s\.\-])+$/;  
+              var lettersandnum = /^([a-z\A-Z\0-9\#\á\é\í\ó\ú\ñ\ü\s\.\-])+$/;
+              var emailRegex = /^([a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/;
+
+              var company = document.forms["formulario"]["company"].value;
+              var contact =document.forms["formulario"]["contact"].value;
+              var contact_puesto =document.forms["formulario"]["contact_puesto"].value;
+              var address = document.forms["formulario"]["address"].value;
+              var city = document.forms["formulario"]["city"].value;
+              var region = document.forms["formulario"]["region"].value;
+              var country = document.forms["formulario"]["country"].value;
+              var age = document.forms["formulario"]["age"].value;
+              var email = document.forms["formulario"]["email"].value;
+              if(!company.match(letters)){
+                alert("La compañia solo debe de tener letras");
+                document.forms["formulario"]["company"].focus();
+                return false;
+            }  
+            if(!contact.match(letters)){
+                alert("El contacto solo debe de tener letras");
+                document.forms["formulario"]["contact"].focus();
+                return false;
+            }  
+            if(!contact_puesto.match(letters)){
+                alert("El puesto de contacto solo debe de tener letras");
+                return false;
+            }  
+            if(!address.match(lettersandnum)){
+                alert("La dirección solo debe de tener letras y numeros");
+                document.forms["formulario"]["address"].focus();
+                return false;
+            }  
+            if(!city.match(letters)){
+                alert("La ciudad solo debe de tener letras");
+                document.forms["formulario"]["city"].focus();
+                return false;
+            }
+            if(!region.match(letters)){
+                alert("La región solo debe de tener letras ");
+                document.forms["formulario"]["region"].focus();
+                return false;
+            }
+            if(!country.match(letters)){
+                alert("El país solo debe de tener letras");
+                document.forms["formulario"]["country"].focus();
+                return false;
+            }
+            if(!email.match(emailRegex)){
+                alert("Introduce un correo válido");
+                document.forms["formulario"]["email"].focus();
+                return false;
+            }
+            if(age < 18 || age > 65){
+                alert("La edad debe de ser mayor a 18 años y menor a 65 años");
+                document.forms["formulario"]["age"].focus();
+                return false;
+            }
+            return true;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="formulario" onsubmit=" return validar();";  method="get">
+            <font face="Arial">ID. Cliente</font>
+            <br>
+            <input type="text" name="id" size="60" id="id">
+            <br>
+            <font face="Arial">Nombre de la compañía</font>
+            <br>
+            <input type="text" name="company" size="60">
+            <br>
+             <font face="Arial">Nombre del contacto</font>
+             <br>
+            <input type="text" name="contact" size="60">
+            <br>
+            <font face="Arial">Puesto del contacto</font>
+            <br>
+            <input type="text" name="contact_puesto" size="60">
+            <br>
+
+
+            <font face="Arial">Dirección</font>
+            <br>
+            <input type="text" name="address" size="60">
+            <br>
+            <font face="Arial">Ciudad</font>
+            <br>
+            <input type="text" name="city" size="60">
+            <br>
+             <font face="Arial">Región</font>
+             <br>
+            <input type="text" name="region" size="60">
+            <br>
+            <font face="Arial">Cod. Postal</font>
+            <br>
+            <input type="text" name="zip" size="60">
+            <br>
+
+            <font face="Arial">Pais</font>
+            <br>
+            <input type="text" name="country" size="60">
+            <br>
+             <font face="Arial">Telefono</font>
+             <br>
+            <input type="text" name="phone" size="60">
+            <br>
+            <font face="Arial">Fax</font>
+            <br>
+            <input type="text" name="fax" size="60">
+            <br>
+            <font face="Arial">Edad</font>
+
+            <br>
+            <input type="text" name="age">
+            <br>
+            <font face="Arial">Correo</font>
+            <br>
+            <input type="text" name="email">
+            <br>
+            <!--<font face="Arial">Sexo</font>
+            <br>
+            <select size="1" name="situacion">
+                <option>Casado</option>
+                <option>Soltero</option>
+            </select>
+            <br>
+            <font face="Arial">Ocupación</font>
+            <br>
+            <select name="ocupacion">
+                <option>Estudiante</option>
+                <option>Trabajador</option>
+            </select>
+            <br>
+            <font face="Arial">
+            Sexo
+            </font>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <font face="Arial">Masculino</font>
+            <input type="radio" name="hora" value="m" checked>
+            &nbsp;&nbsp;&nbsp;
+            <font face="Arial">Femenino</font>
+            <input type="radio" name="hora" value="f" checked>
+            <br>
+            <br>
+            <font face="Arial">Comentarios:</font>
+            <br>
+            <textarea name="asunto" rows="5" cols="40"></textarea>
+            <br>-->w
+            <input type="submit" value="Enviar Datos">
+            &nbsp;&nbsp;<input type="reset">
+            <br>
+        </form>
+    </body>
+</html>

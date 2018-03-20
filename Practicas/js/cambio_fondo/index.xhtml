@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/estilo1.css"/>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	function changeFunction() {
+    	var selectBox = document.getElementById("selectBox");
+    	var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    	switch(selectedValue){
+    		case '1':
+    		changeCSS('css/estilo1.css', 0);
+    		break;
+    		case '2':
+    		changeCSS('css/estilo2.css', 0);
+    		break;
+    		case '3':
+    		changeCSS('css/estilo3.css', 0);
+    		break;
+    		case '4':
+    		changeCSS('css/estilo4.css', 0);
+    		break;
+    	}	
+    }
+     function changeCSS(cssFile, cssLinkIndex) {
+
+	    var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+	    var newlink = document.createElement("link");
+	    newlink.setAttribute("rel", "stylesheet");
+	    newlink.setAttribute("type", "text/css");
+    	newlink.setAttribute("href", cssFile);
+
+	    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+	}
+	</script>
+	<select id="selectBox" onchange="changeFunction();">
+		<option value="1">TEMA 1</option>
+		<option value="2">TEMA 2</option>
+		<option value="3">TEMA 3</option>
+		<option value="4">TEMA 4</option>
+	</select>
+	<h1>Bienvenidos!</h1>
+	<p>Este es un ejemplo de uso de temas.</p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+body {
+	background-image: url("../res/pink.png");
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+
+}
+
+h1 {
+	color: white;
+	font-size: 3em;
+	font-family: "ComicSans";
+	margin-left: 30px;
+	text-shadow: 3px 4px 6px #000;
+}
+
+p {
+	text-align: left;
+	margin-left: 80px;
+	font-family: "Verdana";
+}

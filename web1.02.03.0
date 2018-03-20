@@ -1,0 +1,93 @@
+Sistema basado en hypertexto clasifica informacion de diversos tipos
+enlaza paginas, telaraña mundial
+
+protolocols de internet:
+http: hypertext transfer protocol
+
+html: formato hipertextual e hipergrafico para publicar documentos en la red
+creado para visualizar y codificar los documentos
+incluye formatos, layouts, y estructura de un documento web.´
+pocos productores de contenidos
+muchos lectores
+master web
+paginas estaticas
+no se actualizan los sitios
+requiere web master, brinda un rol pasivo, ofrece servicios permite lecturas, utiliza paginas estaticas
+*********************
+web 2.0
+segunda generacion de web basada en comunidades de usuarios
+se pasa deuna web informativa a una social
+aplicaciones web muy potentes ye nfocadas al usuario final
+basa su desarrollo en cms(sistema de gestion de contenidos)
+Tim O reilly
+
+CMS:
+Permite administracion y creacion de contenidos
+contiene una interfaz donde controla base de datos donde aloja el contenido
+permite manejar independientemente el contenido y diseño
+
+evolucion cms:
+paginas estaticas (html) edicion a mano, contenido y diseño unidos
+
+paginas dinamicas (cgi)gestores complicados poca flexibilidad
+
+paginas dinamicas(php,java,asp) gran flexibilidad permitio el crecimiento de las
+comunicaciones entre usuarios, separacion de presentacion y contenido
+
+
+el usuario es el centro protagonista que crea y comparte
+conocimiento compartido en base a la suma de esfuerzos undividuales, cuanto mas compartes
+mas util
+
+Definicion:
+no es ninguna tecnologia ni lenguaje de programacion es una tecnica que combina varias tecnologias
+
+consigue navegacion agil, dinamica y atractibva para el usuario
+
+tecnologias de web 2.0
+XHTML(HTML) Y CSS-PRESENTACION
+DOCUMENT OBJECT MODEL(DOM)-MOSTRAR INFORMACION
+XML Y XSLT-SERVIDOR WEB
+XMLHTTPREQUEST-ENVIO DE DATOS ASINCRONO
+JAVASCRIPT-UNION
+
+
+**************
+WEB 3.0
+PC-MOVILE,MINIMNOTE, REMOTE DESKTOP,NOTEBOOK, DATABASE
+colocar los datos en un modo de la que las maquinas puedan
+entenderlos naturalmente o convertirlos (web semantica)
+una red de datos pueden ser procesador directa o indirectamente por maquinas
+
+la web semantica es una extension de la web en la cual la informacion se da mediante
+significado bien definido, lo que facilida que los ordenadores y la gente trabajen en
+colaboracion
+
+la web actual es util porque todos podemos comprenderla
+esta compuesto por elementos html y elementos multimedia.
+
+adiferencia de la web semantica la sintactica no se enlazacon la totalidad
+de paginas existentes
+la escasa precision de los resultados
+alta sensibilidad al vocabulario empreado en la busqueda
+
+la web semantica añade a la web sintactica lo que le falta para
+crear un entorno en donde podamos acceder a la informacion que necesiramos
+de manera exacta
+
+en la web sintactica nos vamos a encontrar un conjunto de recursos enlazados entre si
+
+en la web semantica llegamos al internet de las cosas
+
+web semantica mantiene los principio de la red actual:
+*descentralizacion
+*comparticion
+*compatibilidad
+*facilidad de acceso
+* contribucion
+
+
+ontologia es una especificacion formal(organizacion) y explicita de una 
+conceptualizacion(conjunto de conceptos) compartida
+
+metadatos datos sobre datos que direccionan la informacion electronica.

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://php.net/manual/es/session.examples.basic.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" class=" js flexbox flexboxlegacy datauri"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <title>PHP: Uso básico - Manual </title>
+
+ <link rel="shortcut icon" href="http://php.net/favicon.ico">
+ <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="http://php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="http://php.net/manual/es/session.examples.basic.php">
+ <link rel="shorturl" href="http://php.net/manual/es/session.examples.basic.php">
+ <link rel="alternate" href="http://php.net/manual/es/session.examples.basic.php" hreflang="x-default">
+
+ <link rel="contents" href="http://php.net/manual/es/index.php">
+ <link rel="index" href="http://php.net/manual/es/session.examples.php">
+ <link rel="prev" href="http://php.net/manual/es/session.examples.php">
+ <link rel="next" href="http://php.net/manual/es/session.idpassing.php">
+
+ <link rel="alternate" href="http://php.net/manual/en/session.examples.basic.php" hreflang="en">
+ <link rel="alternate" href="http://php.net/manual/pt_BR/session.examples.basic.php" hreflang="pt_BR">
+ <link rel="alternate" href="http://php.net/manual/zh/session.examples.basic.php" hreflang="zh">
+ <link rel="alternate" href="http://php.net/manual/fr/session.examples.basic.php" hreflang="fr">
+ <link rel="alternate" href="http://php.net/manual/de/session.examples.basic.php" hreflang="de">
+ <link rel="alternate" href="http://php.net/manual/ja/session.examples.basic.php" hreflang="ja">
+ <link rel="alternate" href="http://php.net/manual/ro/session.examples.basic.php" hreflang="ro">
+ <link rel="alternate" href="http://php.net/manual/ru/session.examples.basic.php" hreflang="ru">
+ <link rel="alternate" href="http://php.net/manual/es/session.examples.basic.php" hreflang="es">
+ <link rel="alternate" href="http://php.net/manual/tr/session.examples.basic.php" hreflang="tr">
+
+<link rel="stylesheet" type="text/css" href="./PHP_ Uso básico - Manual_files/cached.php" media="screen">
+<link rel="stylesheet" type="text/css" href="./PHP_ Uso básico - Manual_files/cached(1).php" media="screen">
+<link rel="stylesheet" type="text/css" href="./PHP_ Uso básico - Manual_files/cached(2).php" media="screen">
+<link rel="stylesheet" type="text/css" href="./PHP_ Uso básico - Manual_files/cached(3).php" media="screen">
+
+ <!--[if lte IE 7]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+ <![endif]-->
+
+ <!--[if lte IE 8]>
+ <script type="text/javascript">
+  window.brokenIE = true;
+ </script>
+ <![endif]-->
+
+ <!--[if lte IE 9]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+ <![endif]-->
+
+ <!--[if IE]>
+ <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+ <![endif]-->
+
+ <!--<base href="http://php.net/manual/es/session.examples.basic.php">--><base href=".">
+
+</head>
+<body class="docs " style="">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <a href="http://php.net/" class="brand"><img src="./PHP_ Uso básico - Manual_files/php-logo.svg" width="48" height="24" alt="php"></a>
+    <div id="mainmenu-toggle-overlay"></div>
+    <input type="checkbox" id="mainmenu-toggle">
+    <ul class="nav">
+      <li class=""><a href="http://php.net/downloads">Downloads</a></li>
+      <li class="active"><a href="http://php.net/docs.php">Documentation</a></li>
+      <li class=""><a href="http://php.net/get-involved">Get Involved</a></li>
+      <li class=""><a href="http://php.net/support">Help</a></li>
+    </ul>
+    <form class="navbar-search" id="topsearch" action="http://php.net/search.php">
+      <input type="hidden" name="show" value="quickref">
+      <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint search-query" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="search" name="pattern" class="search-query tt-query" placeholder="Search" accesskey="s" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><input type="submit" style="visibility: hidden; position: fixed"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Fira Sans&quot;, &quot;Source Sans Pro&quot;, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+    </form>
+  </div>
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href="http://php.net/index.php#id2017-10-12-1">PHP 7.2.0 Release Candidate 4 Released</a></div>
+<nav id="trick"><div><dl>
+<dt><a href="http://php.net/manual/en/getting-started.php">Getting Started</a></dt>
+	<dd><a href="http://php.net/manual/en/introduction.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/tutorial.php">A simple tutorial</a></dd>
+<dt><a href="http://php.net/manual/en/langref.php">Language Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/language.basic-syntax.php">Basic syntax</a></dd>
+	<dd><a href="http://php.net/manual/en/language.types.php">Types</a></dd>
+	<dd><a href="http://php.net/manual/en/language.variables.php">Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/language.constants.php">Constants</a></dd>
+	<dd><a href="http://php.net/manual/en/language.expressions.php">Expressions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.operators.php">Operators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.control-structures.php">Control Structures</a></dd>
+	<dd><a href="http://php.net/manual/en/language.functions.php">Functions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.oop5.php">Classes and Objects</a></dd>
+	<dd><a href="http://php.net/manual/en/language.namespaces.php">Namespaces</a></dd>
+	<dd><a href="http://php.net/manual/en/language.errors.php">Errors</a></dd>
+	<dd><a href="http://php.net/manual/en/language.exceptions.php">Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/language.generators.php">Generators</a></dd>
+	<dd><a href="http://php.net/manual/en/language.references.php">References Explained</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.variables.php">Predefined Variables</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.exceptions.php">Predefined Exceptions</a></dd>
+	<dd><a href="http://php.net/manual/en/reserved.interfaces.php">Predefined Interfaces and Classes</a></dd>
+	<dd><a href="http://php.net/manual/en/context.php">Context options and parameters</a></dd>
+	<dd><a href="http://php.net/manual/en/wrappers.php">Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/security.php">Security</a></dt>
+	<dd><a href="http://php.net/manual/en/security.intro.php">Introduction</a></dd>
+	<dd><a href="http://php.net/manual/en/security.general.php">General considerations</a></dd>
+	<dd><a href="http://php.net/manual/en/security.cgi-bin.php">Installed as CGI binary</a></dd>
+	<dd><a href="http://php.net/manual/en/security.apache.php">Installed as an Apache module</a></dd>
+	<dd><a href="http://php.net/manual/en/security.sessions.php">Session Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.filesystem.php">Filesystem Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.database.php">Database Security</a></dd>
+	<dd><a href="http://php.net/manual/en/security.errors.php">Error Reporting</a></dd>
+	<dd><a href="http://php.net/manual/en/security.globals.php">Using Register Globals</a></dd>
+	<dd><a href="http://php.net/manual/en/security.variables.php">User Submitted Data</a></dd>
+	<dd><a href="http://php.net/manual/en/security.magicquotes.php">Magic Quotes</a></dd>
+	<dd><a href="http://php.net/manual/en/security.hiding.php">Hiding PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/security.current.php">Keeping Current</a></dd>
+<dt><a href="http://php.net/manual/en/features.php">Features</a></dt>
+	<dd><a href="http://php.net/manual/en/features.http-auth.php">HTTP authentication with PHP</a></dd>
+	<dd><a href="http://php.net/manual/en/features.cookies.php">Cookies</a></dd>
+	<dd><a href="http://php.net/manual/en/features.sessions.php">Sessions</a></dd>
+	<dd><a href="http://php.net/manual/en/features.xforms.php">Dealing with XForms</a></dd>
+	<dd><a href="http://php.net/manual/en/features.file-upload.php">Handling file uploads</a></dd>
+	<dd><a href="http://php.net/manual/en/features.remote-files.php">Using remote files</a></dd>
+	<dd><a href="http://php.net/manual/en/features.connection-handling.php">Connection handling</a></dd>
+	<dd><a href="http://php.net/manual/en/features.persistent-connections.php">Persistent Database Connections</a></dd>
+	<dd><a href="http://php.net/manual/en/features.safe-mode.php">Safe Mode</a></dd>
+	<dd><a href="http://php.net/manual/en/features.commandline.php">Command line usage</a></dd>
+	<dd><a href="http://php.net/manual/en/features.gc.php">Garbage Collection</a></dd>
+	<dd><a href="http://php.net/manual/en/features.dtrace.php">DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href="http://php.net/manual/en/funcref.php">Function Reference</a></dt>
+	<dd><a href="http://php.net/manual/en/refs.basic.php.php">Affecting PHP's Behaviour</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.audio.php">Audio Formats Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.auth.php">Authentication Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.cmdline.php">Command Line Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.compression.php">Compression and Archive Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.creditcard.php">Credit Card Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.crypto.php">Cryptography Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.database.php">Database Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.calendar.php">Date and Time Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.file.php">File System Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.international.php">Human Language and Character Encoding Support</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.image.php">Image Processing and Generation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.mail.php">Mail Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.math.php">Mathematical Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.nontext.php">Non-Text MIME Output</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.fileprocess.process.php">Process Control Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.other.php">Other Basic Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.remote.other.php">Other Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.search.php">Search Engine Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.server.php">Server Specific Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.session.php">Session Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.text.php">Text Processing</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.basic.vartype.php">Variable and Type Related Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.webservice.php">Web Services</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.utilspec.windows.php">Windows Only Extensions</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.xml.php">XML Manipulation</a></dd>
+	<dd><a href="http://php.net/manual/en/refs.ui.php">GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="http://php.net/manual/es/session.idpassing.php">
+          Pasar el ID de Sesión »
+        </a>
+      </div>
+              <div class="prev">
+        <a href="http://php.net/manual/es/session.examples.php">
+          « Ejemplos        </a>
+      </div>
+          <ul>
+            <li><a href="http://php.net/manual/es/index.php">Manual de PHP</a></li>      <li><a href="http://php.net/manual/es/funcref.php">Referencia de funciones</a></li>      <li><a href="http://php.net/manual/es/refs.basic.session.php">Extensiones de sesiones</a></li>      <li><a href="http://php.net/manual/es/book.session.php">Sesiones</a></li>      <li><a href="http://php.net/manual/es/session.examples.php">Ejemplos</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="http://php.net/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value="en/session.examples.basic.php">English</option>
+            <option value="pt_BR/session.examples.basic.php">Brazilian Portuguese</option>
+            <option value="zh/session.examples.basic.php">Chinese (Simplified)</option>
+            <option value="fr/session.examples.basic.php">French</option>
+            <option value="de/session.examples.basic.php">German</option>
+            <option value="ja/session.examples.basic.php">Japanese</option>
+            <option value="ro/session.examples.basic.php">Romanian</option>
+            <option value="ru/session.examples.basic.php">Russian</option>
+            <option value="es/session.examples.basic.php" selected="selected">Spanish</option>
+            <option value="tr/session.examples.basic.php">Turkish</option>
+            <option value="help-translate.php">Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+    <div class="edit-bug">
+      <a href="https://edit.php.net/?project=PHP&amp;perm=es/session.examples.basic.php">Edit</a>
+      <a href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=session.examples.basic">Report a Bug</a>
+    </div>
+  </div><div id="session.examples.basic" class="section">
+  <h2 class="title">Uso básico<a class="genanchor" href="http://php.net/manual/es/session.examples.basic.php#session.examples.basic"> ¶</a></h2>
+  <p class="para">
+   Las sesiones son una forma sencilla de almacenar datos para usuarios de manera individual usando un ID de sesión único.
+   Esto se puede usar para hacer persistente la información de estado entre peticiones de páginas. Los ID de sesiones normalmente son
+   enviados al navegador mediante cookies de sesión, y el ID se usa para recuperar los datos de sesión existente.
+   La ausencia de un ID o una cookie de sesión permite saber a PHP para crear una nueva sesión y generar un nuevo
+   ID de sesión.
+  </p>
+  <p class="para">
+   Las sesiones siguen un flujo de trabajo sencillo. Cuando una sesión se inicia, PHP recuperará una
+   sesión existente usando el ID pasado (normalmente desde una cookie de sesión) o, si no se pasa una sesión,
+   se creará una sesión nueva. PHP rellenará la variable superglobal <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var>
+   con cualesquiera datos de la sesión iniciada. Cuando PHP se cierra, automáticamente
+   toma el contenido de la variable superglobal <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var>, la serializa, y la envía
+   para almacenarla usando el gestor de almacenamiento de sesiones.
+  </p>
+  <p class="para">
+   Por omisión, PHP usa el gestor interno de almacenamiento <code class="parameter">files</code>, el cual
+   se establece mediante <a href="http://php.net/manual/es/session.configuration.php#ini.session.save-handler" class="link">session.save_handler</a>.
+   Éste guarda los datos de sesión en el servidor en la ubicación especificada por la
+   directiva de configuración <a href="http://php.net/manual/es/session.configuration.php#ini.session.save-path" class="link">session.save_path</a>.
+  </p>
+  <p class="para">
+   Las sesiones se puede iniciar manualmente usando la función <span class="function"><a href="http://php.net/manual/es/function.session-start.php" class="function">session_start()</a></span>,
+   si la directiva <a href="http://php.net/manual/es/session.configuration.php#ini.session.auto-start" class="link">session.auto_start</a> se establece
+   a <code class="parameter">1</code>, una sesión se iniciará automáticamente ante cualquier petición de arranque.
+  </p>
+  <p class="para">
+   Las sesiones normalmente se cierran automáticamente cuando PHP termina de ejecutar un script, pero se pueden
+   cerrar manualmente usando la función <span class="function"><a href="http://php.net/manual/es/function.session-write-close.php" class="function">session_write_close()</a></span>.
+  </p>
+  <p class="para">
+   </p><div class="example" id="example-5413">
+    <p><strong>Ejemplo #1 
+     Registrar una variable con <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var>.
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>session_start</span><span style="color: #007700">();<br>if&nbsp;(!isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]))&nbsp;{<br>&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br>}&nbsp;else&nbsp;{<br>&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]++;<br>}<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-5414">
+    <p><strong>Ejemplo #2 
+     Desregistrar una variable con <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var>
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>session_start</span><span style="color: #007700">();<br>unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]);<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  <p></p>
+  <p class="para">
+   </p><div class="caution"><strong class="caution">Precaución</strong>
+    <p class="para">
+     NO destruya completamente <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var> con
+     <em>unset($_SESSION)</em> ya que esto deshabilitará el
+     registro de las variables a través del array superglobal
+     <var class="varname"><var class="varname"><a href="http://php.net/manual/es/reserved.variables.session.php" class="classname">$_SESSION</a></var></var>.
+    </p>
+   </div>
+  <p></p>
+  <div class="warning"><strong class="warning">Advertencia</strong>
+   <p class="para">
+    No se pueden usar referencias en variables de sesión ya que no hay una manera viable
+    de restarurar una referencia a otra variable.
+   </p>
+  </div>
+  <div class="warning"><strong class="warning">Advertencia</strong>
+   <p class="para">
+    register_globals sobreescribirá las variables en el ámbito global, cuyos nombres son compartidos con las variables de sesión. Por favor véase <a href="http://php.net/manual/es/security.globals.php" class="link">Uso de Register Globals</a> para más detalles.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Nota</strong>: 
+   </p><p class="para">
+    Las sesiones basadas en ficheros (lo predeterminado en PHP) bloquean el fichero de sesión una vez
+    que una sesión se abre vía <span class="function"><a href="http://php.net/manual/es/function.session-start.php" class="function">session_start()</a></span> o implícitamente vía
+    <a href="http://php.net/manual/es/session.configuration.php#ini.session.auto-start" class="link">session.auto_start</a>. Mientras esté bloqueado,
+    ningún otro script puede acceder al mismo fichero de sesión hasta que haya sido
+    cerrado al terminar de ejecutarse el primer script, o llamando a
+    <span class="function"><a href="http://php.net/manual/es/function.session-write-close.php" class="function">session_write_close()</a></span>.
+   </p>
+   <p class="para">
+    Esto suele provocar problemas en aquellos sitios Web que realizan muchas peticiones AJAX y
+    tienen solicitudes mútliples ejécutandose a la vez. La manera más fácil de lidiar con esto es
+    llamando a <span class="function"><a href="http://php.net/manual/es/function.session-write-close.php" class="function">session_write_close()</a></span> tan pronto como se haya realizado un cambio
+    requeirdo a la sesión, preferiblemente antes de finalizar el script.
+    Alternativamente, se podría utilizar una sesión diferente en segundo plano que
+    admita concurrencia.
+   </p>
+  <p></p></blockquote>
+ </div>
+<section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="http://php.net/manual/add-note.php?sect=session.examples.basic&amp;redirect=http://php.net/manual/es/session.examples.basic.php"><img src="./PHP_ Uso básico - Manual_files/notes-add@2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">1 note</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="111200">  <div class="votes">
+    <div id="Vu111200">
+    <a href="http://php.net/manual/vote-note.php?id=111200&amp;page=session.examples.basic&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd111200">
+    <a href="http://php.net/manual/vote-note.php?id=111200&amp;page=session.examples.basic&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V111200" title="54% like this...">
+    20
+    </div>
+  </div>
+  <a href="http://php.net/manual/es/session.examples.basic.php#111200" class="name">
+  <strong class="user"><em>AlexFBP</em></strong></a><a class="genanchor" href="http://php.net/manual/es/session.examples.basic.php#111200"> ¶</a><div class="date" title="2013-01-25 04:50"><strong>4 years ago</strong></div>
+  <div class="text" id="Hcom111200">
+<div class="phpcode"><code><span class="html">
+Regardless, if you need to set the header 'Location:' before closing the session; explicitly close the php script with "exit()" or "die()" functions. Remember that when a php script ends, the session automatically are going to be closed.</span>
+</code></div>
+  </div>
+ </div></div>
+
+ <div class="foot"><a href="http://php.net/manual/add-note.php?sect=session.examples.basic&amp;redirect=http://php.net/manual/es/session.examples.basic.php"><img src="./PHP_ Uso básico - Manual_files/notes-add@2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class="layout-menu">
+    
+        <ul class="parent-menu-list">
+                                    <li>
+                <a href="http://php.net/manual/es/session.examples.php">Ejemplos</a>
+    
+                                    <ul class="child-menu-list">
+    
+                          
+                        <li class="current">
+                            <a href="http://php.net/manual/es/session.examples.basic.php" title="Uso básico">Uso básico</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/session.idpassing.php" title="Pasar el ID de Sesión">Pasar el ID de Sesión</a>
+                        </li>
+                          
+                        <li class="">
+                            <a href="http://php.net/manual/es/session.customhandler.php" title="Gestores de Sesión Personalizados">Gestores de Sesión Personalizados</a>
+                        </li>
+                            
+                    </ul>
+                    
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+         
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="http://php.net/copyright.php">Copyright © 2001-2017 The PHP Group</a></li>
+        <li><a href="http://php.net/my.php">My PHP.net</a></li>
+        <li><a href="http://php.net/contact.php">Contact</a></li>
+        <li><a href="http://php.net/sites.php">Other PHP.net sites</a></li>
+        <li><a href="http://php.net/mirrors.php">Mirror sites</a></li>
+        <li><a href="http://php.net/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+
+    
+ <!-- External and third party libraries. -->
+ <script type="text/javascript" src="./PHP_ Uso básico - Manual_files/jquery.min.js.descarga"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(4).php"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(5).php"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(6).php"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(7).php"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(8).php"></script>
+<script type="text/javascript" src="./PHP_ Uso básico - Manual_files/cached(9).php"></script>
+
+<a id="toTop" href="javascript:;" style="display: none;"><span id="toTopHover"></span><img width="40" height="40" alt="To Top" src="./PHP_ Uso básico - Manual_files/to-top@2x.png"></a>
+
+
+
+
+</body></html>

@@ -1,0 +1,20 @@
+body {
+	background-image: url("../res/android.jpg");
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+
+}
+
+h1 {
+	color: white;
+	font-size: 2em;
+	font-family: "ComicSans";
+	margin-left: 20px;
+	text-shadow: 10px 23px 6px #000;
+}
+
+p {
+	text-align: right;
+	margin-left: 80px;
+	font-family: "Verdana";
+}
